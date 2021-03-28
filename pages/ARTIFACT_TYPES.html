@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <title>ARTIFACT_TYPES</title>
+    </head>
+    <body>
+        <p></p>
+        <pre>
+To give full credit, the following is based on the Eamon Deluxe documentation.
+This important information has changed in Eamon CS 1.8.0 and is reprinted here
+in hopes it will be useful.
+
+4.4    ARTIFACT TYPES
+
+There are 17 types of recognized artifacts. You are also allowed to enter a
+value of 17, 18, or 19 for your own special types.  All USER types are treated
+as type 1 by Eamon CS unless you add your own code. Creating new artifact
+types is very uncommon as most any type you'll need is already pre-programmed
+and it is strongly suggested that you stay within the usual types. The types
+are as follows:
+
+ Type                 Format    Type                  Format
+ ---------------------------    ----------------------------
+  0. Gold...............0       10. Readable.............5
+  1. Treasure...........0       11. Door/Gate............6
+  2. Weapon.............1       12. Edible...............4
+  3. Magic Weapon.......1       13. Bound Monster........7 
+  4. In Container.......2A      14. Wearable.............8
+  5. On Container.......2B      15. Disguised Monster....9
+  6. Under Container....2B      16. Dead body............10
+  7. Behind Container...2B      17. Undefined, User......0
+  8. Lightable..........3       18. Undefined, User......0
+  9. Drinkable..........4       19. Undefined, User......0
+
+All of the formats have the same information in the Artifact object, including
+Value, Weight, Location, etc.  The Type and remaining format fields are stored
+in one or more ArtifactCategory objects, referenced by the Artifact.  Format #0
+is all USER fields, the rest of the format fields 1-5 contain the following.
+
+  Format 1             Format 2A              Format 2B
+1-Weapon Odds        1-Key No.              1-(USER #1)
+2-Weapon Type        2-Open/Closed(1/0)     2-(USER #2)
+3-# of Dice          3-Max weight held      3-Max weight held
+4-# of Dice Sides    4-Max items held       4-Max items held
+5-# Hands required   5-Display Code^        5-Display Code^
+
+  Format 3             Format 4               Format 5
+1-Light Counter      1-# of Heal Points     1-1st Effect
+2-(USER #2)          2-# of Drinks/Bites    2-# of Effects
+3-(USER #3)          3-Open/Closed(1/0)     3-Open/Closed(1/0)
+4-(USER #4)          4-(USER #4)            4-(USER #4)
+5-(USER #5)          5-(USER #5)            5-(USER #5)
+
+  Format 6             Format 7               Format 8
+1-Room Beyond        1-Monster #            1-Armor Class
+2-Key #              2-Key #                2-Armor Type
+3-Open/Closed(0/1)   3-Guard #              3-(USER #3)
+4-Hidden?            4-(USER #4)            4-(USER #4)
+5-(USER #5)          5-(USER #5)            5-(USER #5)
+
+  Format 9             Format 10
+1-Monster #          1-'Takeable' status*
+2-1st Effect         2-(USER #2)
+3-# of Effects       3-(USER #3)
+4-(USER #4)          4-(USER #4)
+5-(USER #5)          5-(USER #5)
+
+^ -- Controls display of container contents in all lists.  Example:  You also
+     notice a mountain backpack [with "???" inside it].  This behavior only
+     occurs for In Containers when they are open.
+
+                        Contents Artifact Count
+  Display Code            1                &gt; 1
+  ------------     ---------------   ---------------
+       0           [None/Disabled]   [None/Disabled]
+       1           "something"       "some stuff"
+       2           [Artifact Name]   "some stuff"
+
+* -- 0=Can't be taken, 1=Can be. Should ALWAYS be 0 unless the body serves some
+     sort of special function (such as collecting rewards, etc.).
+        </pre>
+        <p></p>
+    </body>
+</html>
