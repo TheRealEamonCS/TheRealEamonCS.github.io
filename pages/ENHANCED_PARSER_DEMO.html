@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <title>ENHANCED_PARSER_DEMO</title>
+    </head>
+    <body>
+        <p></p>
+        <pre>
+Eamon CS Runtime (EamonRT) 1.8.0
+Copyright (c) 2014+ by Michael Penner.  All rights reserved.
+This MIT Licensed free software has ABSOLUTELY NO WARRANTY.
+
+------------------------------------------------------------------------------
+
+Loading datafile [EAMONCFG.DAT] ... read 1 record.
+
+------------------------------------------------------------------------------
+
+Loading datafile [SAVEGAME.DAT] ... read 3 records.
+Loading datafile [FRESHMEAT.DAT] ... read 1 record.
+Loading datafile [MODULE.DAT] ... read 1 record.
+Loading datafile [ROOMS.DAT] ... read 10 records.
+Loading datafile [ARTIFACTS.DAT] ... read 47 records.
+Loading datafile [EFFECTS.DAT] ... read 27 records.
+Loading datafile [MONSTERS.DAT] ... read 4 records.
+Loading datafile [HINTS.DAT] ... read 0 records.
+Loading datafile [GAMESTATE.DAT] ... read 0 records.
+
+------------------------------------------------------------------------------
+
+Welcome back to Test Adventure!
+
+Would you like to see the introduction story again (Y/N) [N]: N
+
+------------------------------------------------------------------------------
+
+                               Test Adventure
+
+                              By Michael Penner
+
+------------------------------------------------------------------------------
+
+Press any key to continue:
+
+------------------------------------------------------------------------------
+
+Please wait a short while (waking up the monsters...)
+
+------------------------------------------------------------------------------
+
+[Base Program 1.8.0]
+
+Welcome to the Eamon CS fantasy gaming system!
+
+------------------------------------------------------------------------------
+
+[Grassy Plain]
+You are standing in the middle of a grassy plain, looking out to the horizon.
+The wind whips the shoulder-high grasses into a hypnotic rhythm and the sun
+shines down from the blue sky above.  An overgrown path leads southward.  Off
+in the distance, you see majestic mountains rise, their peaks glistening white
+spires that jut upward from the low valley.
+Obvious paths:  west and northeast.
+
+[The Rings of Zylo]
+You see the golden Rings of Zylo, impossibly interlocked in a way that defies
+the laws of physics.
+
+&gt; ex
+
+Examine who or what? rings
+
+You see the golden Rings of Zylo, impossibly interlocked in a way that defies
+the laws of physics.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; get them, then open my pack and put them in it; close the pack then wear it
+
+The Rings of Zylo are too heavy.
+
+You see a rugged backpack here, specially built and suited to the needs of
+adventurers like yourself.  The name of the owner is stitched into it.
+
+Mountain backpack opened.
+
+There's nothing inside the mountain backpack.
+
+[Taking them first.]
+
+The Rings of Zylo are too heavy.
+
+Mountain backpack closed.
+
+Mountain backpack worn.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; look
+
+[Grassy Plain]
+You are standing in the middle of a grassy plain, looking out to the horizon.
+The wind whips the shoulder-high grasses into a hypnotic rhythm and the sun
+shines down from the blue sky above.  An overgrown path leads southward.  Off
+in the distance, you see majestic mountains rise, their peaks glistening white
+spires that jut upward from the low valley.  You also notice the Rings of
+Zylo.
+Obvious paths:  west and northeast.
+
+&gt; ex the mountains
+
+The mountains reach out to touch the sky, beautiful spire-like peaks.  They
+are snow covered year round.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; att them
+
+Why would you attack the majestic mountains?
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; take them
+
+You can't get them.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; inv
+
+You are wearing a mountain backpack, some leather armor and a shield.
+
+You are carrying a bulls-eye lantern, an axe, a sword (ready weapon), a spear
+and 322 gold pieces.
+
+You are in perfect health.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; remove and open pack
+
+Remove who or what? pack
+
+Mountain backpack removed.
+
+Mountain backpack opened.
+
+There's nothing inside the mountain backpack.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; put my axe, sword and lantern inside it, then close and wear it
+
+Done.
+
+Done.
+
+You see a bulls-eye lantern here.  It is rusty but still functional.
+
+Done.
+
+Close who or what?   that pack!
+
+Mountain backpack closed.
+
+Mountain backpack worn.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; remove it and drop it
+
+Mountain backpack removed.
+
+Mountain backpack dropped.
+
+[Grassy Plain]
+You see your mountain backpack and the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; get the rings, examine them, then open the pack and put them inside it
+
+Rings of Zylo taken.
+
+You see the golden Rings of Zylo, impossibly interlocked in a way that defies
+the laws of physics.
+
+Mountain backpack opened.
+
+Inside your mountain backpack you see a bulls-eye lantern, your axe and your
+sword.
+
+Done.
+
+[Grassy Plain]
+You see your mountain backpack with some stuff inside it.
+Obvious paths:  west and northeast.
+
+&gt; close it and wear it
+
+Mountain backpack closed.
+
+[Taking it first.]
+
+Your mountain backpack is too heavy.
+
+[Grassy Plain]
+You see your mountain backpack.
+Obvious paths:  west and northeast.
+
+&gt; open pack, remove rings and sword, drop them, close the pack, also wear it
+
+Mountain backpack opened.
+
+Inside your mountain backpack you see the Rings of Zylo, a bulls-eye lantern,
+your axe and your sword.
+
+From what? the pack
+
+Rings of Zylo retrieved.
+
+From what? it
+
+Sword retrieved.
+
+Sword readied.
+
+Rings of Zylo dropped.
+
+Mountain backpack closed.
+
+[Taking it first.]
+
+Mountain backpack taken.
+
+Mountain backpack worn.
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; say "Notice that DROP them in this case only dropped the Rings, not the Rings
+and sword.  You can enable ShowPronounChanges to see why that happened."
+
+Okay, "Notice that DROP them in this case only dropped the Rings, not the
+Rings and sword. You can enable ShowPronounChanges to see why that happened."
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; att rings, status, west
+
+{Discarding:  "status"}
+
+{Discarding:  "west"}
+
+Why would you attack the Rings of Zylo?
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; status, west
+
+{Discarding:  "west"}
+
+HELLION BRIGHTSHARD                 Gender: Male     Damage Taken: 0/10
+
+Intellect:  14     (Learning: +2%)    Agility :  17
+Hardiness:  10                        Charisma:  15   (Charm Mon: +10%)
+
+Weapon Abilities:                       Spell Abilities:
+ Axe  :   5%                             Blast:   0% / 0%
+ Bow  : -10%                             Heal :   0% / 0%
+ Club :  20%                             Speed:   0% / 0%
+ Spear:  10%                             Power:   0% / 0%
+ Sword:   0%
+
+Gold: 322                           In bank: 0
+
+Armor:  Leather & Shield             Armor Expertise:  0%
+
+Weight carried: 95/100 Gronds (One Grond = Ten DOS)
+
+[Grassy Plain]
+You see the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; west, remove armor and shield
+
+{Discarding:  "remove armor , shield"}
+
+[Rolling Hills]
+You are walking through a series of low, rolling hills to the west of a grass-
+covered plain.  The splintered rock covering the ground and lack of trails to
+follow make your footing uncertain.  To the immediate west, you notice a cave
+entrance.
+Obvious paths:  east and west.
+
+[A rotting tree stump]
+You see a rotting tree stump here, its roots giving way to the elements.
+There appears to be a gap under the stump, perhaps large enough to fit
+something in.
+
+&gt; remove my armor then my shield, put them on the stump
+
+Leather armor removed.
+
+Shield removed.
+
+Done.
+
+Done.
+
+[Rolling Hills]
+You see a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; set showpronounchanges true
+
+Settings changed.
+
+[Rolling Hills]
+You see a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; set showfulfillmessages true
+
+Settings changed.
+
+[Rolling Hills]
+You see a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; look under the stump and on the stump
+
+{Changing them:  "stump , stump"}
+
+{Fulfilling:  "look under stump"}
+
+{Changing it:  "stump"}
+
+Under the rotting tree stump you see a jewelry box.
+
+{Fulfilling:  "look under stump"}
+
+Under the rotting tree stump you see a jewelry box.
+
+[Rolling Hills]
+You see a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; look under the stump and look on the stump
+
+{Fulfilling:  "look under stump"}
+
+Under the rotting tree stump you see a jewelry box.
+
+{Fulfilling:  "look on stump"}
+
+On the rotting tree stump you see a flashlight, your leather armor and your
+shield.
+
+[Rolling Hills]
+You see a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; light flashlight
+
+{Fulfilling:  "light flashlight"}
+
+{Changing it:  "flashlight"}
+
+[Removing it first.]
+
+Flashlight retrieved.
+
+You see a sturdy black flashlight here, seemingly out of place in the current
+scenario.
+
+You've lit the flashlight.
+
+[Rolling Hills]
+You see a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; w
+
+{Fulfilling:  "w"}
+
+{Changing it:  ""}
+
+[Spooky Cavern]
+You are standing in the center of a dark, spooky cavern.  The roof of the cave
+rises out of sight, and a thick layer of dust coats the floor.  It is quite
+apparent that nobody has visited this site in a long time.
+Obvious exits:  east and southwest.
+
+[Helfrick]
+A human warrior stands before you, armed with a broadsword and carrying a
+shield.  On his shield is a sticker which says, "Hi, I'm Helfrick!"
+
+[A torch sconce]
+You see a torch sconce bolted to the wall of the cave.
+
+[A small irregular firepit]
+You see a small irregular firepit in the center of the chamber.  It is
+surrounded by stones haphazardly stacked to prevent spillover.
+
+[A bronze key]
+You see a bronze key with an ornate handle.
+
+[A dusty tome]
+You see a dusty old tome here.  Its cover appears cut from the finest leather;
+its pages are finely gilded paper.
+
+&gt; smile
+
+{Fulfilling:  "smile"}
+
+Helfrick smiles at you.
+
+[Spooky Cavern]
+You see Helfrick, a torch sconce, a small irregular firepit, a bronze key and
+a dusty tome.
+Obvious exits:  east and southwest.
+
+&gt; inv hel
+
+{Fulfilling:  "inv hel"}
+
+{Changing him:  "hel"}
+
+Helfrick is carrying a green glass broadsword with an intricately forged hilt
+(ready weapon) and some beef jerky.
+
+Helfrick is in perfect health.
+
+[Spooky Cavern]
+You see Helfrick, a torch sconce, a small irregular firepit, a bronze key and
+a dusty tome.
+Obvious exits:  east and southwest.
+
+&gt; req from him and give key
+
+{Fulfilling:  "req from hel"}
+
+Request who or what? the broadsword
+
+{Changing it:  "broadsword"}
+
+Green glass broadsword received.
+
+You see a finely honed broadsword made of green glass, a rare volcanic
+material common to the southern regions of the Horn Belt.
+
+{Fulfilling:  "give key"}
+
+To whom? him
+
+{Changing it:  "key"}
+
+[Taking it first.]
+
+Bronze key taken.
+
+You give the bronze key to Helfrick.
+
+[Spooky Cavern]
+You see Helfrick, a torch sconce, a small irregular firepit and a dusty tome.
+Obvious exits:  east and southwest.
+
+&gt; sw
+
+{Fulfilling:  "sw"}
+
+{Changing him:  ""}
+
+{Changing it:  ""}
+
+[Side Vault]
+You are standing in a side vault hewn out of solid rock.  The dust on the
+floor is thick and undisturbed, and every corner of the room is sheathed in
+thick cobwebs.  The air smells of antiquity and death.  You also see Helfrick.
+Obvious exits:  west and northeast.
+
+[An iron-bound chest]
+An iron-bound chest, its flat top attached with sturdy hinges, sits to the
+side of the room, seemingly abandoned.  You notice there is a gap between the
+back of the chest and the wall.
+
+[An old oak cabinet]
+You see an old oak cabinet which has been padlocked.  It features sturdy
+construction but you may still be able to breach it if you really try.
+
+[A prismatic cube]
+You see a glimmering prismatic cube, a magical container that floats in mid-
+air.
+
+[A suit of plate armor]
+You see a rusty suit of plate armor emblazoned with a fancy insignia here.
+
+&gt; look behind the chest, req key from hel and open chest; remove ruby
+
+{Fulfilling:  "look behind chest"}
+
+{Changing it:  "chest"}
+
+Behind the iron-bound chest you see a deep blue sapphire.
+
+{Fulfilling:  "req key from hel"}
+
+{Changing it:  "key"}
+
+{Changing him:  "hel"}
+
+Bronze key received.
+
+{Fulfilling:  "open chest"}
+
+{Changing it:  "chest"}
+
+You open it with the bronze key.
+
+Inside the iron-bound chest you see a deep red ruby.
+
+{Fulfilling:  "remove ruby"}
+
+From what? chest
+
+{Changing it:  "ruby"}
+
+{Changing it:  "chest"}
+
+Deep red ruby retrieved.
+
+You see a fist sized pigeon-blood red ruby, a truly dazzling gemstone.
+
+[Side Vault]
+You see Helfrick, an iron-bound chest, an old oak cabinet leaning against the
+north wall, a prismatic cube that shimmers and pulses in a hypnotic display
+and a suit of plate armor.
+Obvious exits:  west and northeast.
+
+&gt; ne
+
+{Fulfilling:  "ne"}
+
+{Changing him:  ""}
+
+{Changing it:  ""}
+
+[Spooky Cavern]
+You see Helfrick, a torch sconce, a small irregular firepit and a dusty tome.
+Obvious exits:  east and southwest.
+
+&gt; e
+
+{Fulfilling:  "e"}
+
+It's not dark here.  Extinguish the flashlight (Y/N): Y
+
+[Rolling Hills]
+You see Helfrick and a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; inv
+
+{Fulfilling:  "inv"}
+
+You are wearing a mountain backpack.
+
+You are carrying a green glass broadsword with an intricately forged hilt, a
+flashlight, a bronze key, a deep red ruby that glows with an inner fire, a
+sword (ready weapon), a spear and 322 gold pieces.
+
+You are in perfect health.
+
+[Rolling Hills]
+You see Helfrick and a rotting tree stump with some stuff on it.
+Obvious paths:  east and west.
+
+&gt; drop light, key and spear
+
+{Changing them:  "light , key , spear"}
+
+{Fulfilling:  "drop light"}
+
+{Changing it:  "light"}
+
+Flashlight dropped.
+
+Helfrick picks up the flashlight.
+
+Helfrick readies a flashlight.
+
+{Fulfilling:  "drop key"}
+
+{Changing it:  "key"}
+
+Bronze key dropped.
+
+{Fulfilling:  "drop spear"}
+
+{Changing it:  "spear"}
+
+Spear dropped.
+
+[Rolling Hills]
+You see Helfrick, a bronze key, a rotting tree stump with some stuff on it and
+your spear.
+Obvious paths:  east and west.
+
+&gt; remove from on top of and wear them
+
+{Fulfilling:  "remove from on top of"}
+
+Remove who or what? my armor, and my shield
+
+{Changing them:  "armor , shield"}
+
+{Fulfilling:  "remove armor from on top of"}
+
+From on what? the stump
+
+{Changing it:  "armor"}
+
+{Changing it:  "stump"}
+
+Leather armor retrieved.
+
+{Fulfilling:  "remove shield from on top of"}
+
+From on what? that stump
+
+{Changing it:  "shield"}
+
+{Changing it:  "stump"}
+
+Shield retrieved.
+
+{Fulfilling:  "wear armor"}
+
+{Changing it:  "armor"}
+
+Leather armor worn.
+
+{Fulfilling:  "wear shield"}
+
+{Changing it:  "shield"}
+
+Shield worn.
+
+[Rolling Hills]
+You see Helfrick, a bronze key, a rotting tree stump and your spear.
+Obvious paths:  east and west.
+
+&gt; put the broadsword on the stump
+
+{Fulfilling:  "put broadsword on stump"}
+
+{Changing it:  "broadsword"}
+
+{Changing it:  "stump"}
+
+Done.
+
+[Rolling Hills]
+You see Helfrick, a bronze key, a rotting tree stump with a green glass
+broadsword on it and your spear.
+Obvious paths:  east and west.
+
+&gt; get key
+
+{Fulfilling:  "get key"}
+
+{Changing it:  "key"}
+
+Bronze key taken.
+
+[Rolling Hills]
+You see Helfrick, a rotting tree stump with a green glass broadsword on it and
+your spear.
+Obvious paths:  east and west.
+
+&gt; e
+
+{Fulfilling:  "e"}
+
+{Changing it:  ""}
+
+[Grassy Plain]
+You see Helfrick and the Rings of Zylo.
+Obvious paths:  west and northeast.
+
+&gt; ex the path and then go along it
+
+{Fulfilling:  "ex path"}
+
+{Changing it:  "path"}
+
+You notice a grassy, wildly overgrown path leading off to the south.
+
+{Fulfilling:  "go path"}
+
+{Changing it:  ""}
+
+[Wild Grasslands]
+You are walking along a path that cuts through the grasslands at the foot of
+the Wyveryn mountains to the south.  The area is littered with boulders and
+stunted trees, approximately shoulder height.  You feel like you're in the
+middle of nowhere.  You also see Helfrick.
+Obvious paths:  north and southeast.
+
+[Four kobolds]
+You see some small, malformed humanoids with ruddy skin and yellow cat-eyes.
+The creatures are unusually quick and nimble.
+
+[A wooden signpost]
+You see a wooden signpost planted firmly in the ground nearby.  It is worn and
+weather beaten, obviously quite old.
+
+[A caged wolverine]
+You see a large black wolverine trapped in a cage here.  It has sharp teeth
+and long claws, and looks none too happy.
+
+&gt; inv kobolds and helfrick
+
+{Changing them:  "kobolds , helfrick"}
+
+{Fulfilling:  "inv kobolds"}
+
+{Changing them:  "kobolds"}
+
+They are carrying among them a small hatchet (ready weapon), a loaf of bread,
+a stiletto and a cudgel.
+
+They are in perfect health.
+
+{Fulfilling:  "inv helfrick"}
+
+{Changing him:  "helfrick"}
+
+Helfrick is carrying a flashlight (ready weapon) and some beef jerky.
+
+Helfrick is in perfect health.
+
+[Wild Grasslands]
+You see four kobolds, Helfrick, a wooden signpost and a caged wolverine.
+Obvious paths:  north and southeast.
+
+&gt; req bread from them and give it to him, then req jerky from him and give it to
+ them
+
+{Fulfilling:  "req bread from kobolds"}
+
+{Changing it:  "bread"}
+
+Loaf of bread received.
+
+You see a tasty-looking loaf of bread here.
+
+{Fulfilling:  "give bread to helfrick"}
+
+You give the loaf of bread to Helfrick.
+
+Helfrick takes a bite and hands it back.
+
+Helfrick is hurting.
+
+{Fulfilling:  "req jerky from helfrick"}
+
+{Changing it:  "jerky"}
+
+Beef jerky received.
+
+You see a thick strip of premium grade beef jerky here.
+
+{Fulfilling:  "give jerky to kobolds"}
+
+You give the beef jerky to the four kobolds.
+
+A kobold takes a bite and hands it back.
+
+[Wild Grasslands]
+You see four kobolds, Helfrick, a wooden signpost and a caged wolverine.
+Obvious paths:  north and southeast.
+
+&gt; free the wolverine and attack it, then attack it, and attack it
+
+{Fulfilling:  "free wolverine"}
+
+{Changing it:  "wolverine"}
+
+You have freed the wolverine with the bronze key.
+
+A kobold swings at the wolverine.
+ +++ A hit!
+  Blow bounces off armor!
+
+The kobold swings at the wolverine.
+ +++ A hit!
+The wolverine is still in good shape.
+
+A kobold stabs at the wolverine.
+ +++ A hit!
+  Blow bounces off armor!
+
+The kobold lunges at the wolverine.
+ +++ A hit!
+The wolverine is still in good shape.
+
+A kobold swings at the wolverine.
+ +++ A hit!
+The wolverine is still in good shape.
+
+The kobold swings at the wolverine.
+ +++ A critical hit!
+The wolverine is in pain.
+
+A kobold tears at the wolverine.
+ --- Missed!
+
+The kobold tears at the wolverine.
+ +++ A hit!
+The wolverine is in pain.
+
+Helfrick swings at the wolverine.
+ --- Missed!
+
+The wolverine tears at Helfrick.
+ +++ A hit!
+Helfrick is in pain.
+
+The wolverine tears at a kobold.
+ +++ A hit!
+The kobold is dead!
+
+The wolverine tears at Helfrick.
+ +++ A hit!
+Helfrick is at death's door, knocking loudly.
+
+{Fulfilling:  "attack wolverine"}
+
+Your Sword ability just increased!
+
+Your armor expertise just increased!
+
+You swing at the wolverine.
+ +++ A hit!
+The wolverine is badly injured.
+
+Two kobolds flee!
+
+A kobold chops at the wolverine.
+ +++ A hit!
+The wolverine is badly injured.
+
+The kobold chops at the wolverine.
+ +++ A hit!
+The wolverine is at death's door, knocking loudly.
+
+Helfrick swings at the wolverine.
+ --- Missed!
+
+The wolverine claws at a kobold.
+ --- Missed!
+
+The wolverine tears at a kobold.
+ --- Missed!
+
+The wolverine claws at a kobold.
+ --- Missed!
+
+{Fulfilling:  "attack wolverine"}
+
+You swing at the wolverine.
+ --- Missed!
+
+The kobold swings at the wolverine.
+ +++ A hit!
+The wolverine is at death's door, knocking loudly.
+
+The kobold swings at the wolverine.
+ +++ A hit!
+The wolverine is dead!
+
+{Fulfilling:  "attack wolverine"}
+
+You see a dead wolverine here, beaten and bloodied.
+
+You hack it to bits!
+
+[Wild Grasslands]
+You see a kobold, Helfrick and a wooden signpost.
+Obvious paths:  north and southeast.
+
+&gt; drop key
+
+{Fulfilling:  "drop key"}
+
+{Changing it:  "key"}
+
+Bronze key dropped.
+
+[Wild Grasslands]
+You see a kobold, Helfrick, a wooden signpost and a bronze key.
+Obvious paths:  north and southeast.
+
+&gt; ex
+
+{Fulfilling:  "ex"}
+
+Examine who or what? them, signpost, him and it
+
+{Changing them:  "kobolds , signpost , helfrick , key"}
+
+{Fulfilling:  "ex kobolds"}
+
+{Changing them:  "kobolds"}
+
+You see some small, malformed humanoids with ruddy skin and yellow cat-eyes.
+The creatures are unusually quick and nimble.
+
+The kobold is in perfect health.
+
+{Fulfilling:  "ex signpost"}
+
+{Changing it:  "signpost"}
+
+You see a wooden signpost planted firmly in the ground nearby.  It is worn and
+weather beaten, obviously quite old.
+
+{Fulfilling:  "ex helfrick"}
+
+A human warrior stands before you, armed with a broadsword and carrying a
+shield.  On his shield is a sticker which says, "Hi, I'm Helfrick!"
+
+Helfrick is at death's door, knocking loudly.
+
+{Fulfilling:  "ex key"}
+
+{Changing it:  "key"}
+
+You see a bronze key with an ornate handle.
+
+[Wild Grasslands]
+You see a kobold, Helfrick, a wooden signpost and a bronze key.
+Obvious paths:  north and southeast.
+
+&gt; quit hall
+
+{Fulfilling:  "quit hall"}
+
+Return to the Main Hall (Y/N): Y
+        </pre>
+        <p></p>
+    </body>
+</html>
