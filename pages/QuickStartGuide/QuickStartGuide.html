@@ -6,7 +6,6 @@
     </head>
     <body>
         <h4>1. PREFACE</h4>
-        <p>[Note:&nbsp; this document is a work in progress]</p>
         <p>
             For those who wish to start playing Eamon CS immediately, this Quick Start Guide summarizes the Players Manual, which dives deeper into the game's details. But it's still highly recommended you read through the Players Manual at
             least once. You will gain a better understanding of the Eamon CS system and the history and mechanics of the world of Eamon in general.
@@ -17,7 +16,11 @@
             living entities in the game world recognized by the parser; they can be interacted with. The game database stores all this information and uses it to drive the adventure.
         </p>
         <h4>2. INSTALLATION</h4>
-        <p>TODO</p>
+        <p>
+            Eamon CS has no formal installer, so setting up for play consists of either downloading an archive file and unzipping it into a folder or cloning the repository directly from GitHub.  However, there are prerequisites not included
+            with the distribution that need to be present on your system for Eamon CS to be functional.  This subject is covered extensively in the PREREQUISITES, and POST-INSTALLATION TOPICS sections of the 
+            <a href="../TechnicalPaper/TechnicalPaper.html">Technical Paper</a> found on the Eamon CS website.
+        </p>
         <h4>3. PLAYING AN ADVENTURE</h4>
         <p>
             Eamon CS uses batch or script files stored under QuickLaunch to run programs, depending on your operating system. There is an EamonMH folder that contains the files used to enter the Main Hall. When you enter, you will meet the
@@ -85,7 +88,39 @@
             When you initially see something in an Eamon adventure, the game displays a detailed text description for it. These descriptions can be repeated at any time by using the commands LOOK and EXAMINE.
         </p>
         <h4>12. NOTES ON SOME ADVENTURE COMMANDS</h4>
-        <p>TODO</p>
+        <p>
+            The most basic input recognized by the Eamon CS parser is of the form:  [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT].  The command is a verb, like GET.  Often, a direct object follows the command, such as GET YARN.  If prepositions
+            (like in, on, to, from, with, etc.) follow the direct object, they are noted and removed.  Any remaining words are assumed to be an indirect object.  Example:  REMOVE PIE FROM OVEN would be parsed into REMOVE (command), PIE (direct
+            object), and OVEN (indirect object).
+        </p>
+        <p>
+            Beyond this simple form, the Eamon CS parser accepts full sentence input, supporting many advanced features such as direct object lists, pronouns, and various containment types.  You are encouraged to explore this topic when it is
+            convenient by reading the MISCELLANEOUS GAMEPLAY NOTES section of the <a href="../TechnicalPaper/TechnicalPaper.html">Technical Paper</a> on the Eamon CS website.
+        </p>
+        <p>
+            READY is used to equip a weapon for combat.  EamonRT will automatically ready the character's best weapon when the game starts. 
+        </p>
+        <p>
+            WEAR is used to have your character equip armor or put on any other wearable artifact.  Note:  WEAR is also used to equip shields.
+        </p>
+        <p>
+            INVENTORY displays a list of the character's (or a friendly monster's) possessions, general health, and gold carried.
+        </p>
+        <p>
+            STATUS will display a "character sheet" with detailed information about your character and their present condition.
+        </p>
+        <p>
+            REMOVE has two functions:  remove an artifact worn by your character or remove an artifact contained by another artifact (the latter referred to as a "container artifact").  Note:  there are four container types in Eamon CS, and their
+            contents are accessed using the corresponding preposition.  They are In Containers, On Containers, Under Containers, and Behind Containers.
+        </p>
+        <p>
+            You can use the wildcard direct object "ALL" for the GET and DROP commands only.  Note:  while there is no REMOVE ALL command for container artifacts, you can often use the ATTACK command to break them; after their contents spill into
+            the room, use the GET ALL command.
+        </p>
+        <p>
+            SAVE will save an exact position in an adventure, and RESTORE will return to that position.  Up to five games can be saved in each adventure, with the option of giving each saved game a unique name.  Note:  faster, more convenient
+			"quick save" and "quick restore" options are also available; use the HINTS command and select option one ("General Help") for details on how to use those features.
+        </p>
         <h4>13. LEAVING AN ADVENTURE</h4>
         <p>
             The QUIT command exits an adventure temporarily, leaving your character there; you can resume the game at a later time. The QUIT HALL command returns your character to the Main Hall in the same state as when the adventure started,
@@ -96,7 +131,17 @@
             is also sold to a local merchant.
         </p>
         <h4>14. RECOMMENDED READING, FIRST ADVENTURES, ETC...</h4>
-        <p>TODO</p>
+        <p>
+            The Eamon CS Players Manual has detailed descriptions of all standard Eamon CS commands. Also, there is a lot of useful information in the "General Help" section that you can access in all Eamon CS adventures using the HINTS command.
+        </p>
+        <p>
+            It is highly recommended that those new to Eamon CS use a medium to tough test character and play through the Eamon Deluxe 5.0 Demo Adventure first. This adventure guides new players through every general aspect of Eamon CS gaming,
+            offering tips and examples along the way.
+        </p>
+        <p>
+            Afterward, a new "real" character should be created and taken through the Beginner's Cave (or the Beginner's Forest) for the authentic Eamon experience. These adventures (as well as several others) are accessible via the Main Hall,
+            using any EamonMH batch or script file.
+        </p>
         <br />
     </body>
 </html>
