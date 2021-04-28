@@ -155,6 +155,14 @@
                     <td>System\Bin\TheVileGrimoireOfJaldial.dll<br /></td>
                     <td>Eamon CS Adventure Plugin<br /></td>
                 </tr>
+                <tr>
+                    <td>System\Bin\BeginnersCaveII.dll<br /></td>
+                    <td>Eamon CS Adventure Plugin<br /></td>
+                </tr>
+                <tr>
+                    <td>System\Bin\AlternateBeginnersCave.dll<br /></td>
+                    <td>Eamon CS Adventure Plugin<br /></td>
+                </tr>
             </tbody>
         </table>
         <br />
@@ -358,19 +366,19 @@
         </p>
         <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
         <p>
-            Eamon systems have traditionally restricted players to using commands of the form [VERB] [subject1] [subject2], but Eamon CS has an enhanced parser that approaches those of traditional Interactive Fiction (IF) platforms. You can
-            enter full sentences containing multiple commands, refer to multiple direct objects in a single command, and use pronouns to identify monsters and artifacts where appropriate. The result is a level of interactivity never before
-            seen in Eamon.
+            Eamon systems have traditionally restricted players to using commands of the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT], but Eamon CS has an enhanced parser that approaches those of traditional Interactive Fiction (IF)
+            platforms. You can enter full sentences containing multiple commands, refer to multiple direct objects in a single command, and use pronouns to identify monsters and artifacts where appropriate. The result is a level of
+            interactivity never before seen in Eamon.
         </p>
         <p>
             You can think of the enhanced parser as a two-layer system. The top layer takes a sequence of commands as a sentence, splits them apart, and feeds them to the bottom layer one at a time. The bottom layer, which provides legacy
-            parsing for Eamon CS, takes a simple command in the form [VERB] [subject1] [subject2] and executes it. This design fits nicely within the existing game engine framework, with the added benefit of allowing the enhanced parser
-            (the top layer) to be toggled on or off, depending on your preferences. But it also has some nuances that are worth noting:
+            parsing for Eamon CS, takes a simple command in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] and executes it. This design fits nicely within the existing game engine framework, with the added benefit of allowing the
+            enhanced parser (the top layer) to be toggled on or off, depending on your preferences. But it also has some nuances that are worth noting:
         </p>
         <ul>
             <li>
-                The sentence must contain commands in the form [VERB] [subject1] [subject2], joined together by one or more of the following tokens (in any combination): ".", "!", "?", ";", ",", "and", "then", "also". Additionally,
-                [subject1] can be a list of direct objects, separated by these same tokens.
+                The sentence must contain commands in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT], joined together by one or more of the following tokens (in any combination): ".", "!", "?", ";", ",", "and", "then", "also".
+                Additionally, [DIRECT OBJECT] can be a list of direct objects, separated by these same tokens.
             </li>
             <br />
             <li>If the parser encounters an "out-of-band" command (such as INFO, STATUS, SAVE, RESTORE, etc.) that is not the first command in the sentence, it will discard that command and all that follow it.</li>
@@ -378,8 +386,8 @@
             <li>If the parser encounters a movement command in the sentence, it will discard all commands that follow it. This restriction is for technical reasons and may be lifted at a later date.</li>
             <br />
             <li>
-                Pronouns are set to the last appropriate monster or artifact referenced on a command by command basis, with preference given to [subject2] (the indirect object) where available. "Him" and "her" will refer to monsters with
-                the corresponding gender. "It" and "that" will refer to singular monsters or artifacts. "Them" and "those" will refer to group monsters, plural artifacts, and also [subject1] (direct object) lists.
+                Pronouns are set to the last appropriate monster or artifact referenced on a command by command basis, with preference given to the indirect object where available. "Him" and "her" will refer to monsters with
+                the corresponding gender. "It" and "that" will refer to singular monsters or artifacts. "Them" and "those" will refer to group monsters, plural artifacts, and also direct object lists.
             </li>
             <br />
             <li>
@@ -390,7 +398,7 @@
             <li>Pronoun references are reset when moving between rooms and after the RESTORE command is used.</li>
             <br />
             <li>
-                While IF parsers typically use recursive descent and syntax trees, the enhanced parser is more akin to a sophisticated macro preprocessor. That means it doesn't have as much information available and works by keeping track
+                While IF parsers typically use recursive descent and syntax trees, the enhanced parser is more like a sophisticated macro preprocessor. That means it doesn't have as much information available and works by keeping track
                 of context and previous player input. Consequently, it can become confused in rare circumstances, depending on player input and the objects it can access. But this situation will likely improve in due time.
             </li>
             <br />
@@ -402,8 +410,8 @@
         <p>A document called ENHANCED_PARSER_DEMO on the Eamon CS website shows the enhanced parser being used in Test Adventure. You can refer to this transcript to get an idea of what it can do.</p>
         <p>
             The Eamon CS legacy parser has been enhanced to allow more flexible input. You can enter stuff like "PUT my sword INSIDE my backpack" or "OPEN that jewelry box" or "ATTACK the rats" or "GIVE the spices TO the hermit." The
-            standard [VERB] [subject1] [subject2] pattern of Eamon Deluxe remains, but ECS will discard the articles before processing further. Even though it is more typing, some players may find it more immersive. Of course, you can
-            always use the compact syntax if you prefer.
+            standard [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] pattern of Eamon Deluxe remains, but ECS will discard the articles before processing further. Even though it is more typing, some players may find it more immersive. Of
+            course, you can always use the compact syntax if you prefer.
         </p>
         <p>
             The Eamon CS game engine has been enhanced to support a variety of container artifact types. You can store contents in, on, under, or behind, depending on the container. Under and Behind Containers are similar to In Containers,
