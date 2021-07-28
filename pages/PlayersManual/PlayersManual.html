@@ -9,14 +9,84 @@
         <p>TODO</p>
         <h4>1. PREFACE</h4>
         <p>[Note:&nbsp; this document is a work in progress]</p>
+        <p>
+            Eamon CS is a computerized roleplaying game, or "RPG" for short.  When you play one of these games, you assume control of a character in an interactive story filled with adventure and danger.  Your alter ego is a member of the Free
+            Adventurer's Guild in the world of Eamon.  This guild contains like-minded individuals who choose to live by their wits, seeking glorious treasures and defeating horrible monsters.
+        </p>
+        <p>
+            Unlike many RPG gaming systems, Eamon CS takes a freeform approach to character advancement.  There are no direct goals to achieve, no experience points to earn, and no way to finish or "win the game."  The main focus instead is the
+            improvement of various character attributes and the amassing of wealth.  The pursuit of personal goals (help the less fortunate, defeat all evil beings, etc.) may also be incorporated into each adventure if desired.
+        </p>
         <h4>1.1 A BRIEF HISTORY OF EAMON</h4>
-        <p>TODO</p>
+        <p>
+            The Eamon roleplaying game dates back to the dawn of the personal computer era.  It has gone through extended periods of activity over the decades but also languished, written off as a relic. However, the system tends to emerge and
+            reinvent itself as new technologies develop.  For this reason, it is also one of the most enduring computerized gaming systems ever created.
+        </p>
+        <p>
+            Research published on the internet indicates Donald Brown created Eamon in the late 1970s; by the early 1980s, it had been standardized and released to the public domain.  The game successfully fuses two genres popular at the time -
+            "text adventures" and "roleplaying games" - with features that appeal to both players and adventure designers.  Brown built the vanilla game engine, some documentation and utilities, and a set of example games to study.  He then
+            departed from Eamon, never to return.  A growing collection of authors who delighted to take the game engine and pack it with a host of special behaviors contributed to the adventure catalog throughout the 1980s.  The endless
+            flexibility of Eamon remains a contributor to its longevity.
+        </p>
+        <p>
+            After Brown's departure from the scene, control of Eamon passed to John Nelson.  Nelson polished and enhanced the base source code, created an extended set of adventures, and started the National Eamon Users Club (NEUC).  NEUC
+            organized the Eamon catalog by standardizing game numbers and produced semi-regular newsletters.  During the early years, NEUC was instrumental in coordinating all things Eamon.
+        </p>
+        <p>
+            As the 1990s arrived, Nelson was committed to porting Eamon to the IBM PC; that left less time to manage the Apple II codebase and NEUC.  Into this vacuum stepped Thomas Zuchowski, who assumed control of both.  Zuchowski, a
+            member of NEUC, was an accomplished adventure designer and newsletter writer; he renamed the Club the Eamon Adventurer's Guild.  The group became a professional base for Eamon fans, with a regular newsletter published quarterly
+            for 15 years!  Zuchowski continued the work of fixing bugs and polishing the existing vanilla codebase.  But he also upgraded it with many customized formulas to address perceived weaknesses in the system, overhauled the game
+            database structure to make it leaner and more efficient, and rewrote the manuals to match.  The "modern" Eamons of today trace their lineage back to work done by Zuchowski during this period.
+        </p>
+        <p>
+            By 2001, interest in Eamon had waned to the point where few new adventures were being written, and the Apple II codebase was no longer under active development. As a result, Tom Zuchowski formally decided to shut down the Eamon
+            Adventurer's Guild and stepped away from his role as caretaker for Eamon.  But before doing so, he passed control to a man named Matthew Clark.  Clark had already spent several years building and maintaining the official Eamon
+            Adventurer's Guild website, located at <a target="_blank" href="https://eamonag.org">www.eamonag.org</a>, and also authored a high-quality Eamon adventure of his own.  At the time of this writing, the website is
+            functional but appears to be under care and maintenance.
+        </p>
+            During its lifespan, The Wonderful World of Eamon was the basis for various porting efforts and at least a dozen side projects, some of which were far more sophisticated than the original system.  In addition to Donald Brown's
+            commercialized derivative SwordThrust, the game can count among its progeny Eamon II, KnightQuest, Super Eamon, Imagery! and a host of others.  Information about these systems is available on the EAG website; however, the last of
+            the BASIC games, Eamon Deluxe, stands out and requires a full accounting.
+        <p>
+        </p>
+        <p>
+            Frank Black Production's Eamon Deluxe began in late 1997 as a project based on an advanced Apple II Eamon codebase and was first released on MS-DOS in mid-1998.  Initially, versions 1 and 2 were intended as a learning tool for the
+            author; the focus was on creating NEW Eamon adventures and taking full advantage of a more advanced hardware and programming environment.  In 1999 version 3 was released, featuring automated adventure conversion and a system for
+            multi-adventure sets.  The goal for version 4.2, released in 2001, became the conversion of all existing Apple II Eamon games. This painstaking process continued to 2006 but was then abandoned due to lack of interest and real-world
+            demands.  In late 2012, a rekindled interest in Eamon led to version 5.0, with software completely rewritten for efficiency while adding many new and enhanced features.  This version of Eamon is the foundation (albeit distant) of
+            all modern non-BASIC Eamons, including Eamon CS.
+        </p>
+        <p>
+            Eamon AC (EAC) is the earliest prototype of Eamon CS; it was written incrementally between mid-2014 and mid-2015 in ANSI C. The project's goal was to answer the author's long-standing question: what would Eamon look like in the C
+            family of languages? This port involved a meticulous reproduction of Eamon Deluxe's MAINPGM.BAS file. While EAC was complete and fully functional, only The Beginner's Cave was ported before work halted. Unfortunately, the resulting
+            monolithic EamonRT game engine lacked the elegance and extensibility expected from a modernized Eamon. A new approach was needed. As a result, the unmaintained Eamon AC is obsolete and should be avoided.
+        </p>
+        <p>
+            The C# programming language seemed like the next logical step for development. Work on Eamon CS (ECS) kicked off in mid-2015, and it formally debuted in early 2017. By building ECS on this platform, it can potentially avoid the fate
+            of many older Eamons. The system rides in the .NET slipstream indefinitely into the future, never needing an emulator to run. Also, as Microsoft's flagship development environment, the .NET ecosystem is vast and continues to expand.
+            Eamon CS Mobile is an example of using compatible 3rd party technology.  The game engine takes a toolkit approach to development, encouraging code reuse through inheritance.  Many enhancements have been made to Eamon CS over the years,
+            including multi-category artifacts, a plugin-based architecture, an advanced container framework, a full-sentence parser, and utilities to convert data from previous Eamon systems. The game catalog has grown to include 13 classic and
+            original adventures, with more on the way.
+        </p>
+        <p>
+            It is worth noting this game system is not the only activity in Eamon these days; two other projects should be mentioned. The first is Keith Dechant's Eamon Remastered, found at <a target="_blank" href="https://eamon-remastered.com">www.eamon-remastered.com</a>.
+            This is an Eamon variant that runs in the web browser with an extensive collection of ported games. The second is Huw Williams' Eamon Wiki, located at <a target="_blank" href="https://eamon.wiki">www.eamon.wiki</a>. This website
+            explores all topics related to Eamon, including author correspondence, game walkthroughs, maps, and trivia. Please be sure to check out both of these excellent resources when you have the chance!
+        </p>
         <h4>1.2 INSTALLING AND RUNNING EAMON CS</h4>
         <p>TODO</p>
         <h4>1.3 INSTALLING UPDATES</h4>
         <p>TODO</p>
         <h4>2. PLANET EAMON</h4>
-        <p>TODO</p>
+        <p>
+            Far away, at the dead center of the Milky Way, is the planet Eamon. It doesn't orbit any suns; two great suns orbit it! The shifting pull from these great bodies brings strange forces to bear upon this planet, twisting light, tides, even
+            the laws of science itself! Strange things happen on Planet Eamon, and the citizens must always be adaptable, for things are rarely what they seem and quite often not the same as they were from one day to the next!
+        </p>
+        <p>
+            Eamon CS is played through characters who are imagined to be citizens of this weird world that belong to the famous Free Adventurer's Guild. Free Adventurers are men and women who have dared to seek their fortune in the marvelous world of
+            shifting laws and time. Players will often find their characters fighting terrible monsters such as orcs, trolls, and dragons and claiming various riches and treasures as their own. However, Planet Eamon is bound by no laws of time or
+            space, and anything can happen once an adventure has been started. At any random time, a character could end up facing such varied opponents as Billy the Kid or Darth Vader!
+        </p>
         <h4>3. BASIC CHARACTER ATTRIBUTES AND ABILITIES</h4>
         <p>TODO</p>
         <h4>3.1 INTELLECT</h4>
@@ -48,7 +118,26 @@
         <h4>5.4 THE POWER SPELL</h4>
         <p>TODO</p>
         <h4>6. RELATING WITH CITIZENS, MONSTERS, AND OTHER LIVING BEINGS</h4>
-        <p>TODO</p>
+        <p>
+            There are two places your character will be encountering other denizens of Planet Eamon, out on adventures and at the Main Hall of the Guild of Free Adventurers.
+        </p>
+        <p>
+            The Guild heavily protects the Main Hall and its surrounding areas. While your characters may communicate with the various people there to do business, they will not be permitted to start fights or break any other rules. The Guild also enforces
+            fair business policies on the various merchants; while they will not do any real favors for your characters (except possibly giving them better prices depending upon their Charisma), they will not cheat their customers or otherwise harm them.
+            They are mostly simple businessmen and women, out to relieve Free Adventurers of their gold while helping outfit them to go get more.
+        </p>
+        <p>
+            During your adventures outside of the Main Hall, however, anything can happen. By default, any being found in an adventure may seem rather simple-minded; when they first meet your character, they will decide if they like them, dislike them, or
+            choose to ignore them completely. If they are friendly, they will follow your character and fight on their side during any battles. If they are hostile, they will most likely try to fight them in deadly combat. Once they make up their minds, they
+            will usually keep with their decisions, unless your character does something particularly nasty (such as ATTACK a friend) or nice (such as GIVE a "neutral" monster extremely valuable items or large sums of money).
+        </p>
+        <p>
+            Just because monsters do or do not like your character does not always mean that they will fight to the bitter end either; some will be less courageous (or smarter) than others and will run from what they view as a losing battle. In some adventures,
+            they will run out of exits and into a nearby room to which you can follow them. In others, they may leave the game altogether, never to return.
+        </p>
+        <p>
+            All Eamon adventures are unique, however. Some will allow your character to interact further with its inhabitants, including options to make small talk, ask important questions, have conversations, give orders, get ideas, play games, etc...
+        </p>
         <h4>7. THE MAIN HALL, THE VILLAGE AND THE PRACTICE YARD</h4>
         <p>TODO</p>
         <h4>7.1 BUYING WEAPONS AND ARMOR</h4>
@@ -78,11 +167,25 @@
         <h4>9. GOING ON AN ADVENTURE</h4>
         <p>TODO</p>
         <h4>9.1 RETURNING FROM AN ADVENTURE (SELLING YOUR LOOT)</h4>
-        <p>TODO</p>
+        <p>
+            Upon returning to the Main Hall from an adventure, you will be stopped and inspected by the Knight Marshal on duty.  He enforces the laws of the Guild, among them a limit on the number of carryable weapons.  If your weapon count exceeds
+            four, you are allowed to select the ones to sell along with the rest of your loot; the remainder you may keep.
+        </p>
+        <p>
+            Once the Knight Marshal allows you to pass through the first gate, you must proceed to the local buyer of treasure and booty.  Typically, this will be Sam Slicker, a shrewd and experienced (but fair) businessman who has been in the
+            pawnbroker business for quite some time.
+        </p>
+        <p>
+            A character's Charisma can affect haggling ability and the resale value of items.  A high Charisma score can add an extra five to ten percent to the offer on most items; a low score can deduct from the bid.  Some things (such as precious
+            metals) will always be worth the same amount, no matter what.  By the time you're done with Sam, you will carry only weapons and armor; everything else is converted to gold for safekeeping.
+        </p>
         <h4>9.2 STANDARD COMMANDS IN AN EAMON CS ADVENTURE</h4>
         <p>TODO</p>
         <h4>10. CREDITS AND LICENSE INFO</h4>
-        <p>TODO</p>
+        <p>
+            The Eamon CS Player's Manual is based on both Donald Brown's original Eamon text and especially Frank Black Production's Eamon Deluxe, which sets the gold standard.  While I do try to rework the text to make it unique, it can be
+            challenging to do so, given the level of polish in the EDX Player's Manual.  So I'll give credit to the excellent writing of Frank Black, Luke Hewitt, and TMF.
+        </p>
         <br />
     </body>
 </html>
