@@ -188,7 +188,7 @@
         </p>
         <p>
             The C# programming language seemed like the next logical step for development. Work on Eamon CS (ECS) kicked off in mid-2015, and it formally debuted in early 2017. By building ECS on this platform, it can potentially avoid the fate
-            of many older Eamons. The system rides in the .NET slipstream indefinitely into the future, never needing an emulator to run. Also, as Microsoft's flagship development environment, the .NET ecosystem is vast and continues to expand.
+            of many older Eamons. The system rides in the .NET slipstream indefinitely into the future, never needing an emulator to run. Also, as Microsoft's flagship development environment, the .NET ecosystem is vast and continues to expand;
             Eamon CS Mobile is an example of using compatible 3rd party technology.  The game engine takes a toolkit approach to development, encouraging code reuse through inheritance.  Many enhancements have been made to Eamon CS over the years,
             including multi-category artifacts, a plugin-based architecture, an advanced container framework, a full-sentence parser, and utilities to convert data from previous Eamon systems. The game catalog has grown to include 13 classic and
             original adventures, with more on the way.
@@ -294,7 +294,22 @@
         <p>TODO</p>
         <a name="ECSPM4_3"></a>
         <h4>4.3 BASIC COMBAT: ATTACKING AN OPPONENT</h4>
-        <p>TODO</p>
+        <p>
+            Every time a character attempts to strike another living being, there is a percentage chance of success, which is calculated by comparing multiple factors. Likewise, opponents have a similar set of factors determining their chance of success
+            when attempting to harm your character.
+        </p>
+        <p>
+            All combatants have a base chance of 50% plus two times the difference in Agility and armor between them and their target. If a weapon is being used, half of the "weapon odds" value is added (up to a maximum increase of 15%). If your character
+            is the attacker, their Armor Class, Armor Expertise, and relevant weapon ability are also figured into their odds to hit.
+        </p>
+        <p>
+            Once the odds to hit are determined, if a roll of 1D100 ranges from one to the percentage chance to hit, the blow is considered a success, and the resulting damage is calculated. In addition, there may also be magical or other extraordinary effects
+            in some adventures, which will factor into combat as well.
+        </p>
+        <p>
+            If the roll is greater than the chance to hit, the attacker will miss their opponent or fumble the attack. The negative impact of a fumble on an attacker ranges from benign to disastrous, including, among other things, a recovery, a dropped, damaged,
+            or broken weapon, or a self-inflicted injury.
+        </p>
         <a name="ECSPM4_4"></a>
         <h4>4.4 DAMAGE FACTORS</h4>
         <p>TODO</p>
