@@ -132,7 +132,6 @@
         <br style="font-weight: bold;">
         <a name="ECSPM1"></a>
         <h4>1. PREFACE</h4>
-        <p>[Note:&nbsp; this document is a work in progress]</p>
         <p>
             Eamon CS is a computerized roleplaying game, or "RPG" for short.  When you play one of these games, you assume control of a character in an interactive story filled with adventure and danger.  Your alter-ego is a member of the Free
             Adventurer's Guild in the world of Eamon.  This guild contains like-minded individuals who choose to live by their wits, seeking glorious treasures and defeating horrible monsters.
@@ -166,7 +165,7 @@
         <p>
             By 2001, interest in Eamon had waned to the point where few new adventures were being written, and the Apple II codebase was no longer under active development. As a result, Tom Zuchowski formally decided to shut down the Eamon
             Adventurer's Guild and stepped away from his role as caretaker for Eamon.  But before doing so, he passed control to a man named Matthew Clark.  Clark had already spent several years building and maintaining the official Eamon
-            Adventurer's Guild website, located at <a target="_blank" href="https://eamonag.org">www.eamonag.org</a>, and also authored a high-quality Eamon adventure of his own.  At the time of this writing, the website is
+            Adventurer's Guild website, located at <a href="https://eamonag.org">www.eamonag.org</a>, and also authored a high-quality Eamon adventure of his own.  At the time of this writing, the website is
             functional but appears to be under care and maintenance.
         </p>
             During its lifespan, The Wonderful World of Eamon was the basis for various porting efforts and at least a dozen side projects, some of which were far more sophisticated than the original system.  In addition to Donald Brown's
@@ -194,16 +193,44 @@
             more on the way.
         </p>
         <p>
-            It is worth noting this game system is not the only activity in Eamon these days; two other projects should be mentioned. The first is Keith Dechant's Eamon Remastered, found at <a target="_blank" href="https://eamon-remastered.com">www.eamon-remastered.com</a>.
-            This is an Eamon variant that runs in the web browser with an extensive collection of ported games. The second is Huw Williams' Eamon Wiki, located at <a target="_blank" href="https://eamon.wiki">www.eamon.wiki</a>. This website
+            It is worth noting this game system is not the only activity in Eamon these days; two other projects should be mentioned. The first is Keith Dechant's Eamon Remastered, found at <a href="https://eamon-remastered.com">www.eamon-remastered.com</a>.
+            This is an Eamon variant that runs in the web browser with an extensive collection of ported games. The second is Huw Williams' Eamon Wiki, located at <a href="https://eamon.wiki">www.eamon.wiki</a>. This website
             explores all topics related to Eamon, including author correspondence, game walkthroughs, maps, and trivia. Please be sure to check out both of these excellent resources when you have the chance!
         </p>
         <a name="ECSPM1_2"></a>
         <h4>1.2 INSTALLING AND RUNNING EAMON CS</h4>
-        <p>TODO</p>
+        <p>
+            There are primarily two ways to "install" Eamon CS, and the best way to do so depends on how you want to interact with the system.  For people who only want to create characters and go on adventures, but don't care to interact at the source
+            code level, the best course of action is probably to download the Eamon-CS-master.zip file.  This file can be obtained from GitHub using the green Code button and extracted to a unique directory, from which you can play the game. On the other
+            hand, for those who wish to explore ECS at a deeper technical level, you can do a Git clone of the repository to your local filesystem.  Note that, in either case, there isn't a formal installer to run as you would with many software packages;
+            also, the game may not work due to dependencies missing on your system.  But any issues encountered can be quickly resolved.  See the PREREQUISITES, and POST-INSTALLATION TOPICS sections of the
+            <a href="../TechnicalPaper/TechnicalPaper.html">Technical Paper</a> found on the Eamon CS website for more details.
+        <p>
+            The QuickLaunch folder contains a variety of .bat and .sh files, organized by game subsystem.  To run Eamon CS, you find the appropriate file and double-click it; a console window opens, allowing interaction with the game.  The BATCH FILES
+            section of the previously mentioned Technical Paper provides further insight.
+        </p>
+        </p>
         <a name="ECSPM1_3"></a>
         <h4>1.3 INSTALLING UPDATES</h4>
-        <p>TODO</p>
+        <p>
+            Upgrading Eamon CS is usually a simple process, but before doing so, you should make sure no adventures are being played through; all characters must be in the Main Hall.  There is a CHARACTERS.DAT file in the System\Bin folder; this ensures
+            the file is in a stable state.
+        </p>
+        <p>
+            For those who originally downloaded the Eamon-CS-master.zip file, you can obtain the latest version by visiting GitHub and downloading a new copy of it.  Extract the new Eamon-CS-master.zip file into a unique folder, and then overwrite the new
+            CHARACTERS.DAT file by copying the old file from the old repository.  If the CHARACTERS.DAT file structure has changed in the new system, the old file will transparently upgrade to the new format.  Your characters have now been transferred to
+            the upgraded Eamon CS system and are available for use.
+        </p>
+        <p>
+            If you are working with a Git-cloned Eamon CS repository, you should backup your CHARACTERS.DAT file before pulling the latest changes from the master branch.  Then copy the old CHARACTERS.DAT file back into your repository.  If you are working
+            off a branch, you will probably want to push the master changes into it.  Things can get tricky if you have made other changes to the repository; it is at your discretion what changes need to be kept, rolled back, or merged.  In this scenario,
+            you may wish to backup the whole repository before attempting to upgrade.
+        </p>
+        <p>
+            A different process must be followed if you have done any adventure development and wish to migrate your work to the upgraded system.  First, you can use EamonDD's Adventure Support Menu and follow the steps to recreate each game in the new system.
+            Then, manually delete each newly created adventure folder under Adventures and copy your old adventure folder (with your ongoing work) into its place.  When you recompile your work-in-progress games in the new Eamon CS system, you may need to fix
+            errors if any breaking interface changes have occurred (but hopefully, these are stable at this point).
+        </p>
         <a name="ECSPM2"></a>
         <h4>2. PLANET EAMON</h4>
         <p>
@@ -249,7 +276,21 @@
         </p>
         <a name="ECSPM3_1"></a>
         <h4>3.1 INTELLECT</h4>
-        <p>TODO</p>
+        <p>
+            Intellect is a measure of a character's mental acuity: perceptiveness, wisdom, raw intelligence, and "street smarts."  Older Eamon systems had no equivalent statistic - an obvious omission - so Eamon CS includes it.  The base game engine uses
+            Intellect in calculations involving spell and skill gains. Still, adventures may use it for other purposes, such as disabling traps or making "saving throws."
+        </p>
+        <p>
+            The actual percentage adjustment that Intellect has upon the ability to reason (or "Intellect Factor") is figured out by subtracting thirteen from the character's Intellect and multiplying the difference by two.
+        </p>
+        <p>
+            Hedric the Horrible, whom we just "created," has an Intellect of seventeen.  If he successfully uses a weapon to attack an adversary or casts a spell, then the odds of improving the corresponding skill are increased by his Intellect Factor of
+            8% (17 - 13 = 4, 4 x 2 = 8).
+        </p>
+        <p>
+            Characters with a high Intellect are blessed with a greater capacity to learn than those with a low Intellect.  The Intellect Factor ranges from -20 to +22, impacting the maximum attainable value for skill and spell abilities; the limit on these
+            abilities ranges from 80 to 122.
+        </p>
         <a name="ECSPM3_2"></a>
         <h4>3.2 HARDINESS</h4>
         <p>
@@ -259,9 +300,9 @@
             coins.  However, cumbersome items (like a stack of plates or a full quiver of arrows) can weigh more in gronds than they would if only using the two-coin system.
         </p>
         <p>
-            Hedric the Horrible, whom we just "created," has a Hardiness of thirteen. So he can withstand thirteen harmful "hits" (damage caused by attacks from an enemy, being poisoned, setting off traps, etc.) before he perishes. Hedric can also carry
-            up to ten times his Hardiness in items, or one hundred thirty gronds. The amount of weight carryable is a static number derived from base Hardiness, not the number of hits taken; a character can carry the same amount whether critically wounded
-            or in perfect health.
+            Hedric the Horrible has a Hardiness of thirteen. So he can withstand thirteen harmful "hits" (damage caused by attacks from an enemy, being poisoned, setting off traps, etc.) before he perishes. Hedric can also carry up to ten times his
+            Hardiness in items, or one hundred thirty gronds. The amount of weight carryable is a static number derived from base Hardiness, not the number of hits taken; a character can carry the same amount whether critically wounded or in perfect
+            health.
         </p>
         <a name="ECSPM3_3"></a>
         <h4>3.3 AGILITY</h4>
@@ -349,7 +390,7 @@
         </p>
         <p>
             For example, if Hedric's chance to hit is 40%, he will have a 60% chance of his weapon ability going up by 2%. In the next round, his chance of hitting the same opponent would then be increased to 42%, while his chance of raising his ability
-            would reduce to 58%. Weapon abilities continue to increase until reaching the natural limit of 100%.
+            would reduce to 58%. Weapon abilities continue to increase until reaching the natural limit of 100%.  (Recall that Hedric's Intellect Factor further adjusts the die roll and 100% limit.)
         </p>
         <a name="ECSPM4_2"></a>
         <h4>4.2 ARMOR TYPES AND CHARACTER ARMOR EXPERTISE</h4>
@@ -379,7 +420,8 @@ Armor Class    Name     Hits Absorbed     Odds Adjustment
         </p>
         <p>
             A character's Armor Expertise ability is developed the same way as their weapon abilities. Every time they successfully strike an opponent in combat, 1D65 is rolled; if the result is larger than the odds adjustment of their armor versus their
-            current Armor Expertise, their ability increases by 2%. Armor Expertise will continue to increase until it reaches the maximum limit of 65%, after which any type of armor can be worn without negative effects.
+            current Armor Expertise, their ability increases by 2%. Armor Expertise will continue to increase until it reaches the maximum limit of 65%, after which any type of armor can be worn without negative effects. (Recall that the character's
+            Intellect Factor further adjusts the die roll and 65% limit.)
         </p>
         <a name="ECSPM4_3"></a>
         <h4>4.3 BASIC COMBAT: ATTACKING AN OPPONENT</h4>
@@ -423,11 +465,11 @@ Armor Class    Name     Hits Absorbed     Odds Adjustment
         <p>
             There are four common spells that work almost everywhere. Any character can pay a knowledgeable wizard to teach these spells at a starting level. When a spell is first learned, a 1D100 die is rolled, and the starting ability is set, ranging from
             25% to 75%. As with combat abilities, there is a chance that each spell ability can be increased every time your character successfully casts that spell.  If a 1D100 die roll exceeds the chance to cast it, the spell ability will increase by 2%
-            until the natural limit of 100% is reached.
+            until the natural limit of 100% is reached. (Recall that the character's Intellect Factor further adjusts the die roll and 100% limit.)
         </p>
         <p>
             For example, Hedric has now learned the BLAST spell with a starting ability of 30%. If he successfully casts the spell and a 1D100 roll yields a result exceeding 30%, then his overall ability for that spell will increase to 32%, with a roll
-            exceeding 32% being required for the next increase.
+            exceeding 32% being required for the next increase. (Again, the die roll is further adjusted by Intellect Factor.)
         </p>
         <p>
             There are also "wildcard" rolls involved in spell casting: a roll from one to five will always be successful, while a roll of one hundred will overload your character's mind.  In this case, the spell cannot be cast for the rest of the
@@ -611,10 +653,25 @@ Armor Class    Name     Hits Absorbed     Odds Adjustment
         </p>
         <a name="ECSPM8_1"></a>
         <h4>8.1 USING THE CHARACTER EDITOR</h4>
-        <p>TODO</p>
+        <p>
+            A complete character editor is available for those who wish to customize their characters to exact specifications. It can also revive the dead and return characters directly to the Main Hall if they are on an adventure. Eamon CS places no restrictions
+            upon how characters are created or developed, leaving those decisions entirely up to the player.  You can run the EditCharacters .bat or .sh file under EamonDD to create, edit or list characters at any time.
+        </p>
+        <p>
+            For those who wish to create a custom character that is strong enough to complete almost all Eamon CS adventures yet still "average" enough to keep the experience challenging, use the following as a guideline for attributes:
+        </p>
+        <p>
+            Intellect=20, Hardiness=35, Agility=25, Charisma=20, Armor Expertise=65%, Heal=200%, all other spells=100%, all weapon abilities=40%. They should also be equipped with plate armor, a shield, and at least two 2D8 weapons with about a 25%
+            complexity each.
+        </p>
         <a name="ECSPM8_2"></a>
         <h4>8.2 USING TEST CHARACTERS</h4>
-        <p>TODO</p>
+        <p>
+            Another fast and convenient way to play an Eamon CS adventure is by selecting from a special set of pre-made characters, then going directly to an adventure rather than creating and equipping a "real" character.
+        </p>
+        <p>
+            The test characters are available in both genders and have attributes ranging from somewhat weak to nearly invincible. Like real characters, they can change while adventuring and are restricted to occupying one adventure at a time.
+        </p>
         <a name="ECSPM9"></a>
         <h4>9. GOING ON AN ADVENTURE</h4>
         <p>
@@ -810,9 +867,38 @@ Armor Class    Name     Hits Absorbed     Odds Adjustment
         <a name="ECSPM10"></a>
         <h4>10. CREDITS AND LICENSE INFO</h4>
         <p>
-            The Eamon CS Player's Manual is based on Donald Brown's original Eamon text and especially Frank Black Production's Eamon Deluxe, which sets the gold standard for such documentation. While I try to rework the text to make it unique, it can be
-            challenging, given the level of polish in the EDX Player's Manual. So I'll give credit to the excellent and imaginative writing of Frank Black, Luke Hewitt, and TMF.
+            Credit goes to the original Apple II Eamon system developers, Donald Brown, John Nelson, Rick Volberding, Thomas Zuchowski, and Eamon Deluxe's developers, Frank Black Productions.  While obviously and intentionally based upon Eamon Deluxe, Eamon
+            CS is a unique system written and developed by Michael Penner. It is a tribute to historical Eamons, a preservation effort, and a gateway for Eamon adventures' continued creation and enjoyment in a modern environment.
         </p>
+        <p>
+            Along with those mentioned above, special thanks also go out to Matthew Clark and Huw Williams, whose respective websites have long been an indispensable resource to the Eamon community.
+        </p>
+        <p>
+            And, of course, all of the game authors who contributed their entries into the massive and varied Eamon adventure library. Whether it be a 26-room, 5-monster cave or a Middle-Earth epic, every Eamon adventure is a fun and fantastic journey into the
+            imagination of its creator and a piece of gaming history.
+        </p>
+        <p>
+            This document is based on Donald Brown's original Eamon text, and especially the Eamon Deluxe Player's Manual, which sets the gold standard.  Reworking the text to make it unique can be challenging given the polish of the source material, so credit
+            goes to the excellent and imaginative writing of Frank Black, Luke Hewitt, and TMF.
+        </p>
+        <h3>
+            Eamon CS 1.8.0 - A complete fantasy/RPG/adventure gaming system.
+        </h3>
+        <h3>
+            Copyright (C) 2014+ by Michael Penner
+        </h3>
+        <p>
+            Eamon CS is released as free software under the MIT License and is distributed WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. For more information visit:
+        </p>
+        <p>
+            <a href="https://opensource.org">https://opensource.org</a>
+        </p>
+        <p>
+            You can redistribute it and/or modify it under the terms of the MIT License as published by the Open Source Initiative.
+        </p>
+        <h3>
+            Donations, while very much appreciated, are unnecessary; all I really ask is that you have fun.
+        </h3>
         <br />
     </body>
 </html>
