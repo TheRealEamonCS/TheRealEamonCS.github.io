@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-        <title>The Making Of: Riddles of the Duergar Quarry</title>
+        <title>The Making Of: Riddles of the Duergar Kingdom</title>
     </head>
     <body>
         <h4>PREFACE</h4>
@@ -13,10 +13,10 @@
             out on the web for any complex topics skimmed over. Please let me know if there are areas that need clarification.
         </p>
         <p>
-            The first game built will be called "Riddles of the Duergar Quarry." This adventure will dig into many facets of the Eamon CS game engine to show its capabilities. It should be mentioned - WARNING: HEAVY SPOILERS; you may wish
+            The first game built will be called "Riddles of the Duergar Kingdom." This adventure will dig into many facets of the Eamon CS game engine to show its capabilities. It should be mentioned - WARNING: HEAVY SPOILERS; you may wish
             to play the game before returning to this treatise.
         </p>
-        <h4>BOOTSTRAPPING RIDDLES OF THE DUERGAR QUARRY</h4>
+        <h4>BOOTSTRAPPING RIDDLES OF THE DUERGAR KINGDOM</h4>
         <p>I'll start by bootstrapping the game using the Adventure Support Menu:</p>
         <p></p>
         <ol>
@@ -27,7 +27,7 @@
             <li>
                 Enter adventure data
                 <ul>
-                    <li>Enter adventure name: <code>Riddles of the Duergar Quarry</code></li>
+                    <li>Enter adventure name: <code>Riddles of the Duergar Kingdom</code></li>
                     <li>Enter author name: <code>Michael Penner</code></li>
                     <li>Enter author initials: <code>MP</code></li>
                     <li>Add game to databases other than WIP.DAT: <code>N</code></li>
@@ -39,18 +39,18 @@
             <li>Exit EamonDD</li>
         </ol>
         <p>
-            At this point, the game should exist. The EamonDD program creates a folder called Adventures\RiddlesOfTheDuergarQuarry to store the source code files, adds the appropriate .bat and .sh files under QuickLaunch, and places a
-            compiled RiddlesOfTheDuergarQuarry.dll file in System\Bin. The game is added to the Work-In-Progress Adventures database, which is only accessible using EnterMainHallUsingCatalog.bat. To verify everything worked, I can run
-            EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix) and ensure EamonDD loads the adventure. Then I can leave the game editor running, as the game is not yet playable and needs a few records added. That is the next section's
+            At this point, the game should exist. The EamonDD program creates a folder called Adventures\RiddlesOfTheDuergarKingdom to store the source code files, adds the appropriate .bat and .sh files under QuickLaunch, and places a
+            compiled RiddlesOfTheDuergarKingdom.dll file in System\Bin. The game is added to the Work-In-Progress Adventures database, which is only accessible using EnterMainHallUsingCatalog.bat. To verify everything worked, I can run
+            EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix) and ensure EamonDD loads the adventure. Then I can leave the game editor running, as the game is not yet playable and needs a few records added. That is the next section's
             topic.
         </p>
         <h4>MAKING THE GAME (MINIMALLY) PLAYABLE</h4>
         <p>The game will not be playable until a Module record, and Room record are added. I will omit the more involved details of both these records when entering them initially.</p>
         <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix)</li>
+            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix)</li>
             <li>Choose <code>2</code>: Module record maintenance</li>
             <li>Choose <code>1</code>: Add a Module record</li>
-            <li>Enter Name: <code>Riddles of the Duergar Quarry</code></li>
+            <li>Enter Name: <code>Riddles of the Duergar Kingdom</code></li>
             <li>Enter Description: <code>TODO</code></li>
             <li>Enter Author: <code>Michael Penner</code></li>
             <li>Enter Volume Label: <code>MP-003</code></li>
@@ -171,7 +171,7 @@
         </p>
         <h4>SOME RELEVANT NOTES</h4>
         <p>
-            Here are a few other things I'd like to note for completeness. These aren't necessarily relevant to Riddles of the Duergar Quarry but are used by other adventures in many cases. See the Eamon CS Dungeon Designer's Manual for
+            Here are a few other things I'd like to note for completeness. These aren't necessarily relevant to Riddles of the Duergar Kingdom but are used by other adventures in many cases. See the Eamon CS Dungeon Designer's Manual for
             more detail on these topics.
         </p>
         <p>
@@ -185,7 +185,7 @@
             or presented.
         </p>
         <p>
-            The numbering sequence used for Effect Uids in Riddles of the Duergar Quarry is deliberate. Grouping related Effects together sequentially is optional but makes them easier to find and improves the logical layout of the
+            The numbering sequence used for Effect Uids in Riddles of the Duergar Kingdom is deliberate. Grouping related Effects together sequentially is optional but makes them easier to find and improves the logical layout of the
             EFFECTS.DAT file. It may also lead to gaps between Effect Uid sets, depending on how the game's collection of Effects is created. These gaps are perfectly acceptable since Eamon CS uses a database to store records instead of
             arrays as with older Eamon systems. I'm using the following Effect Uid sets for this game, but you may need to adjust these depending on your game's needs:
         </p>
@@ -202,7 +202,7 @@
             default behavior automatically assigns Uids to new records. Changing the Config record allows Uids to be set explicitly, but EamonDD will revert back to its default behavior when the program restarts:
         </p>
         <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix)</li>
+            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix)</li>
             <li>Choose <code>1</code>: Config record maintenance</li>
             <li>Choose <code>1</code>: Edit a Config record</li>
             <li>Choose <code>2</code>: Edit one field of a Config record</li>
@@ -229,7 +229,7 @@
             and complex interlocking acts. Still, it can be quite challenging (I've discovered), as it requires advanced writing skills and an extended period of front-loaded planning. As a side note, The Wayfarer's Inn has stalled for this
             very reason; there hasn't been time to put the document together, let alone implement it. My past preference was to build games that revolved around exploration with lots to see and do, and that lends itself to a second design
             technique: starting with a vague but compelling premise, then building out the game as a collection of regions, and tying them together as the game evolves. The interconnections between regions deepen as monsters, artifacts,
-            special effects, and puzzles are added; the story, such as it is, can also be fleshed out. For the simplicity of creating this tutorial, Riddles of the Duergar Quarry will take the second approach. With that decision made, the
+            special effects, and puzzles are added; the story, such as it is, can also be fleshed out. For the simplicity of creating this tutorial, Riddles of the Duergar Kingdom will take the second approach. With that decision made, the
             question becomes: what to build first? The easiest approach is to create the rooms, link them together, then populate the map with monsters and artifacts, so that's where I'll start.
         </p>
         <p>
