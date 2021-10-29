@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-        <title>The Making Of: Riddles of the Duergar Quarry</title>
+        <title>The Making Of: Riddles of the Duergar Kingdom</title>
     </head>
     <body>
         <h4>PREFACE</h4>
@@ -13,10 +13,10 @@
             out on the web for any complex topics skimmed over. Please let me know if there are areas that need clarification.
         </p>
         <p>
-            The first game built will be called "Riddles of the Duergar Quarry." This adventure will dig into many facets of the Eamon CS game engine to show its capabilities. It should be mentioned - WARNING: HEAVY SPOILERS; you may wish
+            The first game built will be called "Riddles of the Duergar Kingdom." This adventure will dig into many facets of the Eamon CS game engine to show its capabilities. It should be mentioned - WARNING: HEAVY SPOILERS; you may wish
             to play the game before returning to this treatise.
         </p>
-        <h4>BOOTSTRAPPING RIDDLES OF THE DUERGAR QUARRY</h4>
+        <h4>BOOTSTRAPPING RIDDLES OF THE DUERGAR KINGDOM</h4>
         <p>I'll start by bootstrapping the game using the Adventure Support Menu:</p>
         <p></p>
         <ol>
@@ -27,7 +27,7 @@
             <li>
                 Enter adventure data
                 <ul>
-                    <li>Enter adventure name: <code>Riddles of the Duergar Quarry</code></li>
+                    <li>Enter adventure name: <code>Riddles of the Duergar Kingdom</code></li>
                     <li>Enter author name: <code>Michael Penner</code></li>
                     <li>Enter author initials: <code>MP</code></li>
                     <li>Add game to databases other than WIP.DAT: <code>N</code></li>
@@ -39,18 +39,18 @@
             <li>Exit EamonDD</li>
         </ol>
         <p>
-            At this point, the game should exist. The EamonDD program creates a folder called Adventures\RiddlesOfTheDuergarQuarry to store the source code files, adds the appropriate .bat and .sh files under QuickLaunch, and places a
-            compiled RiddlesOfTheDuergarQuarry.dll file in System\Bin. The game is added to the Work-In-Progress Adventures database, which is only accessible using EnterMainHallUsingCatalog.bat. To verify everything worked, I can run
-            EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix) and ensure EamonDD loads the adventure. Then I can leave the game editor running, as the game is not yet playable and needs a few records added. That is the next section's
+            At this point, the game should exist. The EamonDD program creates a folder called Adventures\RiddlesOfTheDuergarKingdom to store the source code files, adds the appropriate .bat and .sh files under QuickLaunch, and places a
+            compiled RiddlesOfTheDuergarKingdom.dll file in System\Bin. The game is added to the Work-In-Progress Adventures database, which is only accessible using EnterMainHallUsingCatalog.bat. To verify everything worked, I can run
+            EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix) and ensure EamonDD loads the adventure. Then I can leave the game editor running, as the game is not yet playable and needs a few records added. That is the next section's
             topic.
         </p>
         <h4>MAKING THE GAME (MINIMALLY) PLAYABLE</h4>
         <p>The game will not be playable until a Module record, and Room record are added. I will omit the more involved details of both these records when entering them initially.</p>
         <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix)</li>
+            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix)</li>
             <li>Choose <code>2</code>: Module record maintenance</li>
             <li>Choose <code>1</code>: Add a Module record</li>
-            <li>Enter Name: <code>Riddles of the Duergar Quarry</code></li>
+            <li>Enter Name: <code>Riddles of the Duergar Kingdom</code></li>
             <li>Enter Description: <code>TODO</code></li>
             <li>Enter Author: <code>Michael Penner</code></li>
             <li>Enter Volume Label: <code>MP-003</code></li>
@@ -171,7 +171,7 @@
         </p>
         <h4>SOME RELEVANT NOTES</h4>
         <p>
-            Here are a few other things I'd like to note for completeness. These aren't necessarily relevant to Riddles of the Duergar Quarry but are used by other adventures in many cases. See the Eamon CS Dungeon Designer's Manual for
+            Here are a few other things I'd like to note for completeness. These aren't necessarily relevant to Riddles of the Duergar Kingdom but are used by other adventures in many cases. See the Eamon CS Dungeon Designer's Manual for
             more detail on these topics.
         </p>
         <p>
@@ -185,7 +185,7 @@
             or presented.
         </p>
         <p>
-            The numbering sequence used for Effect Uids in Riddles of the Duergar Quarry is deliberate. Grouping related Effects together sequentially is optional but makes them easier to find and improves the logical layout of the
+            The numbering sequence used for Effect Uids in Riddles of the Duergar Kingdom is deliberate. Grouping related Effects together sequentially is optional but makes them easier to find and improves the logical layout of the
             EFFECTS.DAT file. It may also lead to gaps between Effect Uid sets, depending on how the game's collection of Effects is created. These gaps are perfectly acceptable since Eamon CS uses a database to store records instead of
             arrays as with older Eamon systems. I'm using the following Effect Uid sets for this game, but you may need to adjust these depending on your game's needs:
         </p>
@@ -202,7 +202,7 @@
             default behavior automatically assigns Uids to new records. Changing the Config record allows Uids to be set explicitly, but EamonDD will revert back to its default behavior when the program restarts:
         </p>
         <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix)</li>
+            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix)</li>
             <li>Choose <code>1</code>: Config record maintenance</li>
             <li>Choose <code>1</code>: Edit a Config record</li>
             <li>Choose <code>2</code>: Edit one field of a Config record</li>
@@ -229,168 +229,11 @@
             and complex interlocking acts. Still, it can be quite challenging (I've discovered), as it requires advanced writing skills and an extended period of front-loaded planning. As a side note, The Wayfarer's Inn has stalled for this
             very reason; there hasn't been time to put the document together, let alone implement it. My past preference was to build games that revolved around exploration with lots to see and do, and that lends itself to a second design
             technique: starting with a vague but compelling premise, then building out the game as a collection of regions, and tying them together as the game evolves. The interconnections between regions deepen as monsters, artifacts,
-            special effects, and puzzles are added; the story, such as it is, can also be fleshed out. For the simplicity of creating this tutorial, Riddles of the Duergar Quarry will take the second approach. With that decision made, the
-            question becomes: what to build first? The linear approach is to create the rooms, link them together, then populate the map with monsters and artifacts, and that's fine. But for whatever reason, I find it easier to identify the
-            monsters and artifacts than to picture the room layout, so that's where I'll start.
+            special effects, and puzzles are added; the story, such as it is, can also be fleshed out. For the simplicity of creating this tutorial, Riddles of the Duergar Kingdom will take the second approach. With that decision made, the
+            question becomes: what to build first? The easiest approach is to create the rooms, link them together, then populate the map with monsters and artifacts, so that's where I'll start.
         </p>
         <p>
             <b>IMPORTANT: When using EamonDD to add or update records, always exit the program cleanly from the Main Menu, and when it asks if you want to save modifications, respond with <code>Y</code> (if you wish to keep them).</b>
-        </p>
-        <h4>MONSTERS AND ARTIFACTS - ROUND 1</h4>
-        <p>I've identified the following prospective monsters at this point, subject to further revision:</p>
-        <ol>
-            <li>Professor Berescroft: leads the dig, supervises Grad students</li>
-            <li>Grad student #1: researches and catalogs discovered relics</li>
-            <li>Grad student #2: supervises undergrad student teams</li>
-            <li>Grad student #3: supervises undergrad student teams</li>
-            <li>Undergrad student team #1 (MemberCount=3): works the dig site</li>
-            <li>Undergrad student team #2 (MemberCount=3): works the dig site</li>
-            <li>Undergrad student team #3 (MemberCount=3): works the dig site</li>
-            <li>Undergrad student team #4 (MemberCount=3): works the dig site</li>
-            <li>Guard #1: protects the dig site</li>
-            <li>Guard #2: protects the dig site</li>
-            <li>Field Foreman: construction</li>
-            <li>Field Medic: first aid</li>
-            <li>Field Cook: meal preparer</li>
-            <li>Highland Ibex: wild mountain goat</li>
-            <li>Fire Salamander</li>
-            <li>Giant Fire Beetle</li>
-            <li>Ranch Hand</li>
-        </ol>
-        <p>
-            Using EamonDD, I can stub out these monsters and fill in the details at a later time. Here I'll input the initial data for Professor Berescroft, which is correct when it can be but wildly wrong when I want to ensure I come back
-            later to clean it up. (Note also the menu option to create a new monster by copying an old one, which I use when creating similar monsters.)
-        </p>
-        <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix)</li>
-            <li>Choose <code>6</code>: Monster record maintenance</li>
-            <li>Choose <code>1</code>: Add a Monster record</li>
-            <li>Choose <code>1</code>: Add a Monster record by entering data manually</li>
-            <li>Enter Name: <code>Professor Berescroft</code></li>
-            <li>Enter Description: <code>TODO</code></li>
-            <li>Enter Article Type: <code>0</code></li>
-            <li>Enter Hardiness: <code>1</code></li>
-            <li>Enter Agility: <code>1</code></li>
-            <li>Enter Courage: <code>1</code></li>
-            <li>Enter Natural Wpn Dice: <code>0</code></li>
-            <li>Enter Natural Wpn Sides: <code>0</code></li>
-            <li>Enter Friendliness: <code>2</code></li>
-            <li>Press enter to default all other properties</li>
-            <li>Save this record: <code>Y</code></li>
-        </ol>
-        <p>I've identified the following prospective artifacts at this point, subject to further revision:</p>
-        <ol>
-            <li>Mount Everdes: Treasure</li>
-            <li>Purple Sage: Treasure</li>
-            <li>Dust Devil: Treasure</li>
-            <li>Rock-Strewn Gully: DoorGate</li>
-            <li>Iron Fence: Treasure</li>
-            <li>Vegetable Garden: InContainer</li>
-            <li>Tomatoes: Edible</li>
-            <li>Carrots: Edible</li>
-            <li>Squash: Edible</li>
-            <li>Lettuce: Edible</li>
-            <li>Cabbage: Edible</li>
-            <li>Bleached Skeleton: Treasure</li>
-            <li>Leather Panniers: Treasure</li>
-            <li>Iron Gate: Treasure</li>
-            <li>Large Wooden Cart: DoorGate</li>
-            <li>Pulleys: Treasure</li>
-            <li>Iron Lever: Treasure</li>
-            <li>Hand Winch: Treasure</li>
-            <li>Silver Sheen Obsidian Statue: InContainer</li>
-            <li>Large Emerald #1: Treasure</li>
-            <li>Large Emerald #2: Treasure</li>
-            <li>Hooded Lantern: LightSource</li>
-            <li>Blacksmith's Smock #1: Wearable</li>
-            <li>Blacksmith's Smock #2: Wearable</li>
-            <li>Gold Dust: Gold</li>
-            <li>Gold Nugget #1: Gold</li>
-            <li>Gold Nugget #2: Gold</li>
-            <li>Gold Nugget #3: Gold</li>
-            <li>Iron Peg: OnContainer</li>
-            <li>Iron Anvil: OnContainer</li>
-            <li>Blacksmith's Hammer: Weapon</li>
-            <li>Wooden Workbench: OnContainer, UnderContainer</li>
-            <li>Mining Drill: Treasure</li>
-            <li>Conveyor Belt: OnContainer</li>
-            <li>Shearing Machine: Treasure</li>
-            <li>Rock Crusher: Treasure</li>
-            <li>Rock Grinder: Treasure</li>
-            <li>Rock Screener: Treasure</li>
-            <li>Rail Cart: InContainer</li>
-            <li>Weighting System: Treasure</li>
-            <li>Measuring System: Treasure</li>
-            <li>Tranquil Lake: Drinkable</li>
-            <li>Iron Steam Turbine: InContainer</li>
-            <li>Iron Gear: Treasure</li>
-            <li>Metal Tube: Treasure</li>
-            <li>Lavafall: Treasure</li>
-            <li>Lava River: Treasure</li>
-            <li>Towering Ash Cloud: Treasure</li>
-            <li>Pyroclastic Flow: Treasure</li>
-            <li>Canvas Tent: DoorGate</li>
-            <li>Hydrostation: DoorGate</li>
-            <li>Hand Crank: Treasure</li>
-            <li>Sluice Gate: DoorGate</li>
-            <li>Underground River: Drinkable</li>
-            <li>Hand Crank: Treasure</li>
-            <li>Water Diversion Gate: DoorGate</li>
-            <li>Trapdoor: DoorGate</li>
-            <li>Spiral Staircase: DoorGate</li>
-            <li>Cave-in: Treasure</li>
-            <li>Quill Pen: Treasure</li>
-            <li>Field Notebook: Treasure</li>
-            <li>Trowel: Treasure</li>
-            <li>Brush: Treasure</li>
-            <li>Sample Container: Treasure</li>
-            <li>Quill Pen: Treasure</li>
-            <li>Leather Bound Notebook: Treasure</li>
-            <li>Small Pickaxe: Treasure</li>
-            <li>Shovel: Treasure</li>
-            <li>Mess Tent: DoorGate</li>
-            <li>Medical Tent: DoorGate</li>
-            <li>Survey Tent: DoorGate</li>
-            <li>Corral: InContainer</li>
-            <li>Pack Animal: Treasure</li>
-            <li>Supply Tent: DoorGate</li>
-            <li>Gold Pan: Treasure</li>
-            <li>Jagged Wall: Treasure</li>
-        </ol>
-        <p>
-            Using EamonDD, I can stub out these artifacts and fill in the details at a later time. Here I'll input the initial data for Mount Everdes, which is correct when it can be but wildly wrong when I want to ensure I come back later
-            to clean it up. (Note also the menu option to create a new artifact by copying an old one, which I use when creating similar artifacts.)
-        </p>
-        <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarQuarry.bat (or .sh for Unix)</li>
-            <li>Choose <code>4</code>: Artifact record maintenance</li>
-            <li>Choose <code>1</code>: Add an Artifact record</li>
-            <li>Choose <code>1</code>: Add an Artifact record by entering data manually</li>
-            <li>Enter Name: <code>Mount Everdes</code></li>
-            <li>Enter Description: <code>TODO</code></li>
-            <li>Enter Seen: <code>1</code></li>
-            <li>Enter Is Listed: <code>0</code></li>
-            <li>Enter Plural Type: <code>0</code></li>
-            <li>Enter Article Type: <code>0</code></li>
-            <li>Enter Value: <code>0</code></li>
-            <li>Enter Weight: <code>999</code></li>
-            <li>Press enter to default all other properties</li>
-            <li>Save this record: <code>Y</code></li>
-        </ol>
-        <h4>EFFECTS - ROUND 1</h4>
-        <p>
-            I've created some effects based on where I foresee the game's storyline leading. Rather than listing them here, it makes more sense to enter them using EamonDD or add them directly to the EFFECTS.DAT datafile using 7-Zip. I did
-            the latter and also updated the NumEffects property in MODULE.DAT accordingly. I can add additional effects as the game progresses.
-        </p>
-        <h4>ROOMS - ROUND 1</h4>
-        <p>
-            I'm still not ready to nail down the map at this point, but regardless progress can be made in that area. I can create rooms for all the known artifacts and monsters and leave the details for later. So I'll do that for the first
-            round.
-        </p>
-        <h4>MONSTERS AND ARTIFACTS - ROUND 2</h4>
-        <p>
-            At this point, many paths to continue developing Riddles of the Duergar Quarry open up. But I'm going to press on and further build out the already-identified objects in an iterative fashion; this includes refinements to naming
-            and entering key data such as detailed descriptions.
         </p>
         <br />
     </body>
