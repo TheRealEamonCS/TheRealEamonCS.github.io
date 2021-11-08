@@ -616,8 +616,8 @@
         <h4>CONVERTING EXISTING ADVENTURE DATA</h4>
         <p>
             Given Eamon's long history, it should be no surprise a vast back catalog of adventures exists. There is good news for authors interested in porting old games to Eamon CS. EamonDD has built-in utilities to allow easy data conversion
-            for games built in the Apple II and Eamon Deluxe variants. Converted data may include Rooms, Monsters, Artifacts, Effects and, (where available) Hints. While most games are compatible, datafile format irregularities between titles
-            may cause some conversions to fail. In this circumstance, the data must be manually converted.
+            for games built in the Apple II and Eamon Deluxe variants. Converted data may include Rooms, Monsters, Artifacts, Effects and, (where available) Hints. While most games are compatible, some may have datafile format irregularities
+            that cause conversions to fail. In this circumstance, the data must be manually converted.
         </p>
         <p>
             To exploit the data conversion utilities, you should create a Standard or Custom adventure, as described in the previous section; the newly created game should share the ported game's name. Exit the Adventure Support Menu, then run
@@ -626,9 +626,9 @@
             browsed or edited if needed. When you exit EamonDD from the Main Menu using X, be sure to choose Y to save the data.
         </p>
         <p>
-            While the conversion process does a light validation on the data coming in, Eamon CS programs are aggressive about validating loaded data. You may find that your converted game fails validation, but the system will give a pretty
-            clear error message citing the offending datafile, record, and field. There is a useful command-line flag that can be added to any .bat or .sh file that disables validation when records are loaded. You can add this flag to your
-            Edit[AdventureName] .bat or .sh file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
+            While the conversion process lightly validates the data coming in, Eamon CS programs aggressively validate loaded data. You may find your converted game fails validation, but the system gives a pretty good error message citing the
+            offending datafile, record, and field. There is a useful command-line flag that can be added to any .bat or .sh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName] .bat or .sh
+            file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
         </p>
         <p>
             The flag is:  <code>-dv</code>
