@@ -32,22 +32,18 @@
         <p>
             A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not run when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
             Typically, this is manifested by a console window popping up and then disappearing quickly, caused by a missing dotnet.exe program.&nbsp; If you find that you cannot get Eamon CS to run on Windows, your first order of business
-            should be to download and install the following files (in order):
+            should be to download and install the following files:
         </p>
         <p>Programmers who want to play, step through, or develop the source code:</p>
-        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-developer-pack-offline-installer">Microsoft .NET Framework 4.8 SDK</a><br />
-        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-2.2.207-windows-x64-installer">Microsoft .NET Core 2.2 SDK</a><br />
-        <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=16">Microsoft Visual Studio Community 2019</a>
+        <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=17">Microsoft Visual Studio Community 2022 (includes .NET 6 SDK)</a>
         <ul>
             <li>Installer option: .NET desktop development</li>
             <li>Installer option: Mobile development with .NET</li>
         </ul>
         <p>Gamers who want to play:</p>
-        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer">Microsoft .NET Framework 4.8</a><br />
-        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-2.2.8-windows-x64-installer">Microsoft .NET Core 2.2</a>
+        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-6.0.0-windows-x64-installer">Microsoft .NET 6 Runtime</a>
         <p>
-            Note:&nbsp; Eamon CS should be fully compatible with new versions of .NET Core.&nbsp; If you wish to run the system using a more recent version of .NET Core, you can download VS 2019+ and recompile the Plugin Manager program to
-            target it.&nbsp; The newer .NET Core must also be installed on your system.&nbsp; See the Post-Installation Topics section for more details.
+            Note: If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 6.X), see the Post-Installation Topics section for details on how to do that.
         </p>
         <p>A second disadvantage on Windows leads to a useful tip regarding the downloaded .zip file.&nbsp; You should always right-click on the .zip file and select "unblock" to avoid the security warnings, as shown below:</p>
         <br />
@@ -62,22 +58,22 @@
         </p>
         <h4>POST-INSTALLATION TOPICS</h4>
         <p>
-            The binaries for Eamon CS are compiled to use .NET Core 2.X, but the system should be fully compatible with new versions of .NET Core that conform to .NET Standard 2.0.&nbsp; If you have a newer version of .NET Core on your
-            system and don't want to download 2.X, you can recompile the EamonPM.WindowsUnix project to target it.&nbsp; To do this, you must first install Visual Studio 2019+, as described in the Prerequisites section.&nbsp; The use of
-            Visual Studio is described in the section called Using The Visual Studio Debugger.&nbsp; The following screenshot shows how to determine which versions of .NET Core are present on your system:
+            The precompiled binaries for Eamon CS use .NET 6.X, but the system should be fully compatible with all .NET (Core) versions that conform to .NET Standard 2.0.  However, using older .NET (Core) versions may introduce additional
+            requirements such as .NET Framework.  To use Eamon CS with a different .NET (Core), you need to recompile the EamonPM.WindowsUnix project to target it. To do this, you must first install Visual Studio 2022+, as described in the
+            Prerequisites section. The use of Visual Studio is described in the section called Using The Visual Studio Debugger. The following screenshot shows how to determine which versions of .NET are present on your system:
         </p>
         <br />
         <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="IncompatibleNetCoreError.jpg" alt="IncompatibleNetCoreError.jpg" src="../../assets/images/TechnicalPaper/IncompatibleNetCoreError.jpg" /></div>
         <br />
         <p>
-            To recompile the EamonPM.WindowsUnix project, load the Eamon.Desktop solution in Visual Studio.&nbsp; Right-click on the project and choose Properties.&nbsp; Select the appropriate version of .NET Core in the Target Framework
+            To recompile the EamonPM.WindowsUnix project, load the Eamon.Desktop solution in Visual Studio.&nbsp; Right-click on the project and choose Properties.&nbsp; Select the appropriate version of .NET in the Target Framework
             drop-down list on the Application tab, then click the Save button:
         </p>
         <br />
         <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="CompileForNetCore3Plus.jpg" alt="CompileForNetCore3Plus.jpg" src="../../assets/images/TechnicalPaper/CompileForNetCore3Plus.jpg" /></div>
         <br />
         <p>
-            After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET Core.
+            After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
         </p>
         <h4>PROGRAMS, LIBRARIES AND PLUGINS</h4>
         <p>The plugin-based architecture used by Eamon CS extends to the Main Hall, the Dungeon Designer, and all adventures.&nbsp; A Plugin Manager program specific to either Desktop or Mobile environments manages them:</p>
@@ -472,9 +468,9 @@
         </p>
         <h4>USING THE VISUAL STUDIO DEBUGGER</h4>
         <p>
-            Eamon CS was built with Visual Studio 2019, a powerful, modern integrated development environment (IDE) used by programmers worldwide. It can be obtained through a link in the Prerequisites section. Many tutorials on the web
+            Eamon CS was built with Visual Studio 2022, a powerful, modern integrated development environment (IDE) used by programmers worldwide. It can be obtained through a link in the Prerequisites section. Many tutorials on the web
             explore Visual Studio in detail; that topic is outside the scope of this document. If you do some research on your own, make sure to focus on using the debugger, which will be the point of this section. The IDE can be used to
-            develop new games, modify existing games, and step through the source code to clarify its inner workings. This discussion assumes VS 2019 on Windows; if you're in a different development environment or a different OS, the steps
+            develop new games, modify existing games, and step through the source code to clarify its inner workings. This discussion assumes VS 2022 on Windows; if you're in a different development environment or a different OS, the steps
             may vary. To step through the Eamon CS source code, do the following:
         </p>
         <ol>
@@ -567,7 +563,7 @@
         <h4>BUILDING NEW ADVENTURES</h4>
         <p>
             With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
-            EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2019 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
+            EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
             system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .bat or .sh
             file that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
         </p>
@@ -575,8 +571,8 @@
         <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
         <br />
         <p>
-            The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio by using the dotnet.exe program. With the .NET Core SDK installed, this integration paradigm works in both Windows and Unix, even if Visual
-            Studio is not present. But it hasn't been tested with the .NET Core Runtime and may or may not work. For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution
+            The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio by using the dotnet.exe program. With the .NET SDK installed, this integration paradigm works in both Windows and Unix, even if Visual
+            Studio is not present. But it hasn't been tested with the .NET Runtime and may or may not work. For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution
             yourself and manually recompile the game.
         </p>
         <p>
@@ -604,7 +600,7 @@
         <p>
             For Custom adventures, a complete set of derived foundational classes (e.g., Artifact, Monster, Room, Engine, etc.) are generated and available for you to modify. The generated classes should be sufficient for many Custom games.
             But remember, you can always add your own new or overridden classes if you need to get exotic. Two additional menu options, detailed below, allow you to add and remove classes programmatically. Every facet of the system is built
-            to override, so the sky is the limit here. The actual process of game customization using Visual Studio 2019 is beyond the scope of this section. It will be fully documented elsewhere, although there are games available to look
+            to override, so the sky is the limit here. The actual process of game customization using Visual Studio 2022 is beyond the scope of this section. It will be fully documented elsewhere, although there are games available to look
             at for programming ideas.
         </p>
         <p>
