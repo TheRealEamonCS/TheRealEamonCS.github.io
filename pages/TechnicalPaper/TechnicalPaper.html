@@ -576,8 +576,8 @@
         <br />
         <p>
             The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio by using the dotnet.exe program. With the .NET Core SDK installed, this integration paradigm works in both Windows and Unix, even if Visual
-            Studio is not present. But it hasn't been tested with the .NET Core Runtime and may or may not work. If the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually
-            recompile the game.
+            Studio is not present. But it hasn't been tested with the .NET Core Runtime and may or may not work. For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution
+            yourself and manually recompile the game.
         </p>
         <p>
             Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
@@ -612,6 +612,26 @@
             should always build a new game in a unique branch off master, so it cleanly merges when completed. There may be suggestions for improvements when reviewing the code in the branch. It is no cause for concern, just part of the
             process of building the best game possible. The goal of doing this is to enhance the experience for people who discover Eamon CS and play it in the future. At this point, I have yet to fully work out the logistics of game
             developer pull requests against master.
+        </p>
+        <h4>CONVERTING EXISTING ADVENTURE DATA</h4>
+        <p>
+            Given Eamon's long history, it should be no surprise a vast back catalog of adventures exists. There is good news for authors interested in porting old games to Eamon CS. EamonDD has built-in utilities to allow easy data conversion
+            for games built in the Apple II and Eamon Deluxe variants. Converted data may include Rooms, Monsters, Artifacts, Effects and, (where available) Hints. While most games are compatible, some may have datafile format irregularities
+            that cause conversions to fail. In this circumstance, the data must be manually converted.
+        </p>
+        <p>
+            To exploit the data conversion utilities, you should create a Standard or Custom adventure, as described in the previous section; the newly created game should share the ported game's name. Exit the Adventure Support Menu, then run
+            the game's Edit[AdventureName] .bat or .sh file. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu choose U for Utilities, then one for Adventure conversion, and
+            finally one or two depending on the legacy Eamon system. After following the instructions during the conversion process, you can exit to the Main Menu. If the conversion was successful, you see the imported game data; it can be
+            browsed or edited if needed. When you exit EamonDD from the Main Menu using X, be sure to choose Y to save the data.
+        </p>
+        <p>
+            While the conversion process lightly validates the data coming in, Eamon CS programs aggressively validate loaded data. You may find your converted game fails validation, but the system gives a pretty good error message citing the
+            offending datafile, record, and field. There is a useful command-line flag that can be added to any .bat or .sh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName] .bat or .sh
+            file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
+        </p>
+        <p>
+            The flag is:  <code>-dv</code>
         </p>
         <h4>ADDING CUSTOM ADVENTURE CLASSES</h4>
         <p>
