@@ -31,18 +31,18 @@
         </p>
         <p>
             A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not run when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
-            Typically, this is manifested by a console window popping up and then disappearing quickly, caused by a missing dotnet.exe program.&nbsp; If you find that you cannot get Eamon CS to run on Windows, your first order of business
+            The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to run on Windows, your first order of business
             should be to download and install the following files (in order):
         </p>
-        <p>Programmers who want to play, step through, or develop the source code:</p>
+        <p>For programmers who want to play, step-through, or develop the source code:</p>
         <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer">Microsoft .NET Framework 4.8</a><br />
         <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=17">Microsoft Visual Studio Community 2022</a> (includes .NET 6 SDK)
         <ul>
             <li>Installer option: .NET desktop development</li>
             <li>Installer option: Mobile development with .NET</li>
         </ul>
-        <p>Gamers who want to play:</p>
-        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-6.0.0-windows-x64-installer">Microsoft .NET 6 Runtime</a>
+        <p>For gamers who want to play:</p>
+        <a target="_blank" href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-6.0.1-windows-x64-installer">Microsoft .NET 6 Runtime</a>
         <p>
             Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 6.X), see the Post-Installation Topics section for details on how to do that.
         </p>
@@ -577,9 +577,9 @@
         <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
         <br />
         <p>
-            The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio by using the dotnet.exe program. With the .NET SDK installed, this integration paradigm works in both Windows and Unix, even if Visual
-            Studio is not present. But it hasn't been tested with the .NET Runtime and may or may not work. For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution
-            yourself and manually recompile the game.
+            The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
+            But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon.Desktop solution or compile the game will fail.  For Custom
+            adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
         </p>
         <p>
             Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
@@ -695,7 +695,7 @@
                 When adding custom code, type public override, and choose the right property or method from the list presented by Intellisense. It is often useful to refer to (or use code from) the parent classes in the Eamon CS base
                 libraries. The system uses project referencing throughout, allowing quick navigation to any class, method, property, or type definition through a right-click context menu. Double-click on the symbol to look up, then
                 right-click on it and choose one of the appropriate menu options to take you to the code in question. The Peek Definition and Go To Definition menu items are what you'll probably use most often, but there are a few other
-                useful options as well. When you have finished, click the back arrow to return to your previous location. The following example shows quick access to EamonRT's CombatSystem class.
+                useful options as well. When you have finished, click the back arrow to return to your previous location. The following example shows quick access to EamonRT's CombatComponent class.
             </li>
         </ol>
         <br />
