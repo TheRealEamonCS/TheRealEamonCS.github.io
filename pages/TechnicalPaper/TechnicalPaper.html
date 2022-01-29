@@ -577,9 +577,9 @@
         <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
         <br />
         <p>
-            The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio by using the dotnet.exe program. With the .NET SDK installed, this integration paradigm works in both Windows and Unix, even if Visual
-            Studio is not present. But it hasn't been tested with the .NET Runtime and may or may not work. For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution
-            yourself and manually recompile the game.
+            The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
+            But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch files and source code but attempts to manipulate the Eamon.Desktop solution or compile the game will fail.  For Custom
+            adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
         </p>
         <p>
             Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
