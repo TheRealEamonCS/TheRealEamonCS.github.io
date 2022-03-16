@@ -5,6 +5,37 @@
         <title>Technical Paper</title>
     </head>
     <body>
+       <h4>TABLE OF CONTENTS</h4>
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP1">PREFACE</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP2">PREREQUISITES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP3">POST-INSTALLATION TOPICS</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP4">PROGRAMS, LIBRARIES AND PLUGINS</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP5">BATCH FILES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP6">SUGGESTED GAMEPLAY SETTINGS</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP7">MISCELLANEOUS GAMEPLAY NOTES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP8">QUICK ARCHITECTURAL OVERVIEW</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP9">USING THE VISUAL STUDIO DEBUGGER</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP10">BUILDING NEW ADVENTURES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP11">CONVERTING EXISTING ADVENTURE DATA</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP12">ADDING CUSTOM ADVENTURE CLASSES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP13">DELETING CUSTOM ADVENTURE CLASSES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP14">DELETING EXISTING ADVENTURES</a></span><br style="font-weight: bold;">
+       <br style="font-weight: bold;">
+       <a name="ECSTP1"></a>
        <h4>PREFACE</h4>
        <p>[Note:&nbsp; this document is a work in progress]</p>
        <p>
@@ -24,6 +55,7 @@
           space.&nbsp; The game engine has improved with each one of a small but growing collection of custom-built adventures created along the way.&nbsp; The different programs of Eamon CS share a common code base and collectively
           are referred to as Eamon CS Desktop on traditional workstations and Eamon CS Mobile on mobile devices.
        </p>
+       <a name="ECSTP2"></a>
        <h4>PREREQUISITES</h4>
        <p>
           As mentioned in the README.md file, Eamon CS has no formal installer.&nbsp; There are good points and bad points to this.&nbsp; On the one hand, it is a simple matter of unzipping the Eamon-CS-master.zip file downloaded from
@@ -58,6 +90,7 @@
           (and find corresponding installation instructions).&nbsp; But Eamon CS on Unix should only be pursued by those confident enough to see it through via their own devices.&nbsp; The game runs correctly on Ubuntu Linux and FreeBSD
           and may work on other Unix variants, such as macOS (OS X).
        </p>
+       <a name="ECSTP3"></a>
        <h4>POST-INSTALLATION TOPICS</h4>
        <p>
           The precompiled binaries for Eamon CS use .NET 6.X, but the system should be fully compatible with all .NET Core versions that conform to .NET Standard 2.0.&nbsp; However, using older versions may introduce
@@ -66,7 +99,7 @@
           .NET are present on your system:
        </p>
        <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="IncompatibleNetCoreError.jpg" alt="IncompatibleNetCoreError.jpg" src="../../assets/images/TechnicalPaper/IncompatibleNetCoreError.jpg" /></div>
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ListDotnetPackages.jpg" alt="ListDotnetPackages.jpg" src="../../assets/images/TechnicalPaper/ListDotnetPackages.jpg" /></div>
        <br />
        <p>
           To recompile the EamonPM.WindowsUnix project, load the Eamon.Desktop solution in Visual Studio.&nbsp; Right-click on the project and choose Properties.&nbsp; Select the appropriate version of .NET in the Target Framework
@@ -78,6 +111,7 @@
        <p>
           After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
        </p>
+       <a name="ECSTP4"></a>
        <h4>PROGRAMS, LIBRARIES AND PLUGINS</h4>
        <p>The plugin-based architecture used by Eamon CS extends to the Main Hall, the Dungeon Designer, and all adventures.&nbsp; A Plugin Manager program specific to either Desktop or Mobile environments manages them:</p>
        <br />
@@ -183,6 +217,7 @@
           loaded).&nbsp; In contrast, when building EamonPM.Android-Signed.apk, all plugins are statically linked in, and all datafiles are embedded, producing a monolithic application.&nbsp; When delivering the .apk onto the mobile
           device, the datafiles copy (when appropriate) to the device's file system - the plugins remain part of the application.&nbsp; In spite of this, the plugin managers are very similar internally.
        </p>
+       <a name="ECSTP5"></a>
        <h4>BATCH FILES</h4>
        <p>
           The plugins take a variety of command-line parameters (described below). However, to get you up and running quickly, there is a QuickLaunch folder. (Since there is no formal ECS installer, you may want to create a shortcut to it
@@ -273,6 +308,7 @@
        <p><sup>2</sup> Run these batch files to return to an in-progress adventure. Use the RESTORE command to pick up where you left off.</p>
        <p>You can study the batch files to see how the system launches various programs. You can also create new batch files using these as templates if you decide to write adventures or run the system in a non-default manner.</p>
        <p>Eamon CS Mobile mirrors this QuickLaunch hierarchy using a series of ListViews to provide a similar experience.</p>
+       <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
           Eamon CS runs as a set of 64-bit Console applications. It became apparent during development that the default settings for Console windows are not ideal when playing a text-based game. The system tries to adjust the window size
@@ -367,6 +403,7 @@
           selected by default, interacts with the Eamon CS cursor handling logic to produce unsightly cursor artifacts when the Enter key is pressed. To work around this, you should select the Use Color radio button and match the cursor
           color to the Screen Text color. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
        </p>
+       <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
        <p>
           Eamon systems have traditionally restricted players to using commands of the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT], but Eamon CS has an enhanced parser that approaches those of traditional Interactive Fiction (IF)
@@ -443,6 +480,7 @@
              variety of prepositional synonyms available. If you use a preposition unrelated to containment (or none at all), it will result in the default behavior where the description is displayed.
           </li>
        </ol>
+       <a name="ECSTP8"></a>
        <h4>QUICK ARCHITECTURAL OVERVIEW</h4>
        <p>
           The entire Eamon CS system was written from scratch and aggressively exploits the C# language. Not just a port, this is an expansive toolkit used to build games based on the Eamon ruleset. It has more in common with traditional
@@ -469,6 +507,7 @@
           straightforward to create new States or Commands and link them into the FSM if needed. Finally, if you look through the code, you will see that using GOTO has been avoided except in specific circumstances (goto Cleanup).
           Doing this gives the game engine a clean, deterministic quality.
        </p>
+       <a name="ECSTP9"></a>
        <h4>USING THE VISUAL STUDIO DEBUGGER</h4>
        <p>
           Eamon CS was built with Visual Studio 2022, a powerful, modern integrated development environment (IDE) used by programmers worldwide. It can be obtained through a link in the Prerequisites section. Many tutorials on the web
@@ -566,6 +605,7 @@
              start the program or step through it line by line at any point using F10 (step over) or F11 (step into).
           </li>
        </ol>
+       <a name="ECSTP10"></a>
        <h4>BUILDING NEW ADVENTURES</h4>
        <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
@@ -615,6 +655,7 @@
           process of building the best game possible. The goal of doing this is to enhance the experience for people who discover Eamon CS and play it in the future. At this point, I have yet to fully work out the logistics of game
           developer pull requests against master.
        </p>
+       <a name="ECSTP11"></a>
        <h4>CONVERTING EXISTING ADVENTURE DATA</h4>
        <p>
           Given Eamon's long history, it should be no surprise a vast back catalog of adventures exists. There is good news for authors interested in porting old games to Eamon CS. EamonDD has built-in utilities to allow easy data conversion
@@ -635,6 +676,7 @@
        <p>
           The flag is:  <code>-dv</code>
        </p>
+       <a name="ECSTP12"></a>
        <h4>ADDING CUSTOM ADVENTURE CLASSES</h4>
        <p>
           Custom games are created in Eamon CS using the C# mechanism of sub-classing. The system has no sealed classes, and every property and method is declared virtual. You can override any aspect of the game engine to suit your needs.
@@ -707,6 +749,7 @@
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="AddClasses10.jpg" alt="AddClasses10.jpg" src="../../assets/images/TechnicalPaper/AddClasses10.jpg" /></div>
        <br />
+       <a name="ECSTP13"></a>
        <h4>DELETING CUSTOM ADVENTURE CLASSES</h4>
        <p>
           You can delete custom adventure classes just as quickly as you add them using the Adventure Support Menu. There are many reasons you may wish to do this. When you create a new adventure via the Add A Custom Adventure menu
@@ -737,6 +780,7 @@
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses03.jpg" alt="DeleteClasses03.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses03.jpg" /></div>
        <br />
+       <a name="ECSTP14"></a>
        <h4>DELETING EXISTING ADVENTURES</h4>
        <p>
           You can also delete adventures from Eamon CS if the need arises. Maybe you were experimenting with a game scenario that didn't work out or have fully played through a title and want to make space on your file system. Perhaps you
