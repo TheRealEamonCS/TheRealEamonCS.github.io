@@ -34,6 +34,8 @@
        <a href="#ECSTP13">DELETING CUSTOM ADVENTURE CLASSES</a></span><br style="font-weight: bold;">
        <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
        <a href="#ECSTP14">DELETING EXISTING ADVENTURES</a></span><br style="font-weight: bold;">
+       <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="#ECSTP15">COMMAND-LINE PARAMETERS</a></span><br style="font-weight: bold;">
        <br style="font-weight: bold;">
        <a name="ECSTP1"></a>
        <h4>PREFACE</h4>
@@ -116,6 +118,12 @@
        <p>The plugin-based architecture used by Eamon CS extends to the Main Hall, the Dungeon Designer, and all adventures.&nbsp; A Plugin Manager program specific to either Desktop or Mobile environments manages them:</p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <thead>
+             <tr>
+                <th>File Name<br /></th>
+                <th>Description<br /></th>
+             </tr>
+          </thead>
           <tbody>
              <tr>
                 <td>System\Bin\EamonPM.WindowsUnix.dll</td>
@@ -151,6 +159,12 @@
        <p>Additionally, you have some adventures:</p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <thead>
+             <tr>
+                <th>File Name<br /></th>
+                <th>Description<br /></th>
+             </tr>
+          </thead>
           <tbody>
              <tr>
                 <td>System\Bin\TheBeginnersCave.dll<br /></td>
@@ -225,6 +239,12 @@
        </p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <thead>
+             <tr>
+                <th>File Name<br /></th>
+                <th>Description<br /></th>
+             </tr>
+          </thead>
           <tbody>
              <tr>
                 <td>EamonDD\EditAdventures.bat</td>
@@ -797,6 +817,34 @@
        <p>As you might expect, once a game has been deleted its data is not recoverable by normal means.</p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteGame.jpg" alt="DeleteGame.jpg" src="../../assets/images/TechnicalPaper/DeleteGame.jpg" /></div>
+       <br />
+       <a name="ECSTP15"></a>
+       <h4>COMMAND-LINE PARAMETERS</h4>
+       <p>
+          Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning, from selecting plugin usage to disabling the database guard mutex.  If the
+          same parameter is encountered multiple times on a command line, the last instance always takes precedence.  While the QuickLaunch facility hides this complexity, it is still helpful to know what flags are available if you want
+          to run Eamon CS in a non-default manner.  When it makes sense, you can integrate these parameters into the existing .bat and .sh files or create customized files of your own for ease of use.  If you wish to experiment with it,
+          you can also run ECS directly from a Command Prompt in System\Bin.  The following table describes the available parameters and their purpose:
+       </p>
+       <br />
+       <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <thead>
+             <tr>
+                <th>Parameter<br /></th>
+                <th>Description<br /></th>
+                <th>Purpose<br /></th>
+                <th>Example<br /></th>
+             </tr>
+          </thead>
+          <tbody>
+             <tr>
+                <td>-pfn<br /></td>
+                <td>Plugin File Name<br /></td>
+                <td>...<br /></td>
+                <td>...<br /></td>
+             </tr>
+          </tbody>
+       </table>
        <br />
     </body>
 </html>
