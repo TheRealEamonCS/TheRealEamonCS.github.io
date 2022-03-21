@@ -821,10 +821,10 @@
        <a name="ECSTP15"></a>
        <h4>COMMAND-LINE PARAMETERS</h4>
        <p>
-          Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning, from selecting plugin usage to disabling the database guard mutex.  If the
-          same parameter is encountered multiple times on a command line, the last instance always takes precedence.  While the QuickLaunch facility hides this complexity, it is still helpful to know what flags are available if you want
-          to run Eamon CS in a non-default manner.  When it makes sense, you can integrate these parameters into the existing .bat and .sh files or create customized files of your own for ease of use.  If you wish to experiment with it,
-          you can also run ECS directly from a Command Prompt in System\Bin.  The following table describes the available parameters and their purpose:
+          Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning.  If the same parameter is encountered multiple times on a command line, the
+          last instance always takes precedence.  While the QuickLaunch facility hides this complexity, it is still helpful to know what flags are available if you want to run Eamon CS in a non-default manner.  When it makes sense, you
+          can integrate these parameters into the existing .bat and .sh files or create customized files of your own for ease of use.  If you wish to experiment with it, you can also run ECS directly from a Command Prompt in System\Bin.
+          The following table describes the available parameters and their purpose:
        </p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
@@ -840,13 +840,13 @@
              <tr>
                 <td>-pfn [File Name]<br /></td>
                 <td>Plugin File Name<br /></td>
-                <td>...<br /></td>
+                <td>Selects the plugin to load and execute.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-wd [Directory Name]<br /></td>
                 <td>Working Directory<br /></td>
-                <td>...<br /></td>
+                <td>Selects the working directory in which to operate.  Should always use relative pathing; supports either path separator character ('\' or '/') on all platforms.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
@@ -942,13 +942,13 @@
              <tr>
                 <td>-im<br /></td>
                 <td>Ignore Mutex<br /></td>
-                <td>...<br /></td>
+                <td>Ignores the database guard mutex, allowing multiple programs to run simultaneously. Typically used for testing, depending on interactions between programs, it may cause database corruption if not used with caution.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-dv<br /></td>
                 <td>Disable Validation<br /></td>
-                <td>...<br /></td>
+                <td>Disables all record validation when the database is loaded.  Typically used for testing and legacy adventure conversion, depending on record contents, it may cause game engine instability if not used with caution.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
