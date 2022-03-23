@@ -840,7 +840,7 @@
              <tr>
                 <td>-pfn [File Name]<br /></td>
                 <td>Plugin File Name<br /></td>
-                <td>Selects the plugin to load and execute.<br /></td>
+                <td>Selects the plugin to load and execute.  The plugins available are EamonMH.dll, EamonRT.dll, or any derivative (adventure-specific) library.  Note that EamonDD.dll is used by EamonRT.dll and never directly loaded using this parameter.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
@@ -930,7 +930,7 @@
              <tr>
                 <td>-chrnm [Character Name]<br /></td>
                 <td>Character Name<br /></td>
-                <td>...<br /></td>
+                <td>Specifies the name of a character that EamonMH will load automatically into the Main Hall.  Typically used when this character returns from an adventure.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
@@ -960,7 +960,7 @@
              <tr>
                 <td>-dgs<br /></td>
                 <td>Delete Game State<br /></td>
-                <td>...<br /></td>
+                <td>Instructs EamonRT or a derivative (adventure-specific) library to delete all saved game state.  Instead of being handled by EamonMH, this is delegated to the Runtime, allowing it to customize cleanup.  Typically used when a character exits the game or is recalled from the Main Hall registration desk.<br /></td>
                 <td>...<br /></td>
              </tr>
           </tbody>
