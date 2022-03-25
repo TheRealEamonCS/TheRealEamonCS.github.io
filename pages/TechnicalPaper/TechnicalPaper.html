@@ -840,13 +840,13 @@
              <tr>
                 <td>-pfn [File Name]<br /></td>
                 <td>Plugin File Name<br /></td>
-                <td>Selects the plugin to load and execute.  The plugins available are EamonMH.dll, EamonRT.dll, or any derivative (adventure-specific) library.  Note that EamonDD.dll is used by EamonRT.dll and never directly loaded using this parameter.<br /></td>
+                <td>Loads and executes the plugin with the given name. The plugins available are EamonMH.dll, EamonRT.dll, or any derivative (adventure-specific) library. Note that EamonDD.dll is used by EamonRT.dll and never directly loaded using this parameter.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-wd [Directory Name]<br /></td>
                 <td>Working Directory<br /></td>
-                <td>Selects the working directory in which to operate.  Should always use relative pathing; supports either path separator character ('\' or '/') on all platforms.<br /></td>
+                <td>Changes the working directory to the given name. Always use relative pathing and refer to either the current directory (".") or a folder directly under Adventures (which will be created if it doesn't exist). Supports either path separator character ('\' or '/') on all platforms.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
@@ -864,13 +864,13 @@
              <tr>
                 <td>-fsfn [File Name]<br /></td>
                 <td>Fileset File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Fileset records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory. When the plugin loaded is EamonMH, this file should contain the database of available adventures.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-chrfn [File Name]<br /></td>
                 <td>Character File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Character records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory. When the plugin loaded is EamonMH, this file should contain the database of available characters.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
@@ -882,43 +882,43 @@
              <tr>
                 <td>-rfn [File Name]<br /></td>
                 <td>Room File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Room records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-afn [File Name]<br /></td>
                 <td>Artifact File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Artifact records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-efn [File Name]<br /></td>
                 <td>Effect File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Effect records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory. When the plugin loaded is EamonMH, this file should contain the Burly Irishman's snappy registration desk comments.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-monfn [File Name]<br /></td>
                 <td>Monster File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Monster records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-hfn [File Name]<br /></td>
                 <td>Hint File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Hint records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-trgfn [File Name]<br /></td>
                 <td>Trigger File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Trigger records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
                 <td>-sfn [File Name]<br /></td>
                 <td>Script File Name<br /></td>
-                <td>...<br /></td>
+                <td>Loads a datafile containing Script records with the given name; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
@@ -936,7 +936,7 @@
              <tr>
                 <td>-la<br /></td>
                 <td>Load Adventure<br /></td>
-                <td>Loads all datafiles associated with a game using default names; any that don't exist are assumed empty.  If the -wd flag is used, the datafiles load and save in that directory.  The system uses the game plugin associated with the -pfn flag to create new records if needed.  Typically, this flag is used in place of the various record-specific flags when editing a game in EamonDD.<br /></td>
+                <td>Loads all datafiles associated with a game using default names; they are assumed empty if they don't exist.  If the -wd flag is used, the datafiles load and save in that directory.  The system uses the game plugin associated with the -pfn flag to create new records if needed.  Typically, this flag is used in place of the various record-specific flags when editing a game in EamonDD.<br /></td>
                 <td>...<br /></td>
              </tr>
              <tr>
