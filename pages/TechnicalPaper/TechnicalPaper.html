@@ -828,6 +828,12 @@
        </p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <colgroup>
+             <col span="1" style="width: 20%;" />
+             <col span="1" style="width: 20%;" />
+             <col span="1" style="width: 30%;" />
+             <col span="1" style="width: 30%;" />
+		  </colgroup>
           <thead>
              <tr>
                 <th>Parameter<br /></th>
@@ -841,19 +847,19 @@
                 <td>-pfn [File Name]<br /></td>
                 <td>Plugin File Name<br /></td>
                 <td>Loads a plugin with the given name and executes it. The plugins available are EamonMH.dll, EamonRT.dll, or any derivative (adventure-specific) library. Note that EamonDD.dll is used by EamonRT.dll and never directly loaded using this parameter.<br /></td>
-                <td>...<br /></td>
+                <td>-pfn TimeOfChaos.dll<br /></td>
              </tr>
              <tr>
                 <td>-wd [Directory Name]<br /></td>
                 <td>Working Directory<br /></td>
                 <td>Changes the working directory to the given name. Always use relative pathing and refer to either the current directory (".") or a folder directly under Adventures (which will be created if it doesn't exist). Supports either path separator character ('\' or '/') on all platforms.<br /></td>
-                <td>...<br /></td>
+                <td>-wd ..\..\Adventures\TimeOfChaos<br /></td>
              </tr>
              <tr>
                 <td>-fp [File Prefix]<br /></td>
                 <td>File Prefix<br /></td>
                 <td>Prepends a specified string to all datafile names created during gameplay; this could allow Eamon CS to multiplex across many players using a single repository if the system were ever hosted on a website. But the thought experiment is not fully implemented, and the flag is a NO-OP.<br /></td>
-                <td>...<br /></td>
+                <td>-fp MPENNER<br /></td>
              </tr>
              <tr>
                 <td>-cfgfn [File Name]<br /></td>
@@ -865,13 +871,13 @@
                 <td>-fsfn [File Name]<br /></td>
                 <td>Fileset File Name<br /></td>
                 <td>Loads a datafile with the given name containing Fileset records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory. When the plugin loaded is EamonMH, this file should contain the database of available adventures.<br /></td>
-                <td>...<br /></td>
+                <td>-fsfn STEAMPUNK.DAT<br /></td>
              </tr>
              <tr>
                 <td>-chrfn [File Name]<br /></td>
                 <td>Character File Name<br /></td>
                 <td>Loads a datafile with the given name containing Character records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory. When the plugin loaded is EamonMH, this file should contain the database of available characters.<br /></td>
-                <td>...<br /></td>
+                <td>-chrfn ELITE_CHARACTERS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-modfn [File Name]<br /></td>
@@ -883,43 +889,43 @@
                 <td>-rfn [File Name]<br /></td>
                 <td>Room File Name<br /></td>
                 <td>Loads a datafile with the given name containing Room records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
-                <td>...<br /></td>
+                <td>-rfn NEW_ROOMS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-afn [File Name]<br /></td>
                 <td>Artifact File Name<br /></td>
                 <td>Loads a datafile with the given name containing Artifact records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
-                <td>...<br /></td>
+                <td>-afn OLD_ARTIFACTS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-efn [File Name]<br /></td>
                 <td>Effect File Name<br /></td>
                 <td>Loads a datafile with the given name containing Effect records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory. When the plugin loaded is EamonMH, this file should contain the Burly Irishman's snappy registration desk comments.<br /></td>
-                <td>...<br /></td>
+                <td>-efn EFFECTS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-monfn [File Name]<br /></td>
                 <td>Monster File Name<br /></td>
                 <td>Loads a datafile with the given name containing Monster records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
-                <td>...<br /></td>
+                <td>-monfn MONSTERS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-hfn [File Name]<br /></td>
                 <td>Hint File Name<br /></td>
                 <td>Loads a datafile with the given name containing Hint records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
-                <td>...<br /></td>
+                <td>-hfn CLEVER_HINTS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-trgfn [File Name]<br /></td>
                 <td>Trigger File Name<br /></td>
                 <td>Loads a datafile with the given name containing Trigger records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
-                <td>...<br /></td>
+                <td>-trgfn TRIGGERS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-sfn [File Name]<br /></td>
                 <td>Script File Name<br /></td>
                 <td>Loads a datafile with the given name containing Script records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
-                <td>...<br /></td>
+                <td>-sfn SCRIPTS.DAT<br /></td>
              </tr>
              <tr>
                 <td>-gsfn [File Name]<br /></td>
@@ -930,38 +936,38 @@
              <tr>
                 <td>-chrnm [Character Name]<br /></td>
                 <td>Character Name<br /></td>
-                <td>Specifies the name of a character that EamonMH will load automatically into the Main Hall.  Typically used when this character returns from an adventure.<br /></td>
-                <td>...<br /></td>
+                <td>Specifies the name of an existing character that EamonMH will automatically load into the Main Hall.  Typically used when this character returns from an adventure; the Status must be "Alive".<br /></td>
+                <td>-chrnm "Starla Argyle"<br /></td>
              </tr>
              <tr>
                 <td>-la<br /></td>
                 <td>Load Adventure<br /></td>
                 <td>Loads all datafiles using default names associated with a game; they are assumed empty if they don't exist.  If the -wd flag is used, the datafiles load and save in that directory.  The system uses the game plugin specified by the -pfn flag to create new records if needed.  Typically, the -la flag is used in place of the various record-specific flags when editing a game in EamonDD.<br /></td>
-                <td>...<br /></td>
+                <td><br /></td>
              </tr>
              <tr>
                 <td>-im<br /></td>
                 <td>Ignore Mutex<br /></td>
                 <td>Ignores the database guard mutex, allowing multiple programs to run simultaneously. Typically used for testing, depending on interactions between programs, it may cause database corruption if not used with caution.<br /></td>
-                <td>...<br /></td>
+                <td><br /></td>
              </tr>
              <tr>
                 <td>-dv<br /></td>
                 <td>Disable Validation<br /></td>
                 <td>Disables all record validation when the database is loaded.  Typically used for testing and legacy adventure conversion, depending on record contents, it may cause game engine instability if not used with caution.<br /></td>
-                <td>...<br /></td>
+                <td><br /></td>
              </tr>
              <tr>
                 <td>-rge<br /></td>
                 <td>Run Game Editor<br /></td>
                 <td>Indicates that the EamonDD game editor should be used to edit a game or individual datafiles.  Typically, the -la flag is used to edit an adventure; when editing other files, use the record-specific flags.<br /></td>
-                <td>...<br /></td>
+                <td><br /></td>
              </tr>
              <tr>
                 <td>-dgs<br /></td>
                 <td>Delete Game State<br /></td>
                 <td>Causes EamonRT or a derivative (adventure-specific) library to delete all saved game state.  Instead of being handled by EamonMH, this is delegated to the Runtime, allowing it to customize cleanup.  Typically used when a character exits the game or is recalled from the Main Hall registration desk.<br /></td>
-                <td>...<br /></td>
+                <td><br /></td>
              </tr>
           </tbody>
        </table>
