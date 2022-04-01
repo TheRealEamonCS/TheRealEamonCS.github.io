@@ -97,8 +97,8 @@
        <p>
           The precompiled binaries for Eamon CS use .NET 6.X, but the system should be fully compatible with all .NET Core versions that conform to .NET Standard 2.0.&nbsp; However, using older versions may introduce
           additional requirements such as .NET Framework.&nbsp; To use Eamon CS with a different .NET Core, you need to recompile the EamonPM.WindowsUnix project to target it.&nbsp; To do this, you must first install Visual Studio
-          2022+, as described in the Prerequisites section.&nbsp; The use of Visual Studio is described in the section called Using The Visual Studio Debugger.&nbsp; The following screenshot shows how to determine which versions of
-          .NET are present on your system:
+          2022+, as described in the Prerequisites section.&nbsp; The use of Visual Studio is described in the section called Using The Visual Studio Debugger.&nbsp; The following screenshot shows how to determine from the command
+          line which versions of .NET are present on your system:
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ListDotnetPackages.jpg" alt="ListDotnetPackages.jpg" src="../../assets/images/TechnicalPaper/ListDotnetPackages.jpg" /></div>
@@ -113,6 +113,16 @@
        <p>
           After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
        </p>
+       <p>
+          Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch system to autodetect .NET Core correctly. Simply change the value highlighted in the following screenshots to your major
+          .NET version (e.g., use 3 for .NET Core 3.1), then save the files.
+	   </p>
+       <br />
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UpdateRegex.jpg" alt="UpdateRegex.jpg" src="../../assets/images/TechnicalPaper/UpdateRegex.jpg" /></div>
+       <br />
+       <br />
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UpdateRegex02.jpg" alt="UpdateRegex02.jpg" src="../../assets/images/TechnicalPaper/UpdateRegex02.jpg" /></div>
+       <br />
        <a name="ECSTP4"></a>
        <h4>PROGRAMS, LIBRARIES AND PLUGINS</h4>
        <p>The plugin-based architecture used by Eamon CS extends to the Main Hall, the Dungeon Designer, and all adventures.&nbsp; A Plugin Manager program specific to either Desktop or Mobile environments manages them:</p>
@@ -234,8 +244,8 @@
        <a name="ECSTP5"></a>
        <h4>BATCH FILES</h4>
        <p>
-          The plugins take a variety of command-line parameters (described below). However, to get you up and running quickly, there is a QuickLaunch folder. (Since there is no formal ECS installer, you may want to create a shortcut to it
-          on your desktop manually). Inside this folder is a set of batch or script files that you can run directly. These files organize into sub-folders based on the underlying plugin they invoke:
+          The plugins take a variety of command-line parameters (described in another section). However, to get you up and running quickly, there is a QuickLaunch folder. (Since there is no formal ECS installer, you may want to create a
+          shortcut to it on your desktop manually). Inside this folder is a set of batch or script files that you can run directly. These files organize into sub-folders based on the underlying plugin they invoke:
        </p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
