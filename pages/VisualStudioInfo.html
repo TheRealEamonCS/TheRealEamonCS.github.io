@@ -8,8 +8,8 @@
        <h4>VISUAL STUDIO INFORMATION</h4>
        <pre>
 Microsoft Visual Studio Community 2022
-Version 17.1.5
-VisualStudio.17.Release/17.1.5+32414.318
+Version 17.1.6
+VisualStudio.17.Release/17.1.6+32421.90
 Microsoft .NET Framework
 Version 4.8.04084
 
@@ -103,7 +103,8 @@ The XYZ package did not load correctly.</pre>
        <pre>
 1. Open an Administrator Command Prompt
 2. CD %localappdata%\Microsoft\VisualStudio\17.0_*\ComponentModelCache
-3. DEL /F /Q *</pre>
+3. Verify you are in the ComponentModelCache directory before proceeding to delete its contents.
+4. DEL /F /Q *</pre>
        <p>Note:  the directory 17.0_* corresponds to the version number for Visual Studio 2022; other Visual Studios will differ.</p>
        <p>The next time an Eamon CS solution opens in Visual Studio, it will rebuild the cache, and everything should work as expected.</p>
        <br/>
