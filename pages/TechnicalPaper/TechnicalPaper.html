@@ -456,8 +456,8 @@
           <li>If the parser encounters a movement command in the sentence, it will discard all commands that follow it. This restriction is for technical reasons and may be lifted at a later date.</li>
           <br />
           <li>
-             Pronouns are set to the last appropriate monster or artifact referenced on a command by command basis, with preference given to the indirect object where available. "Him" and "her" will refer to monsters with
-             the corresponding gender. "It" and "that" will refer to singular monsters or artifacts. "Them" and "those" will refer to group monsters, plural artifacts, and also direct object lists.
+             Pronouns are set to the last appropriate monster or artifact referenced on a command by command basis, giving preference to the direct object (but note the IobjPronounAffinity flag). "Him" and "her" will refer to monsters
+             with the corresponding gender. "It" and "that" will refer to singular monsters or artifacts. "Them" and "those" will refer to group monsters, plural artifacts, and direct object lists.
           </li>
           <br />
           <li>
@@ -473,8 +473,9 @@
           </li>
           <br />
           <li>
-             There are new flags available in the SETTINGS command related to the enhanced parser. You can revert to legacy Eamon CS parsing by using the EnhancedParser flag. The ShowPronounChanges and ShowFulfillMessages flags,
-             originally intended to aid in debugging, have been made available due to their general utility. These enable or disable detailed messages from the parser as it goes about its work.
+             New flags are available in the SETTINGS command related to the enhanced parser. You can revert to legacy Eamon CS parsing by using the EnhancedParser flag. The IobjPronounAffinity flag indicates whether preference should
+             be given to the indirect object (where available) when setting pronouns. The ShowPronounChanges and ShowFulfillMessages flags, originally intended to aid in debugging, have been made available due to their general utility.
+             These enable or disable detailed messages from the parser as it goes about its work.
           </li>
        </ul>
        <p>A document called ENHANCED_PARSER_DEMO on the Eamon CS website shows the enhanced parser being used in Test Adventure. You can refer to this transcript to get an idea of what it can do.</p>
