@@ -16,7 +16,7 @@
         <br style="font-weight: bold;">
         <span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="#ECSDDM3">3.&nbsp;&nbsp;&nbsp;
-        EAMON CS PROGRAMMING EXAMPLES: SAMPLEADVENTURE</a></span><br style="font-weight: bold;">
+        EAMON CS PROGRAMMING EXAMPLES: SAMPLE ADVENTURE</a></span><br style="font-weight: bold;">
         <br style="font-weight: bold;">
         <a name="ECSDDM1"></a>
         <h4>1. PREFACE</h4>
@@ -31,10 +31,35 @@
             collection of completed games.
         </p>
         <a name="ECSDDM3"></a>
-        <h4>3. EAMON CS PROGRAMMING EXAMPLES: SAMPLEADVENTURE</h4>
+        <h4>3. EAMON CS PROGRAMMING EXAMPLES: SAMPLE ADVENTURE</h4>
         <p>
-            TODO
+            While there are many Eamon CS adventures available to look at for inspiration or ideas when building games of your own, they can be somewhat overwhelming when examined as a whole.  Sometimes it is better to take a step back
+            from the complexity and interconnectedness of an entire game and look at specific examples of special behaviors implemented in isolation.  The Eamon CS game called Sample Adventure is for just this purpose.
         </p>
+        <p>
+            The Eamon-CS-Misc repository has a directory called SampleAdventures, which contains various examples of Eamon CS programming techniques.  Under this directory are sub-folders named roughly according to the special behavior
+            they implement; inside of THOSE are SampleAdventure folders that can be copied verbatim into the Eamon CS Adventures directory (overwriting any existing SampleAdventure) and recompiled.  Then you can send a character into
+            Sample Adventure to test the new behavior as you usually would.  Using the Visual Studio debugger to step through the code is possible if you compile the game in Debug mode.
+        </p>
+        <p>
+            As time goes on, hopefully, this SampleAdventures directory will supplement the as-yet-unwritten Eamon CS Dungeon Designers Manual and fill up with many, many examples that demonstrate how to use Eamon CS to build customized
+            games.  If there are special requests for behaviors or effects, please let me know, and I will try to accommodate that.  Game designers can use _Unmodified\SampleAdventure as a basis for building new Sample Adventures, to
+            experiment with customized behaviors, or tinker with the Eamon CS system and familiarize themselves with it.  Please feel free to use any Sample Adventure code in your games as you see fit; submissions of interesting new
+            behaviors in the form of Sample Adventures are also welcome and encouraged.
+        </p>
+        <p>
+            Sample Adventure usage:
+        </p>
+       <pre>
+1. Ensure any character adventuring in Sample Adventure returns to the Main Hall
+2. Delete the Adventures\SampleAdventure folder
+3. Copy the desired SampleAdventures\*\SampleAdventure folder into the Adventures directory
+4. Open Eamon.Desktop.sln in Visual Studio 2022+
+5. Right-click on top-level Solution node Eamon.Desktop
+6. Choose context menu item Batch Build => Select All => Clean
+7. Right-click on top-level Solution node Eamon.Desktop
+8. Choose context menu item Build Solution (use Debug mode if you wish to step through the game using the Debugger)
+9. Send a character into Sample Adventure using the EnterMainHallUsingCatalog .bat or .sh file and the Test Adventures Menu</pre>
         <br />
     </body>
 </html>
