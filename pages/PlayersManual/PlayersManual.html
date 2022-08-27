@@ -168,10 +168,10 @@
             Adventurer's Guild website, located at <a href="https://eamonag.org">www.eamonag.org</a>, and also authored a high-quality Eamon adventure of his own.  As of this writing, the website is
             functional but appears to be under care and maintenance.
         </p>
+        <p>
             During its lifespan, The Wonderful World of Eamon was the basis for various porting efforts and at least a dozen side projects, some of which were far more sophisticated than the original system.  In addition to Donald Brown's
             commercialized derivative SwordThrust, the game can count among its progeny Eamon II, KnightQuest, Super Eamon, Imagery! and a host of others.  Information about these systems is available on the EAG website. However, the last of
             the BASIC games, Eamon Deluxe, stands out and requires a full accounting.
-        <p>
         </p>
         <p>
             Frank Black Production's Eamon Deluxe began in late 1997 as a project based on an advanced Apple II Eamon codebase and was first released on MS-DOS in mid-1998.  Initially, versions 1 and 2 were intended as a learning tool for the
@@ -205,10 +205,10 @@
             hand, for those who wish to explore ECS at a deeper technical level, you can do a Git clone of the repository to your local filesystem.  Note that, in either case, there isn't a formal installer to run as you would with many software packages;
             also, the game may not work due to dependencies missing on your system.  But any issues encountered can be quickly resolved.  See the PREREQUISITES, and POST-INSTALLATION TOPICS sections of the
             <a href="../TechnicalPaper/TechnicalPaper.html">Technical Paper</a> found on the Eamon CS website for more details.
+        </p>
         <p>
             The QuickLaunch folder contains a variety of .bat and .sh files, organized by game subsystem.  To run Eamon CS, you find the appropriate file and double-click it; a console window opens, allowing interaction with the game.  The BATCH FILES
             section of the previously mentioned Technical Paper provides further insight.
-        </p>
         </p>
         <a name="ECSPM1_3"></a>
         <h4>1.3 INSTALLING UPDATES</h4>
@@ -362,6 +362,7 @@
         <p>
             In most cases, armor is factored in as "hits absorbed" from an attack, meaning the wearer has a certain amount of damage deducted from the total applied when struck in combat. The basic "armor class" and the hits deducted by each are as follows:
         </p>
+        <p>
         <pre>
       Armor Class   Name  Hits Absorbed
      -----------------------------------
@@ -372,7 +373,7 @@
       6 ............Plate ........5
       8 ............Magic ........6
         </pre>
-        </p> 
+        </p>
         <p>
             Armor also affects the odds of opponents striking each other in combat (after all, one isn't as agile when fighting inside a tin can!). Characters have abilities that often start in a lower range but increase to highly skilled levels given time and
             experience. Non-character combatants are also affected by weapon quality and armor encumbrance factors, but it is assumed they are skilled on an average level. The actual effect of worn armor on a combatant's chances to hit their opponent is
@@ -404,14 +405,14 @@
         </p>
         <p>
         <pre>
-Armor Class    Name     Hits Absorbed     Odds Adjustment
------------------------------------------------------------
-    0 .........None ...........0 .................0%
-    1 .........Shield .........1 ................-5%
-    2 .........Leather ........1 ................-10%
-    4 .........Chain ..........2 ................-20%
-    6 .........Plate ..........5 ................-60%
-    8 .........Magic ..........6 ................-60%
+     Armor Class    Name     Hits Absorbed     Odds Adjustment
+     -----------------------------------------------------------
+         0 .........None ...........0 .................0%
+         1 .........Shield .........1 ................-5%
+         2 .........Leather ........1 ................-10%
+         4 .........Chain ..........2 ................-20%
+         6 .........Plate ..........5 ................-60%
+         8 .........Magic ..........6 ................-60%
         </pre>
         </p> 
         <p>

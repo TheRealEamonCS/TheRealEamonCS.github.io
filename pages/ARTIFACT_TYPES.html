@@ -68,7 +68,9 @@ is all USER fields, the rest of the format fields 1-5 contain the following.
 
 ^ -- Controls display of container contents in all lists.  Example:  You also
      notice a mountain backpack [with "???" inside it].  Without special programming,
-     this behavior occurs for In Containers only when they are open.
+     this behavior occurs for In Containers only when they are open.  For Display Code 3,
+     the GetMaxContentsNameListCount method controls the number of allowed content list
+     names; beyond that, the system will use "something"/"some stuff".
 
                         Contents Artifact Count
   Display Code            1                &gt; 1
@@ -76,6 +78,7 @@ is all USER fields, the rest of the format fields 1-5 contain the following.
        0           [None/Disabled]   [None/Disabled]
        1           "something"       "some stuff"
        2           [Artifact Name]   "some stuff"
+       3           [Artifact Name]   [Artifact Name List]
 
 * -- 0=Can't be taken, 1=Can be. Should ALWAYS be 0 unless the body serves some
      sort of special function (such as collecting rewards, etc.).
