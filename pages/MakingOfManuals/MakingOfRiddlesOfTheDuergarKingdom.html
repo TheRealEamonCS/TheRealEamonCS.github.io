@@ -175,9 +175,9 @@
             more detail on these topics.
         </p>
         <p>
-            Another sophisticated form of Effect chaining injects text strings returned by functions stored in the <code>Eamon.Game.Engine.MacroFuncs</code> dictionary. Introduction stories that utilize this technique can change based on
-            game state, for example, the use of the player character's name in Wrenhold's Secret Vigil. These lookups are specified by @YYY or @@YYY link codes, mirroring the other codes' text injection behavior. In this case, YYY must be
-            unique as it represents the dictionary key of each function. Functions are usually carefully-written lambdas added to <code>MacroFuncs</code> during game initialization.
+            Another sophisticated form of Effect chaining injects text strings returned by functions stored in the <code>Eamon.Game.Plugin.Engine.MacroFuncs</code> dictionary. Introduction stories that utilize this technique can change
+            based on game state, for example, the use of the player character's name in Wrenhold's Secret Vigil. These lookups are specified by @YYY or @@YYY link codes, mirroring the other codes' text injection behavior. In this case,
+            YYY must be unique as it represents the dictionary key of each function. Functions are usually carefully-written lambdas added to <code>MacroFuncs</code> during game initialization.
         </p>
         <p>
             You should be aware of the <code>EamonRT.Game.IntroStory</code> class, which implements the introduction story behavior for Eamon CS. This class supports both "Beginner's stories" - which prevent overpowered characters from
