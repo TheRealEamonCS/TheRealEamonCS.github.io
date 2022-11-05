@@ -435,9 +435,55 @@
           White Text on Black Blackground or (as shown in this document) vice versa is always a good choice. Once you are happy with the settings, click OK, and they should persist across ECS programs.
        </p>
 	   <p>
-          <b>IMPORTANT NOTE:</b> The newest versions of Windows (10+) contain a rewritten Command console program that includes a Terminal Tab.  The Inverse Color radio button, selected by default, interacts with the Eamon CS
+          <b>IMPORTANT NOTE:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab.  The Inverse Color radio button, selected by default, interacts with the Eamon CS
           cursor handling logic to produce unsightly cursor artifacts when the Enter key is pressed.  This intermittent bug, extensively researched over the years, has no known programmatic solution - only workarounds are
-          available.  The suspicion is this has to do with an interplay between cursor positioning, screen output, and the enhanced terminal logic in the new Command console program - but there's no way of knowing.
+          available.  It is suspected this has to do with an obscure interplay between cursor positioning, screen output, and the enhanced terminal behavior in the new Console program.
+       </p>
+       <p>
+          Of the two available workarounds, the first is highly preferred because it implements the abovementioned settings.  By matching the cursor color to the text color of the Console, the gameplay experience will be as
+          intended.  You can do the following:          
+       </p>
+       <ol>
+          <li>Right-click on the title bar of any Console running Eamon CS and select Properties.</li>
+          <br />
+          <li>Click on the Colors Tab.</li>
+          <br />
+          <li>Click the Screen Text radio button and then your text color in the color bar; note the Red, Green, and Blue values in the Selected Color Values section.</li>
+       </ol>
+       <br />
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties03.jpg" alt="ECSProperties03.jpg" src="../../assets/images/TechnicalPaper/ECSProperties03.jpg" /></div>
+       <br />
+       <ol start="4">
+          <li>Click on the Terminal Tab.</li>
+          <br />
+          <li>In the Cursor Colors section, click the Use Color radio button.</li>
+          <br />
+          <li>For the Red, Green, and Blue settings, fill in the respective colors of your text noted in Step 3.  Then click OK.</li>
+       </ol>
+       <br />
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties04.jpg" alt="ECSProperties04.jpg" src="../../assets/images/TechnicalPaper/ECSProperties04.jpg" /></div>
+       <br />
+       <ol start="7">
+          <li>Exit and restart the game, the cursor artifacts should be gone, and the settings should persist across sessions.</li>
+       </ol>
+       <p>
+          The second workaround is a last resort in case everything else fails.  The legacy Console is still available for programs incompatible with the new Console.  You can do the following:
+       </p>
+       <ol>
+          <li>Right-click on the title bar of any Console running Eamon CS and select Properties.</li>
+          <br />
+          <li>Click on the Options Tab.</li>
+          <br />
+          <li>Click the Use legacy console checkbox, then click OK.</li>
+       </ol>
+       <br />
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties05.jpg" alt="ECSProperties05.jpg" src="../../assets/images/TechnicalPaper/ECSProperties05.jpg" /></div>
+       <br />
+       <ol start="4">
+          <li>Exit and restart the game; the cursor artifacts should be gone.</li>
+       </ol>
+       <p>
+          Unfortunately, the legacy Console also has some bugs in it; it appears that settings like font aren't persisted across sessions, so it is a flawed fix.  But it is still worth mentioning.
        </p>
        <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
