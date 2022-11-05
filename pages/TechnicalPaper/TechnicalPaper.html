@@ -344,12 +344,12 @@
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-          Eamon CS runs as a set of 64-bit Console applications. It became apparent during development that the default settings for Console windows are not ideal when playing a text-based game. The system tries to adjust the window size
-          to an optimal setting, but you may wish to experiment with the other settings to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay as well as the ease of use
-          for tools like EamonDD. This topic is highly subjective, but the following ideas produced some interesting results:
+          Eamon CS runs as a set of 64-bit Console applications. It became apparent during development that the default settings for Console windows could be better when playing a text-based game. The system tries to adjust the window
+          size to an optimal setting, but you may wish to experiment with the other settings to see what appeals to you. Strangely enough, aesthetics make a big difference in the quality of the gameplay and the ease of use for tools like
+          EamonDD. Of course, this topic is highly subjective, but the following ideas produced some interesting results:
        </p>
        <ol>
-          <li>When running ECS, right-click on the Console window title bar and choose properties. Windows 10 provides the following settings; the properties available on other versions may differ.</li>
+          <li>When running ECS, right-click on the Console window title bar and choose Properties. Windows 10 provides the following settings; the Properties available on other versions may differ.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties.jpg" alt="ECSProperties.jpg" src="../../assets/images/TechnicalPaper/ECSProperties.jpg" /></div>
@@ -430,11 +430,14 @@
           </ol>
        </ol>
        <p>
-          Eamon CS tries to set the values on the Layout Tab to those shown above, so you shouldn't need to change them. The Screen Buffer Width and Window Width should always be 80 columns. The Screen Buffer Height is strongly suggested
-          to be 9999. The Screen Text shown above is Green with a Black background and has a retro-vibe, like an Apple II monitor. If you prefer amber, the RGB values [255,165,0] might work for you. As time has passed, I settled on a
-          white background with black text, as shown in the various images in this document. The newest versions of Windows (10+) contain a rewritten Console program that includes a Terminal Tab. The Inverse Color radio button, which is
-          selected by default, interacts with the Eamon CS cursor handling logic to produce unsightly cursor artifacts when the Enter key is pressed. To work around this, you should select the Use Color radio button and match the cursor
-          color to the Screen Text color. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
+          Eamon CS tries to set the values on the Layout Tab to those shown above, so you shouldn't need to change them. The Screen Buffer Width and Window Width should always be 80 columns. The Screen Buffer Height is strongly
+          suggested to be 9999. The Screen Text shown above is Green with a Black background and has a retro vibe, like an Apple II monitor, but if you prefer amber, the RGB values [255,165,0] might work. Lastly, the classic
+          White Text on Black Blackground or (as shown in this document) vice versa is always a good choice. Once you are happy with the settings, click OK, and they should persist across ECS programs.
+       </p>
+	   <p>
+          <b>IMPORTANT NOTE:</b> The newest versions of Windows (10+) contain a rewritten Command console program that includes a Terminal Tab.  The Inverse Color radio button, selected by default, interacts with the Eamon CS
+          cursor handling logic to produce unsightly cursor artifacts when the Enter key is pressed.  This intermittent bug, extensively researched over the years, has no known programmatic solution - only workarounds are
+          available.  The suspicion is this has to do with an interplay between cursor positioning, screen output, and the enhanced terminal logic in the new Command console program - but there's no way of knowing.
        </p>
        <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
