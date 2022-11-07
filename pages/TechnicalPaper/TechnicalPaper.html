@@ -227,18 +227,18 @@
        </table>
        <br />
        <p>
-          Conceptually, each plugin is a discrete program.&nbsp; It exposes a Program class with a Main method that takes a collection of arguments, much like any C-based program.&nbsp; The difference is that the Plugin Manager is what
-          "executes" the plugin, not the calling C# environment.&nbsp; At the bottom of the software stack, you have Polenter.SharpSerializer.dll which handles loading and saving of the game's datafiles and Eamon.dll which holds code
-          common to all ECS plugins.&nbsp; EamonRT.dll contains the vanilla game engine used by all non-customized adventures.&nbsp; For customized adventures, the game plugin (e.g., TheBeginnersCave.dll) contains custom code specific to
-          that game, built by leveraging EamonRT.dll.&nbsp; It is a "modded" version of the game engine.
+          Conceptually, each plugin is a discrete program.  It exposes a Program class with a Main method that takes arguments, much like any C-based program.  The difference is the Plugin Manager "executes" the plugin, not the calling
+          C# environment.  Polenter.SharpSerializer.dll sits at the bottom of the software stack, loading and saving the game's datafiles.  Above that is Eamon.dll which holds code common to all ECS plugins.  EamonRT.dll contains the
+          default game engine used by all non-customized adventures.  For customized adventures, the game plugin (e.g., TheBeginnersCave.dll) contains custom code specific to that game, built by leveraging EamonRT.dll.  It is a "modded"
+          version of the game engine.
        </p>
        <p>Plugins can share any logic with this implementation.&nbsp; For example, an interesting idea would be to create a "campaign library" that contains shared code for many derived adventures.</p>
        <p>The source code for Plugin Managers and system plugins resides in the appropriate directory under System; for adventures, it is in the adventure-specific directory under Adventures.</p>
-       <p>The Main Hall datafiles reside in System\Bin, making them easily accessible to all plugins.&nbsp; Game-specific datafiles (both original and save game) reside under Adventures in their respective game directories.</p>
+       <p>The Main Hall datafiles reside in System\Bin, making them easily accessible to all plugins.&nbsp; Game-specific datafiles (original and save game) reside under Adventures in their respective game directories.</p>
        <p>
           Here is a final note on the architectural differences between ECS Desktop and Mobile.&nbsp; For Desktop, the plugins reside in the System\Bin directory and are loaded by EamonPM.WindowsUnix.dll only when needed (and reused once
           loaded).&nbsp; In contrast, when building EamonPM.Android-Signed.apk, all plugins are statically linked in, and all datafiles are embedded, producing a monolithic application.&nbsp; When delivering the .apk onto the mobile
-          device, the datafiles copy (when appropriate) to the device's file system - the plugins remain part of the application.&nbsp; In spite of this, the plugin managers are very similar internally.
+          device, the datafiles copy (when appropriate) to the device's file system - the plugins remain part of the application.&nbsp; Despite this, the plugin managers are very similar internally.
        </p>
        <a name="ECSTP5"></a>
        <h4>BATCH FILES</h4>
@@ -491,8 +491,8 @@
        </p>
        <p>
           You can think of the enhanced parser as a two-layer system. The top layer takes a sequence of commands as a sentence, splits them apart, and feeds them to the bottom layer one at a time. The bottom layer, which provides legacy
-          parsing for Eamon CS, takes a simple command in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] and executes it. This design fits nicely within the existing game engine framework, with the added benefit of allowing the
-          enhanced parser (the top layer) to be toggled on or off, depending on your preferences. But it also has some nuances that are worth noting:
+          parsing for Eamon CS, takes a simple command in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] and executes it. This design fits nicely within the existing game engine framework, allowing the enhanced parser (the top
+          layer) to be toggled on or off, depending on your preferences. But it also has some nuances that are worth noting:
        </p>
        <ul>
           <li>
