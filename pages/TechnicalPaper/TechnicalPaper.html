@@ -77,7 +77,7 @@
        <p>For gamers who want to play:</p>
        <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.10-windows-x64-installer">Microsoft .NET 6 Runtime</a>
        <p>
-          <b>Note:</b>&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 6.X), see the <a href="#ECSTP3">Post-Installation Topics</a> section for details on how to do that.
+          Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 6.X), see the <a href="#ECSTP3">Post-Installation Topics</a> section for details on how to do that.
        </p>
        <p>A second disadvantage on Windows leads to a helpful tip regarding the downloaded .zip file.&nbsp; You should always right-click on the .zip file and select "unblock" to avoid the security warnings, as shown below:</p>
        <br />
@@ -113,7 +113,7 @@
           After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
        </p>
        <p>
-          Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to autodetect .NET Core correctly. Simply change the value highlighted in the following screenshots to your major
+          Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to autodetect .NET Core correctly. Change the value highlighted in the following screenshots to your major
           .NET version (e.g., use 2 for .NET Core 2.1), then save the files.
 	   </p>
        <br />
@@ -338,8 +338,8 @@
           <sup>1</sup> Run these batch files to create a new character or send an existing one into the Main Hall. The only difference between the two batch files is the nature of the adventure database loaded (the same characters will be
           available regardless).
        </p>
-       <p><sup>2</sup> Run these batch files to return to an in-progress adventure. Use the RESTORE command to pick up where you left off.</p>
-       <p>You can study the batch files to see how the system launches various programs. You can also create new batch files using these as templates if you decide to write adventures or run the system in a non-default manner.</p>
+       <p><sup>2</sup> Run these batch files to return to an in-progress adventure. Then, use the RESTORE command to pick up where you left off.</p>
+       <p>You can study the batch files to see how the system launches various programs. You can also create new batch files using these as templates if you write adventures or run the system in a non-default manner.</p>
        <p>Eamon CS Mobile mirrors this QuickLaunch hierarchy using a series of ListViews to provide a similar experience.</p>
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
@@ -497,67 +497,66 @@
        <ul>
           <li>
              The sentence must contain commands in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT], joined together by one or more of the following tokens (in any combination): ".", "!", "?", ";", ",", "and", "then", "also".
-             Additionally, [DIRECT OBJECT] can be a list of direct objects, separated by these same tokens.
+             Additionally, [DIRECT OBJECT] can be a list of direct objects separated by these same tokens.
           </li>
           <br />
           <li>If the parser encounters an "out-of-band" command (such as INFO, STATUS, SAVE, RESTORE, etc.) that is not the first command in the sentence, it will discard that command and all that follow it.</li>
           <br />
-          <li>If the parser encounters a movement command in the sentence, it will discard all commands that follow it. This restriction is for technical reasons and may be lifted at a later date.</li>
+          <li>If the parser encounters a movement command in the sentence, it will discard all commands that follow it. This restriction is for technical reasons and may be lifted later.</li>
           <br />
           <li>
-             Pronouns are set to the last appropriate monster or artifact referenced on a command by command basis, giving preference to the direct object (but note the IobjPronounAffinity flag). "Him" and "her" will refer to monsters
+             Pronouns are set to the last appropriate monster or artifact referenced on a command-by-command basis, giving preference to the direct object (but note the IobjPronounAffinity flag). "Him" and "her" will refer to monsters
              with the corresponding gender. "It" and "that" will refer to singular monsters or artifacts. "Them" and "those" will refer to group monsters, plural artifacts, and direct object lists.
           </li>
           <br />
           <li>
-             The changing of pronoun references may lead to unexpected results when processing long, complex sentences. In that case, you can avoid (over) using pronouns or enable the ShowPronounChanges flag to get a better idea of what
-             the parser is doing and when - see below.
+             Changing pronoun references may lead to unexpected results when processing long, complex sentences. In that case, you can avoid (over) using pronouns or enable the ShowPronounChanges flag to understand better what the
+             parser is doing and when - see below.
           </li>
           <br />
           <li>Pronoun references are reset when moving between rooms and after the RESTORE command is used.</li>
           <br />
           <li>
-             While IF parsers typically use recursive descent and syntax trees, the enhanced parser is more like a sophisticated macro preprocessor. That means it doesn't have as much information available and works by keeping track
-             of context and previous player input. Consequently, it can become confused in rare circumstances, depending on player input and the objects it can access. But this situation will likely improve in due time.
+             While IF parsers typically use recursive descent and syntax trees, the enhanced parser is more like a sophisticated macro preprocessor. That means it doesn't have as much information and works by keeping track of context
+             and previous player input. Consequently, it can become confused in rare circumstances, depending on player input and the objects it can access. But this situation will likely improve in due time.
           </li>
           <br />
           <li>
              New flags are available in the SETTINGS command related to the enhanced parser. You can revert to legacy Eamon CS parsing by using the EnhancedParser flag. The IobjPronounAffinity flag indicates whether preference should
-             be given to the indirect object (where available) when setting pronouns. The ShowPronounChanges and ShowFulfillMessages flags, originally intended to aid in debugging, have been made available due to their general utility.
-             These enable or disable detailed messages from the parser as it goes about its work.
+             be given to the indirect object (where available) when setting pronouns. Finally, the ShowPronounChanges and ShowFulfillMessages flags, intended initially to aid debugging, have been made available due to their general
+             utility. These enable or disable detailed messages from the parser as it goes about its work.
           </li>
        </ul>
-       <p>A document called ENHANCED_PARSER_DEMO on the Eamon CS website shows the enhanced parser being used in Test Adventure. You can refer to this transcript to get an idea of what it can do.</p>
+       <p>A document called ENHANCED_PARSER_DEMO on the Eamon CS website shows the enhanced parser used in Test Adventure. You can refer to this transcript to understand what it can do.</p>
        <p>
           The Eamon CS legacy parser has been enhanced to allow more flexible input. You can enter stuff like "PUT my sword INSIDE my backpack" or "OPEN that jewelry box" or "ATTACK the rats" or "GIVE the spices TO the hermit." The
-          standard [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] pattern of Eamon Deluxe remains, but ECS will discard the articles before processing further. Even though it is more typing, some players may find it more immersive. Of
+          standard [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] pattern of Eamon Deluxe remains, but ECS will discard the articles before further processing. Even though it is more typing, some players may find it more immersive. Of
           course, you can always use the compact syntax if you prefer.
        </p>
        <p>
-          The Eamon CS game engine has been enhanced to support a variety of container artifact types. You can store contents in, on, under, or behind, depending on the container. Under and Behind Containers are similar to In Containers,
-          but cannot be opened or closed and have no key. On Containers have special behavior, the contents are exposed and can be manipulated using any standard command.
+          The Eamon CS game engine has been enhanced to support a variety of container artifact types. Depending on the container, you can store contents in, on, under, or behind. Under and Behind Containers are similar to
+          In Containers but cannot be opened or closed and have no key. On Containers have special behavior, the contents are exposed and can be manipulated using any standard command.
        </p>
        <p>The game engine also contains some new commands, summarized below:</p>
        <ol>
           <li>"INFO" gives information about the played adventure.</li>
           <br />
           <li>
-             "SETTINGS" allows you to control a variety of general and game-specific configuration options. You can change your settings at any point. It is a good idea to use this command when a game is started to see what's available
-             to you.
+             "SETTINGS" allows you to control various general and game-specific configuration options. You can change your settings at any point. Using this command to see what's available to you when a game starts is a good idea.
           </li>
           <br />
           <li>
-             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 2.1 GENERAL HELP and EAMON CS 2.1 NEW COMMANDS as these hints may be subtly different than their Eamon Deluxe
+             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 2.1 GENERAL HELP and EAMON CS 2.1 NEW COMMANDS, as these hints may be subtly different than their Eamon Deluxe
              counterparts. Consider the following:
           </li>
           <br />
           <li>"GO" [door] allows you to pass through a free-standing non-directional door (e.g., the overgrown path in Test Adventure).</li>
           <br />
-          <li>"INVENTORY" [container] is a parallel to "INVENTORY" [monster]. This command lists the container's contents, and typically only works with In Containers and On Containers.</li>
+          <li>"INVENTORY" [container] is a parallel to "INVENTORY" [monster]. This command lists the container's contents and typically only works with In Containers and On Containers.</li>
           <br />
           <li>
-             "EXAMINE" or "LOOK" [in|on|under|behind] [container] can also be used to list the contents of a container. These verbs are sensitive to the preposition used and will display the appropriate content list if any. There are a
-             variety of prepositional synonyms available. If you use a preposition unrelated to containment (or none at all), it will result in the default behavior where the description is displayed.
+             "EXAMINE" or "LOOK" [in|on|under|behind] [container] can also be used to list the contents of a container. These verbs are sensitive to the preposition used and will display the appropriate content list, if any. There are a
+             variety of prepositional synonyms available. Using a preposition unrelated to containment (or none) will result in the default behavior where the description is displayed.
           </li>
        </ol>
        <a name="ECSTP8"></a>
@@ -647,11 +646,8 @@
        <ol start="9">
           <li>
              In the Debug General section, click Open debug launch profiles UI and set the Command line arguments to the appropriate string. In this case, the string comes directly from ResumeTheBeginnersCave.bat. Make sure you save
-             the changes (click the icon inside the red circle).
-             <br />
-             <br />
-             <b>Side Note:</b> You can use any string from any .bat file, depending on which program you want to step through, including the Main Hall or the Dungeon Designer. You don't need to send a character on an adventure first
-             to debug these. See the last two examples below.
+             the changes (click the icon inside the red circle). Side Note: You can use any string from any .bat file, depending on which program you want to step through, including the Main Hall or the Dungeon Designer. You don't
+             need to send a character on an adventure first to debug these. See the last two examples below.
           </li>
        </ol>
        <br />
