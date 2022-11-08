@@ -600,8 +600,8 @@
           </li>
           <br />
           <li>
-             In the development directory or branch run EnterMainHallUsingAdventures.bat, and send a character into the adventure you want to step through. You can save the game if you wish, but it is not required; only that the
-             character remains in the adventure. Quit the game, but don't Quit Hall. In this example, we'll step through The Beginner's Cave.
+             In the development directory or branch, run EnterMainHallUsingAdventures.bat and send a character into the adventure you want to step through. You can save the game if you wish, but it is not required, only that the
+             character remains in the adventure. Finally, quit the game, but don't Quit Hall. In this example, we'll step through The Beginner's Cave.
           </li>
        </ol>
        <br />
@@ -626,7 +626,7 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBatchBuildClean.jpg" alt="VSBatchBuildClean.jpg" src="../../assets/images/TechnicalPaper/VSBatchBuildClean.jpg" /></div>
        <br />
        <ol start="6">
-          <li>Ensure the system is in Debug mode (shown inside red circle). In the Eamon.Desktop solution, right-click on the Solution node and click Build Solution.</li>
+          <li>Ensure the system is in Debug mode (shown inside the red circle). In the Eamon.Desktop solution, right-click on the Solution node and click Build Solution.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBuildSolutionDebug.jpg" alt="VSBuildSolutionDebug.jpg" src="../../assets/images/TechnicalPaper/VSBuildSolutionDebug.jpg" /></div>
@@ -646,7 +646,7 @@
        <ol start="9">
           <li>
              In the Debug General section, click Open debug launch profiles UI and set the Command line arguments to the appropriate string. In this case, the string comes directly from ResumeTheBeginnersCave.bat. Make sure you save
-             the changes (click the icon inside the red circle). Side Note: You can use any string from any .bat file, depending on which program you want to step through, including the Main Hall or the Dungeon Designer. You don't
+             the changes (click the icon inside the red circle). Side note: You can use any string from any .bat file, depending on which program you want to step through, including the Main Hall or the Dungeon Designer. You don't
              need to send a character on an adventure first to debug these. See the last two examples below.
           </li>
        </ol>
@@ -664,8 +664,8 @@
        <br />
        <ol start="10">
           <li>
-             Put your breakpoints in the code. In the following examples, the program will break just as it enters the game's main loop, as an attack occurs in combat and in the ReadCommand subclass of The Beginner's Cave. You can set
-             breakpoints anywhere you like in the running program; in our case, that includes EamonRT.dll and TheBeginnersCave.dll.
+             Put your breakpoints in the code. In the following examples, the program will break just as it enters the game's main loop, as an attack occurs in combat and also in the ReadCommand subclass of The Beginner's Cave. Of
+             course, you can set breakpoints anywhere you like in the running program; in our case, that includes EamonRT.dll and TheBeginnersCave.dll.
           </li>
        </ol>
        <br />
@@ -679,8 +679,8 @@
        <br />
        <ol start="11">
           <li>
-             Press F5 to run the program. The game will launch just as if you had double-clicked the ResumeTheBeginnersCave.bat file. If you saved any games, you can restore them at this point as you typically would. You can also
-             start the program or step through it line by line at any point using F10 (step over) or F11 (step into).
+             Press F5 to run the program. The game will launch just as if you had double-clicked the ResumeTheBeginnersCave.bat file. If you saved any games, you can restore them at this point as you typically would. You can also start the
+             program and step through it line by line using F10 (step over) or F11 (step into).
           </li>
        </ol>
        <a name="ECSTP10"></a>
