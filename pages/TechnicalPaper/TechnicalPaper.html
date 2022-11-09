@@ -781,8 +781,8 @@
        <br />
        <ol start="2">
           <li>
-             The code generator places classes and interfaces (circled in red) in the adventure folder. The system automatically builds a directory hierarchy that mirrors the Eamon CS base libraries. Classes go under the Game folder,
-             interfaces under Framework. At this point, you can add your custom code.
+             The code generator places classes and interfaces (circled in red) in the adventure folder. The system automatically builds a directory hierarchy that mirrors the Eamon CS base libraries. Classes go under the Game folder, and
+             interfaces go under Framework. At this point, you can add your custom code.
           </li>
        </ol>
        <br />
@@ -790,8 +790,8 @@
        <br />
        <ol start="3">
           <li>
-             The following screenshots show what the code generator produced. If you compare this output with the games in Eamon.Desktop, you will quickly see parallels between them. You can fix anything Intellisense flags as invalid
-             and hover the cursor over critical parts of the code to ensure it is correct.
+             The following screenshots show what the code generator produced. When you compare this output with the games in Eamon.Desktop, you will quickly see parallels between them. You can fix anything Intellisense flags as invalid and
+             hover the cursor over critical parts of the code to ensure it is correct.
           </li>
        </ol>
        <br />
@@ -846,13 +846,13 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses.jpg" alt="DeleteClasses.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses.jpg" /></div>
        <br />
        <ol start="2">
-          <li>The classes selected for deletion are no longer in the project, and their matching interfaces are gone as well.</li>
+          <li>The classes selected for deletion are no longer in the project, and their matching interfaces are also gone.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses02.jpg" alt="DeleteClasses02.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses02.jpg" /></div>
        <br />
        <ol start="3">
-          <li>One of the deleted classes, Hint.cs, has a matching HINTS.DAT file. Notice that the data type is no longer WalledCityOfDarkness.Game.Hint but was reverted to the parent class Eamon.Game.Hint.</li>
+          <li>One deleted class, Hint.cs, has a matching HINTS.DAT file. Notice that the data type is no longer WalledCityOfDarkness.Game.Hint but was reverted to the parent class Eamon.Game.Hint.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses03.jpg" alt="DeleteClasses03.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses03.jpg" /></div>
@@ -871,7 +871,7 @@
           <li>Deletes the game folder under Adventures</li>
           <li>Deletes the game QuickLaunch .bat and .sh files</li>
        </ul>
-       <p>As you might expect, once a game has been deleted its data is not recoverable by normal means.</p>
+       <p>As you might expect, once a game has been deleted, its data is not recoverable by normal means.</p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteGame.jpg" alt="DeleteGame.jpg" src="../../assets/images/TechnicalPaper/DeleteGame.jpg" /></div>
        <br />
