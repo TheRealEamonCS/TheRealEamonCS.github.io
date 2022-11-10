@@ -198,35 +198,34 @@
         <a name="ECSPM1_2"></a>
         <h4>1.2 INSTALLING AND RUNNING EAMON CS</h4>
         <p>
-            There are primarily two ways to "install" Eamon CS, and the best way to do so depends on how you want to interact with the system.  For people who only want to create characters and go on adventures, but don't care to interact at the source
-            code level, the best course of action is probably to download the Eamon-CS-master.zip file.  This file can be obtained from GitHub using the green Code button and extracted to a unique directory, from which you can play the game. On the other
-            hand, for those who wish to explore ECS at a deeper technical level, you can do a Git clone of the repository to your local filesystem.  Note that, in either case, there isn't a formal installer to run as you would with many software packages;
-            also, the game may not work due to dependencies missing on your system.  But any issues encountered can be quickly resolved.  See the PREREQUISITES, and POST-INSTALLATION TOPICS sections of the
-            <a href="../TechnicalPaper/TechnicalPaper.html">Technical Paper</a> found on the Eamon CS website for more details.
+            There are primarily two ways to "install" Eamon CS, and the best way to do so depends on how you want to interact with the system. For people who only want to create characters and go on adventures, but don't care to interact at the source
+            code level, the best course of action is to download the Eamon-CS-master.zip file. This file can be obtained from GitHub using the green Code button and extracted to a unique directory from which you can play the game. On the other hand, for
+            those who wish to explore ECS at a deeper technical level, you can do a Git clone of the repository to your local filesystem. In either case, there isn't a formal installer to run as you would with many software packages; also, the game may
+            not work due to dependencies missing on your system. But any issues encountered can be quickly resolved. See the <a href="../TechnicalPaper/TechnicalPaper.html#ECSTP2">PREREQUISITES</a> and
+            <a href="../TechnicalPaper/TechnicalPaper.html#ECSTP3">POST-INSTALLATION TOPICS</a> sections of the Technical Paper found on the Eamon CS website for more details.
         </p>
         <p>
-            The QuickLaunch folder contains a variety of .bat and .sh files, organized by game subsystem.  To run Eamon CS, you find the appropriate file and double-click it; a console window opens, allowing interaction with the game.  The BATCH FILES
-            section of the previously mentioned Technical Paper provides further insight.
+            The QuickLaunch folder contains a variety of .bat and .sh files organized by game subsystem. To run Eamon CS, you find the appropriate file and double-click it; a console window opens, allowing interaction with the game. The
+            <a href="../TechnicalPaper/TechnicalPaper.html#ECSTP5">BATCH FILES</a> section of the previously mentioned Technical Paper provides further insight.
         </p>
         <a name="ECSPM1_3"></a>
         <h4>1.3 INSTALLING UPDATES</h4>
         <p>
-            Upgrading Eamon CS is usually a simple process, but before doing so, you should make sure no adventures are being played through; all characters must be in the Main Hall.  There is a CHARACTERS.DAT file in the System\Bin folder; this ensures
-            the file is in a stable state.
+            Upgrading Eamon CS is usually a simple process, but before doing so, you should make sure no adventures are being played through; all characters must be in the Main Hall. This ensures the CHARACTERS.DAT file in the System\Bin folder is stable.
         </p>
         <p>
-            For those who originally downloaded the Eamon-CS-master.zip file, you can obtain the latest version by visiting GitHub and downloading a new copy of it.  Extract the new Eamon-CS-master.zip file into a unique folder, and then overwrite the new
-            CHARACTERS.DAT file by copying the old file from the old repository.  If the CHARACTERS.DAT file structure has changed in the new system, the old file will transparently upgrade to the new format.  Your characters have now been transferred to
-            the upgraded Eamon CS system and are available for use.
+            For those who originally downloaded the Eamon-CS-master.zip file, you can obtain the latest version by visiting GitHub and downloading a new copy. Extract the new Eamon-CS-master.zip file into a unique folder, then overwrite the new CHARACTERS.DAT
+            file by copying the old file from the old repository. If the CHARACTERS.DAT file structure has changed in the new system, the old file will transparently upgrade to the new format. Your characters have now been transferred to the upgraded Eamon CS
+            system and are available for use.
         </p>
         <p>
-            If you are working with a Git-cloned Eamon CS repository, you should backup your CHARACTERS.DAT file before pulling the latest changes from the master branch.  Then copy the old CHARACTERS.DAT file back into your repository.  If you are working
-            off a branch, you will probably want to push the master changes into it.  Things can get tricky if you have made other changes to the repository; it is at your discretion what changes need to be kept, rolled back, or merged.  In this scenario,
-            you may wish to backup the whole repository before attempting to upgrade.
+            If you are working with a Git-cloned Eamon CS repository, you should back up your CHARACTERS.DAT file before pulling the latest changes from the master branch. Then copy the old CHARACTERS.DAT file back into your repository. If you are working off
+            a branch, you will probably want to push the master changes into it. Things can get tricky if you have made other changes to the repository; it is your discretion what changes need to be kept, rolled back, or merged. In this scenario, you should
+            back up the whole repository before upgrading.
         </p>
         <p>
-            A different process must be followed if you have done any adventure development and wish to migrate your work to the upgraded system.  First, you can use EamonDD's Adventure Support Menu and follow the steps to recreate each game in the new system.
-            Then, manually delete each newly created adventure folder under Adventures and copy your old adventure folder (with your ongoing work) into its place.  When you recompile your work-in-progress games in the new Eamon CS system, you may need to fix
+            You must follow a different process if you have done any adventure development and wish to migrate your work to the upgraded system. First, you can use EamonDD's Adventure Support Menu and follow the steps to recreate each game in the new system.
+            Then, manually delete each newly created adventure folder under Adventures and copy your old folder (with your ongoing work) into its place. Finally, when you recompile your work-in-progress games in the new Eamon CS system, you may need to fix
             errors if any breaking interface changes have occurred (but hopefully, these are stable at this point).
         </p>
         <a name="ECSPM2"></a>
@@ -236,9 +235,9 @@
             the laws of science itself! Strange things happen on Planet Eamon, and the citizens must always be adaptable, for things are rarely what they seem and quite often not the same as they were from one day to the next!
         </p>
         <p>
-            Eamon CS is played through characters who are imagined to be citizens of this weird world that belong to the famous Free Adventurer's Guild. Free Adventurers are men and women who have dared to seek their fortune in the marvelous world of
-            shifting laws and time. Players will often find their characters fighting terrible monsters such as orcs, trolls, and dragons and claiming various riches and treasures as their own. However, Planet Eamon is bound by no laws of time or
-            space, and anything can happen once an adventure has been started. At any random time, a character could end up facing such varied opponents as Billy the Kid or Darth Vader!
+            Eamon CS is played through characters who are imagined to be citizens of this weird world that belong to the famous Free Adventurer's Guild. Free Adventurers are men and women who have dared to seek their fortune in the marvelous world of shifting
+            laws and time. Players often find their characters fighting terrible monsters such as orcs, trolls, and dragons and claiming various riches and treasures as their own. However, Planet Eamon is bound by no laws of time or space, and anything can
+            happen once an adventure starts. At any random time, a character could face such varied opponents as Billy the Kid or Darth Vader!
         </p>
         <a name="ECSPM3"></a>
         <h4>3. BASIC CHARACTER ATTRIBUTES AND ABILITIES</h4>
