@@ -40,34 +40,34 @@
        <a name="ECSTP1"></a>
        <h4>PREFACE</h4>
        <p>
-          This document intends to describe the various facets of Eamon CS.&nbsp; The actual documentation will be a formal set: complete source code commenting, a Player's Manual, a Dungeon Designer's Manual, and a Class
-          Reference.&nbsp; It will take quite a while to put all that together, so in the meantime, this will suffice.
+          This document is intended to describe the various facets of Eamon CS.&nbsp; The real documentation will be a formal set:&nbsp; full source code commenting, a Player's Manual, a Dungeon Designer's Manual and a Class
+          Reference.&nbsp; It will take quite a while to put all that together, so in the meantime, hopefully, this will suffice.
        </p>
        <p>
           Eamon CS (ECS) is a port of the Eamon roleplaying game to the C# programming language.&nbsp; It is the production version of a prior system called Eamon AC (EAC), an ANSI C prototype intended to convert Eamon from BASIC.&nbsp;
           If you have EAC on your system, you should uninstall it before using ECS, as it is now obsolete.
        </p>
        <p>
-          This system is a hybrid of Donald Brown's Classic Eamon and the most modern BASIC Eamon available, Frank Black Production's Eamon Deluxe.&nbsp; It is also directly based on the EAC prototype.&nbsp; Eamon CS borrows from
-          and closely resembles all these sources in various areas.
+          This system is a hybrid of Donald Brown's Classic Eamon and the most modern BASIC Eamon available, Frank Black Production's Eamon Deluxe.&nbsp; It is also directly based on the EAC prototype.&nbsp; Eamon CS borrows liberally
+          from and bears a strong resemblance to all these sources in various areas.&nbsp;&nbsp;
        </p>
        <p>
           The game has evolved rapidly over its lifespan.&nbsp; First, it moved to a plugin-based architecture unique to this branch of Eamon, then into the various flavors of Unix, and most recently into the Android mobile device
-          space.&nbsp; The game engine has improved with each one of a small but growing collection of custom-built adventures created along the way.&nbsp; The different programs of Eamon CS share a common code base and are
-          collectively referred to as Eamon CS Desktop on traditional workstations and Eamon CS Mobile on mobile devices.
+          space.&nbsp; The game engine has improved with each one of a small but growing collection of custom-built adventures created along the way.&nbsp; The different programs of Eamon CS share a common code base and collectively
+          are referred to as Eamon CS Desktop on traditional workstations and Eamon CS Mobile on mobile devices.
        </p>
        <a name="ECSTP2"></a>
        <h4>PREREQUISITES</h4>
        <p>
-          Eamon CS lacks a formal installer; this has benefits and drawbacks.&nbsp; On the one hand, it's simple to set up for play, download the Eamon-CS-master.zip file and extract it (or Git Clone the repository).&nbsp; Also, it
-          means there's one less program to maintain, which frees up time for other things like engine enhancements or developing adventures.
+          As mentioned in the README.md file, Eamon CS has no formal installer.&nbsp; There are good points and bad points to this.&nbsp; On the one hand, it is a simple matter of unzipping the Eamon-CS-master.zip file downloaded from
+          GitHub to set up for play (if you did that, as opposed to doing a Git Clone).&nbsp; Also, it means there is no installer to maintain, which frees up time for other things like engine enhancements or developing adventures.
        </p>
        <p>
           A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not run when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
           The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to run on Windows, your first order of business
           should be to download and install the following files (in order):
        </p>
-       <p>For programmers who want to play, step through, or develop the source code:</p>
+       <p>For programmers who want to play, step-through, or develop the source code:</p>
        <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-offline-installer">Microsoft .NET Framework 4.8</a><br />
        <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=17">Microsoft Visual Studio Community 2022</a> (includes .NET 6 SDK)
        <ul>
@@ -79,7 +79,7 @@
        <p>
           Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 6.X), see the <a href="#ECSTP3">Post-Installation Topics</a> section for details on how to do that.
        </p>
-       <p>A second disadvantage on Windows leads to a helpful tip regarding the downloaded .zip file.&nbsp; You should always right-click on the .zip file and select "unblock" to avoid the security warnings, as shown below:</p>
+       <p>A second disadvantage on Windows leads to a useful tip regarding the downloaded .zip file.&nbsp; You should always right-click on the .zip file and select "unblock" to avoid the security warnings, as shown below:</p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UnblockECS.jpg" alt="UnblockECS.jpg" src="../../assets/images/TechnicalPaper/UnblockECS.jpg" /></div>
        <br />
@@ -113,7 +113,7 @@
           After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
        </p>
        <p>
-          Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to autodetect .NET Core correctly. Change the value highlighted in the following screenshots to your major
+          Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to autodetect .NET Core correctly. Simply change the value highlighted in the following screenshots to your major
           .NET version (e.g., use 2 for .NET Core 2.1), then save the files.
 	   </p>
        <br />
@@ -227,18 +227,18 @@
        </table>
        <br />
        <p>
-          Conceptually, each plugin is a discrete program.  It exposes a Program class with a Main method that takes arguments, much like any C-based program.  The difference is the Plugin Manager "executes" the plugin, not the calling
-          C# environment.  Polenter.SharpSerializer.dll sits at the bottom of the software stack, loading and saving the game's datafiles.  Above that is Eamon.dll which holds code common to all ECS plugins.  EamonRT.dll contains the
-          default game engine used by all non-customized adventures.  For customized adventures, the game plugin (e.g., TheBeginnersCave.dll) contains custom code specific to that game, built by leveraging EamonRT.dll.  It is a "modded"
-          version of the game engine.
+          Conceptually, each plugin is a discrete program.&nbsp; It exposes a Program class with a Main method that takes a collection of arguments, much like any C-based program.&nbsp; The difference is that the Plugin Manager is what
+          "executes" the plugin, not the calling C# environment.&nbsp; At the bottom of the software stack, you have Polenter.SharpSerializer.dll which handles loading and saving of the game's datafiles and Eamon.dll which holds code
+          common to all ECS plugins.&nbsp; EamonRT.dll contains the vanilla game engine used by all non-customized adventures.&nbsp; For customized adventures, the game plugin (e.g., TheBeginnersCave.dll) contains custom code specific to
+          that game, built by leveraging EamonRT.dll.&nbsp; It is a "modded" version of the game engine.
        </p>
        <p>Plugins can share any logic with this implementation.&nbsp; For example, an interesting idea would be to create a "campaign library" that contains shared code for many derived adventures.</p>
        <p>The source code for Plugin Managers and system plugins resides in the appropriate directory under System; for adventures, it is in the adventure-specific directory under Adventures.</p>
-       <p>The Main Hall datafiles reside in System\Bin, making them easily accessible to all plugins.&nbsp; Game-specific datafiles (original and save game) reside under Adventures in their respective game directories.</p>
+       <p>The Main Hall datafiles reside in System\Bin, making them easily accessible to all plugins.&nbsp; Game-specific datafiles (both original and save game) reside under Adventures in their respective game directories.</p>
        <p>
           Here is a final note on the architectural differences between ECS Desktop and Mobile.&nbsp; For Desktop, the plugins reside in the System\Bin directory and are loaded by EamonPM.WindowsUnix.dll only when needed (and reused once
           loaded).&nbsp; In contrast, when building EamonPM.Android-Signed.apk, all plugins are statically linked in, and all datafiles are embedded, producing a monolithic application.&nbsp; When delivering the .apk onto the mobile
-          device, the datafiles copy (when appropriate) to the device's file system - the plugins remain part of the application.&nbsp; Despite this, the plugin managers are very similar internally.
+          device, the datafiles copy (when appropriate) to the device's file system - the plugins remain part of the application.&nbsp; In spite of this, the plugin managers are very similar internally.
        </p>
        <a name="ECSTP5"></a>
        <h4>BATCH FILES</h4>
@@ -338,18 +338,18 @@
           <sup>1</sup> Run these batch files to create a new character or send an existing one into the Main Hall. The only difference between the two batch files is the nature of the adventure database loaded (the same characters will be
           available regardless).
        </p>
-       <p><sup>2</sup> Run these batch files to return to an in-progress adventure. Then, use the RESTORE command to pick up where you left off.</p>
-       <p>You can study the batch files to see how the system launches various programs. You can also create new batch files using these as templates if you write adventures or run the system in a non-default manner.</p>
+       <p><sup>2</sup> Run these batch files to return to an in-progress adventure. Use the RESTORE command to pick up where you left off.</p>
+       <p>You can study the batch files to see how the system launches various programs. You can also create new batch files using these as templates if you decide to write adventures or run the system in a non-default manner.</p>
        <p>Eamon CS Mobile mirrors this QuickLaunch hierarchy using a series of ListViews to provide a similar experience.</p>
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-          Eamon CS runs as a set of 64-bit Console applications. It became apparent during development that the default settings for Console windows could be better when playing a text-based game. The system tries to adjust the window
-          size to an optimal setting, but you may wish to experiment with the other settings to see what appeals to you. Strangely enough, aesthetics make a big difference in the quality of the gameplay and the ease of use for tools like
-          EamonDD. Of course, this topic is highly subjective, but the following ideas produced some interesting results:
+          Eamon CS runs as a set of 64-bit Console applications. It became apparent during development that the default settings for Console windows are not ideal when playing a text-based game. The system tries to adjust the window size
+          to an optimal setting, but you may wish to experiment with the other settings to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay as well as the ease of use
+          for tools like EamonDD. This topic is highly subjective, but the following ideas produced some interesting results:
        </p>
        <ol>
-          <li>When running ECS, right-click on the Console window title bar and choose Properties. Windows 10 provides the following settings; the Properties available on other versions may differ.</li>
+          <li>When running ECS, right-click on the Console window title bar and choose properties. Windows 10 provides the following settings; the properties available on other versions may differ.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties.jpg" alt="ECSProperties.jpg" src="../../assets/images/TechnicalPaper/ECSProperties.jpg" /></div>
@@ -430,9 +430,9 @@
           </ol>
        </ol>
        <p>
-          Eamon CS tries to set the values on the Layout Tab to those shown above, so you shouldn't need to change them. The Screen Buffer Width and Window Width should always be 80 columns. The Screen Buffer Height is strongly
-          suggested to be 9999. The Screen Text shown above is Green with a Black background and has a retro vibe, like an Apple II monitor, but if you prefer amber, the RGB values [255,165,0] might work. Lastly, the classic
-          White Text on Black Blackground or (as shown in this document) vice versa is always a good choice. Once you are happy with the settings, click OK, and they should persist across ECS programs.
+          Eamon CS tries to set the values on the Layout Tab to those shown above, so you shouldn't need to change them. The Screen Buffer Width and Window Width should always be 80 columns. The Screen Buffer Height is strongly suggested
+          to be 9999. The Screen Text shown above is Green with a Black background and has a retro-vibe, like an Apple II monitor. If you prefer amber, the RGB values [255,165,0] might work for you. As time has passed, I settled on a
+          white background with black text, as shown in the various images in this document. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
        </p>
 	   <p>
           <b>Important Note:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab. The Inverse Color radio button, selected by default, interacts poorly with Eamon CS
@@ -491,93 +491,95 @@
        </p>
        <p>
           You can think of the enhanced parser as a two-layer system. The top layer takes a sequence of commands as a sentence, splits them apart, and feeds them to the bottom layer one at a time. The bottom layer, which provides legacy
-          parsing for Eamon CS, takes a simple command in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] and executes it. This design fits nicely within the existing game engine framework, allowing the enhanced parser (the top
-          layer) to be toggled on or off, depending on your preferences. But it also has some nuances that are worth noting:
+          parsing for Eamon CS, takes a simple command in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] and executes it. This design fits nicely within the existing game engine framework, with the added benefit of allowing the
+          enhanced parser (the top layer) to be toggled on or off, depending on your preferences. But it also has some nuances that are worth noting:
        </p>
        <ul>
           <li>
              The sentence must contain commands in the form [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT], joined together by one or more of the following tokens (in any combination): ".", "!", "?", ";", ",", "and", "then", "also".
-             Additionally, [DIRECT OBJECT] can be a list of direct objects separated by these same tokens.
+             Additionally, [DIRECT OBJECT] can be a list of direct objects, separated by these same tokens.
           </li>
           <br />
           <li>If the parser encounters an "out-of-band" command (such as INFO, STATUS, SAVE, RESTORE, etc.) that is not the first command in the sentence, it will discard that command and all that follow it.</li>
           <br />
-          <li>If the parser encounters a movement command in the sentence, it will discard all commands that follow it. This restriction is for technical reasons and may be lifted later.</li>
+          <li>If the parser encounters a movement command in the sentence, it will discard all commands that follow it. This restriction is for technical reasons and may be lifted at a later date.</li>
           <br />
           <li>
-             Pronouns are set to the last appropriate monster or artifact referenced on a command-by-command basis, giving preference to the direct object (but note the IobjPronounAffinity flag). "Him" and "her" will refer to monsters
+             Pronouns are set to the last appropriate monster or artifact referenced on a command by command basis, giving preference to the direct object (but note the IobjPronounAffinity flag). "Him" and "her" will refer to monsters
              with the corresponding gender. "It" and "that" will refer to singular monsters or artifacts. "Them" and "those" will refer to group monsters, plural artifacts, and direct object lists.
           </li>
           <br />
           <li>
-             Changing pronoun references may lead to unexpected results when processing long, complex sentences. In that case, you can avoid (over) using pronouns or enable the ShowPronounChanges flag to understand better what the
-             parser is doing and when - see below.
+             The changing of pronoun references may lead to unexpected results when processing long, complex sentences. In that case, you can avoid (over) using pronouns or enable the ShowPronounChanges flag to get a better idea of what
+             the parser is doing and when - see below.
           </li>
           <br />
           <li>Pronoun references are reset when moving between rooms and after the RESTORE command is used.</li>
           <br />
           <li>
-             While IF parsers typically use recursive descent and syntax trees, the enhanced parser is more like a sophisticated macro preprocessor. That means it doesn't have as much information and works by keeping track of context
-             and previous player input. Consequently, it can become confused in rare circumstances, depending on player input and the objects it can access. But this situation will likely improve in due time.
+             While IF parsers typically use recursive descent and syntax trees, the enhanced parser is more like a sophisticated macro preprocessor. That means it doesn't have as much information available and works by keeping track
+             of context and previous player input. Consequently, it can become confused in rare circumstances, depending on player input and the objects it can access. But this situation will likely improve in due time.
           </li>
           <br />
           <li>
              New flags are available in the SETTINGS command related to the enhanced parser. You can revert to legacy Eamon CS parsing by using the EnhancedParser flag. The IobjPronounAffinity flag indicates whether preference should
-             be given to the indirect object (where available) when setting pronouns. Finally, the ShowPronounChanges and ShowFulfillMessages flags, intended initially to aid debugging, have been made available due to their general
-             utility. These enable or disable detailed messages from the parser as it goes about its work.
+             be given to the indirect object (where available) when setting pronouns. The ShowPronounChanges and ShowFulfillMessages flags, originally intended to aid in debugging, have been made available due to their general utility.
+             These enable or disable detailed messages from the parser as it goes about its work.
           </li>
        </ul>
-       <p>A document called ENHANCED_PARSER_DEMO on the Eamon CS website shows the enhanced parser used in Test Adventure. You can refer to this transcript to understand what it can do.</p>
+       <p>A document called ENHANCED_PARSER_DEMO on the Eamon CS website shows the enhanced parser being used in Test Adventure. You can refer to this transcript to get an idea of what it can do.</p>
        <p>
           The Eamon CS legacy parser has been enhanced to allow more flexible input. You can enter stuff like "PUT my sword INSIDE my backpack" or "OPEN that jewelry box" or "ATTACK the rats" or "GIVE the spices TO the hermit." The
-          standard [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] pattern of Eamon Deluxe remains, but ECS will discard the articles before further processing. Even though it is more typing, some players may find it more immersive. Of
+          standard [COMMAND] [DIRECT OBJECT] [INDIRECT OBJECT] pattern of Eamon Deluxe remains, but ECS will discard the articles before processing further. Even though it is more typing, some players may find it more immersive. Of
           course, you can always use the compact syntax if you prefer.
        </p>
        <p>
-          The Eamon CS game engine has been enhanced to support a variety of container artifact types. Depending on the container, you can store contents in, on, under, or behind. Under and Behind Containers are similar to
-          In Containers but cannot be opened or closed and have no key. On Containers have special behavior, the contents are exposed and can be manipulated using any standard command.
+          The Eamon CS game engine has been enhanced to support a variety of container artifact types. You can store contents in, on, under, or behind, depending on the container. Under and Behind Containers are similar to In Containers,
+          but cannot be opened or closed and have no key. On Containers have special behavior, the contents are exposed and can be manipulated using any standard command.
        </p>
        <p>The game engine also contains some new commands, summarized below:</p>
        <ol>
           <li>"INFO" gives information about the played adventure.</li>
           <br />
           <li>
-             "SETTINGS" allows you to control various general and game-specific configuration options. You can change your settings at any point. Using this command to see what's available to you when a game starts is a good idea.
+             "SETTINGS" allows you to control a variety of general and game-specific configuration options. You can change your settings at any point. It is a good idea to use this command when a game is started to see what's available
+             to you.
           </li>
           <br />
           <li>
-             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 2.1 GENERAL HELP and EAMON CS 2.1 NEW COMMANDS, as these hints may be subtly different than their Eamon Deluxe
+             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 2.1 GENERAL HELP and EAMON CS 2.1 NEW COMMANDS as these hints may be subtly different than their Eamon Deluxe
              counterparts. Consider the following:
           </li>
           <br />
           <li>"GO" [door] allows you to pass through a free-standing non-directional door (e.g., the overgrown path in Test Adventure).</li>
           <br />
-          <li>"INVENTORY" [container] is a parallel to "INVENTORY" [monster]. This command lists the container's contents and typically only works with In Containers and On Containers.</li>
+          <li>"INVENTORY" [container] is a parallel to "INVENTORY" [monster]. This command lists the container's contents, and typically only works with In Containers and On Containers.</li>
           <br />
           <li>
-             "EXAMINE" or "LOOK" [in|on|under|behind] [container] can also be used to list the contents of a container. These verbs are sensitive to the preposition used and will display the appropriate content list, if any. There are a
-             variety of prepositional synonyms available. Using a preposition unrelated to containment (or none) will result in the default behavior where the description is displayed.
+             "EXAMINE" or "LOOK" [in|on|under|behind] [container] can also be used to list the contents of a container. These verbs are sensitive to the preposition used and will display the appropriate content list if any. There are a
+             variety of prepositional synonyms available. If you use a preposition unrelated to containment (or none at all), it will result in the default behavior where the description is displayed.
           </li>
        </ol>
        <a name="ECSTP8"></a>
        <h4>QUICK ARCHITECTURAL OVERVIEW</h4>
        <p>
           The entire Eamon CS system was written from scratch and aggressively exploits the C# language. Not just a port, this is an expansive toolkit used to build games based on the Eamon ruleset. It has more in common with traditional
-          Interactive Fiction systems like TADS or Inform. Eamon CS games are built by sub-classing existing classes in any library/plugin, especially Eamon.dll or EamonRT.dll, and overriding default behavior where needed. You can inherit
-          from every class in the system and push generic improvements made to individual adventures back into the base framework for use by all games. As time goes on, the system will grow in flexibility and power.          
+          Interactive Fiction systems like TADS or Inform. Eamon CS games are built by sub-classing existing classes in any library/plugin, but especially Eamon.dll or EamonRT.dll, and overriding default behavior where needed. You can
+          subclass every class in the system, and generic improvements made to individual adventures can be pushed back into the base framework for use by all games. As time goes on, the system will grow in flexibility and power.
        </p>
        <p>
-          The datafile format used by Eamon CS deserves an explanation. The game produces ASCII XML files representing C# object graphs; each file is gzipped in an archive to conserve space. You can open these files using the 7-Zip utility
-          and right-click to get a context menu to View or Edit. In addition to storing data, these files play a critical role in developing customized adventures. For example, look in the MONSTERS.DAT file in the (non-customized) Test
-          Adventure, and you will see the serialized class is Eamon.Game.Monster from Eamon.dll. But in The Beginner's Cave, you will see it's TheBeginnersCave.Game.Monster from TheBeginnersCave.dll. These are two different classes; the
-          second is a subclass of the first and implements custom code that The Beginner's Cave explicitly uses. Also, compare the batch file EditTestAdventure.bat, which contains the command-line argument "-pfn EamonRT.dll" with
-          EditTheBeginnersCave.bat, which includes "-pfn TheBeginnersCave.dll". The first file instructs EamonDD to load the base game engine. The second loads TheBeginnersCave.dll and uses any customized classes it finds (like the Monster
-          class) when creating new objects. This whole topic is fairly complex and begs to be part of a formal document set, but at least this gives you an idea of how it works.
+          The datafile format used by Eamon CS deserves an explanation. The game produces ASCII XML files representing C# object graphs; each file is further gzipped in its own archive to conserve space. If needed, you can open these
+          files using the 7-Zip utility and right-click to get a context menu to View or Edit. In addition to storing data, these files play a critical role in the development of customized adventures. Take a look in the MONSTERS.DAT file
+          in Test Adventure (a non-customized adventure), and you will see the serialized class is Eamon.Game.Monster (from Eamon.dll). But in The Beginner's Cave, you will see its TheBeginnersCave.Game.Monster (from
+          TheBeginnersCave.dll). These are two different classes, the second is a subclass of the first, and implements custom code that is explicitly used by The Beginner's Cave. Now compare the batch file EditTestAdventure.bat, which
+          contains the command-line argument "-pfn EamonRT.dll" with EditTheBeginnersCave.bat, which includes "-pfn TheBeginnersCave.dll". In the first, the flag instructs EamonDD to load the base game engine. In the second, it loads
+          TheBeginnersCave.dll and uses any customized classes it finds (like the Monster class) when creating new objects. This whole topic is fairly complex and begs to be part of a formal document set, but at least this gives you an
+          idea of how it works.
        </p>
        <p>
-          With BASIC Eamons that use files containing just data, you can bypass the Dungeon Designer program entirely and build these files by hand. This practice should be avoided in Eamon CS due to the specialized datafile format. The
-          EamonDD program is instrumental in producing files of the correct format, and you should rely on it to do so. However, you can still manually tweak the datafiles with 7-Zip. Be careful when you do so, as the
-          Polenter.SharpSerializer.dll library can be picky.
+          With BASIC Eamons that use files containing just data, you can bypass the Dungeon Designer program altogether and build these files by hand. You should avoid this practice in Eamon CS due to the specialized datafile format. The
+          EamonDD program is instrumental in producing files of the correct format, and you should rely on it to do so. However, you can still manually tweak the datafiles with 7-Zip. Just be very careful not to violate the XML file format,
+          as the Polenter.SharpSerializer.dll library can be picky.
        </p>
        <p>
           The EamonRT.dll base adventure runtime takes the form of a Finite State Machine (FSM), which is used to model complex program behavior. The main game loop is very compact; all complex logic resides in subclasses of the State
@@ -588,10 +590,10 @@
        <a name="ECSTP9"></a>
        <h4>USING THE VISUAL STUDIO DEBUGGER</h4>
        <p>
-          Eamon CS was built with Visual Studio 2022, a powerful, modern integrated development environment (IDE) used by programmers worldwide. It is obtainable through a link in the <a href="#ECSTP2">Prerequisites</a> section. Many
-          tutorials on the web explore Visual Studio in detail; that topic is outside the scope of this document. If you do some research on your own, make sure to focus on using the debugger, which will be the point of this section.
-          The IDE is used to develop new games, modify existing games, and step through the source code to clarify its inner workings. This discussion assumes VS 2022 on Windows; the steps may vary if you're in a different development
-          environment or OS. To step through the Eamon CS source code, do the following:
+          Eamon CS was built with Visual Studio 2022, a powerful, modern integrated development environment (IDE) used by programmers worldwide. It can be obtained through a link in the <a href="#ECSTP2">Prerequisites</a> section. Many
+          tutorials on the web explore Visual Studio in detail; that topic is outside the scope of this document. If you do some research on your own, make sure to focus on using the debugger, which will be the point of this section. The
+          IDE can be used to develop new games, modify existing games, and step through the source code to clarify its inner workings. This discussion assumes VS 2022 on Windows; if you're in a different development environment or a
+          different OS, the steps may vary. To step through the Eamon CS source code, do the following:
        </p>
        <ol>
           <li>
@@ -600,8 +602,8 @@
           </li>
           <br />
           <li>
-             In the development directory or branch, run EnterMainHallUsingAdventures.bat and send a character into the adventure you want to step through. You can save the game if you wish, but it is not required, only that the
-             character remains in the adventure. Finally, quit the game, but don't Quit Hall. In this example, we'll step through The Beginner's Cave.
+             In the development directory or branch run EnterMainHallUsingAdventures.bat, and send a character into the adventure you want to step through. You can save the game if you wish, but it is not required; only that the
+             character remains in the adventure. Quit the game, but don't Quit Hall. In this example, we'll step through The Beginner's Cave.
           </li>
        </ol>
        <br />
@@ -626,7 +628,7 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBatchBuildClean.jpg" alt="VSBatchBuildClean.jpg" src="../../assets/images/TechnicalPaper/VSBatchBuildClean.jpg" /></div>
        <br />
        <ol start="6">
-          <li>Ensure the system is in Debug mode (shown inside the red circle). In the Eamon.Desktop solution, right-click on the Solution node and click Build Solution.</li>
+          <li>Ensure the system is in Debug mode (shown inside red circle). In the Eamon.Desktop solution, right-click on the Solution node and click Build Solution.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBuildSolutionDebug.jpg" alt="VSBuildSolutionDebug.jpg" src="../../assets/images/TechnicalPaper/VSBuildSolutionDebug.jpg" /></div>
@@ -646,8 +648,8 @@
        <ol start="9">
           <li>
              In the Debug General section, click Open debug launch profiles UI and set the Command line arguments to the appropriate string. In this case, the string comes directly from ResumeTheBeginnersCave.bat. Make sure you save
-             the changes (click the icon inside the red circle). Side note: You can use any string from any .bat file, depending on which program you want to step through, including the Main Hall or the Dungeon Designer. You don't
-             need to send a character on an adventure first to debug these. See the last two examples below.
+             the changes (click the icon inside the red circle). Side note: you can use any string from any .bat file, depending on which program you want to step through, including the Main Hall or the Dungeon Designer. You don't
+             need to send a character on an adventure first to debug these. See the two examples below.
           </li>
        </ol>
        <br />
@@ -664,8 +666,8 @@
        <br />
        <ol start="10">
           <li>
-             Put your breakpoints in the code. In the following examples, the program will break just as it enters the game's main loop, as an attack occurs in combat and also in the ReadCommand subclass of The Beginner's Cave. Of
-             course, you can set breakpoints anywhere you like in the running program; in our case, that includes EamonRT.dll and TheBeginnersCave.dll.
+             Put your breakpoints in the code. In the following examples, the program will break just as it enters the game's main loop, as an attack occurs in combat and in the ReadCommand subclass of The Beginner's Cave. You can set
+             breakpoints anywhere you like in the running program; in our case, that includes EamonRT.dll and TheBeginnersCave.dll.
           </li>
        </ol>
        <br />
@@ -679,29 +681,29 @@
        <br />
        <ol start="11">
           <li>
-             Press F5 to run the program. The game will launch just as if you had double-clicked the ResumeTheBeginnersCave.bat file. If you saved any games, you can restore them at this point as you typically would. You can also start the
-             program and step through it line by line using F10 (step over) or F11 (step into).
+             Press F5 to run the program. The game will launch just as if you had double-clicked the ResumeTheBeginnersCave.bat file. If you saved any games, you can restore them at this point as you typically would. You can also
+             start the program or step through it line by line at any point using F10 (step over) or F11 (step into).
           </li>
        </ol>
        <a name="ECSTP10"></a>
        <h4>BUILDING NEW ADVENTURES</h4>
        <p>
-          With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - those that use the EamonRT
-          generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your system. Up to
-          this point, it has been a manual effort to bootstrap new games. But significant progress has been made toward fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .bat or .sh file that, when run,
-          will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
+          With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
+          EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
+          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .bat or .sh
+          file that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
        <br />
        <p>
-          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program. With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
-          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon.Desktop solution or compile the game will fail. For Custom
-          adventures, if the integration process fails, you should add the .csproj file to the solution and manually recompile the game.
+          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
+          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon.Desktop solution or compile the game will fail.  For Custom
+          adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
        </p>
        <p>
-          Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. Likewise, for those who cloned the repository from GitHub, it might make sense
-          to create a branch for your new adventure so you can back out anytime.
+          Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
+          create a branch for your new adventure so you can back out at any time.
        </p>
        <p>Creating adventures requires entering just a few key pieces of data. The automated process uses resources embedded within the EamonDD plugin:</p>
        <ul>
@@ -722,33 +724,34 @@
           <li>A Room record</li>
        </ul>
        <p>
-          For Custom adventures, a complete set of derived foundational classes (e.g., Engine, Artifact, Monster, Room, etc.) are generated and available for you to modify. These classes should be sufficient for many Custom games. But
-          remember, you can always add your own new or overridden classes if you need to get exotic. Two additional menu options, detailed below, allow you to add and remove classes programmatically. Every facet of the system is extensible,
-          so the sky is the limit here. The actual process of game customization using Visual Studio 2022 is beyond the scope of this section. It will be fully documented elsewhere, although games are available for programming ideas.
+          For Custom adventures, a complete set of derived foundational classes (e.g., Engine, Artifact, Monster, Room, etc.) are generated and available for you to modify. The generated classes should be sufficient for many Custom games.
+          But remember, you can always add your own new or overridden classes if you need to get exotic. Two additional menu options, detailed below, allow you to add and remove classes programmatically. Every facet of the system is built
+          to override, so the sky is the limit here. The actual process of game customization using Visual Studio 2022 is beyond the scope of this section. It will be fully documented elsewhere, although there are games available to look
+          at for programming ideas.
        </p>
        <p>
           Finally, a word about submissions: anyone who wishes to build a game and have it included in Eamon CS should contact me to discuss the matter before beginning any work. The contact info is in
-          <a href="../AUTHORS.html">AUTHORS.html</a>. You should always build a new game in a unique branch off master so it cleanly merges when completed. There may be suggestions for improvements when
-          reviewing the code in the branch. It is no cause for concern, just part of the process of building the best game possible. The goal is to enhance the experience for people who discover Eamon CS and play it in the future. At this
-          point, I have yet to fully work out the logistics of game developer pull requests against master.
+		  <a href="../AUTHORS.html">AUTHORS.html</a>. You should always build a new game in a unique branch off master, so it cleanly merges when completed. There may be suggestions for improvements when reviewing the code in the branch.
+          It is no cause for concern, just part of the process of building the best game possible. The goal of doing this is to enhance the experience for people who discover Eamon CS and play it in the future. At this point, I have yet to
+          fully work out the logistics of game developer pull requests against master.
        </p>
        <a name="ECSTP11"></a>
        <h4>CONVERTING EXISTING ADVENTURE DATA</h4>
        <p>
           Given Eamon's long history, it should be no surprise a vast back catalog of adventures exists. There is good news for authors interested in porting old games to Eamon CS. EamonDD has built-in utilities to allow easy data conversion
-          for games built in the Apple II and Eamon Deluxe variants. Converted data may include Rooms, Monsters, Artifacts, Effects, and (where available) Hints. While most games are compatible, some may have datafile format irregularities
+          for games built in the Apple II and Eamon Deluxe variants. Converted data may include Rooms, Monsters, Artifacts, Effects and, (where available) Hints. While most games are compatible, some may have datafile format irregularities
           that cause conversions to fail. In this circumstance, the data must be manually converted.
        </p>
        <p>
           To exploit the data conversion utilities, you should create a Standard or Custom adventure, as described in the <a href="#ECSTP10">previous section</a>; the newly created game should share the ported game's name. Exit the Adventure
-          Support Menu, then run the game's Edit[AdventureName] .bat or .sh file. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu, choose U for Utilities, then one for
-          Adventure conversion, and finally one or two depending on the legacy Eamon system. After following the instructions during the conversion process, you can exit to the Main Menu. If the conversion is successful, you will see the
-          imported game data; it can be browsed or edited if needed. When you exit EamonDD from the Main Menu using X, choose Y to save the data.
+          Support Menu, then run the game's Edit[AdventureName] .bat or .sh file. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu choose U for Utilities, then one for
+          Adventure conversion, and finally one or two depending on the legacy Eamon system. After following the instructions during the conversion process, you can exit to the Main Menu. If the conversion was successful, you see the imported
+          game data; it can be browsed or edited if needed. When you exit EamonDD from the Main Menu using X, be sure to choose Y to save the data.
        </p>
        <p>
-          While the conversion process lightly validates the data, Eamon CS programs aggressively validate it. You may find your converted game fails validation, but the system gives a pretty good error message citing the offending datafile,
-          record, and field. A helpful command-line flag is available that disables validation when records are loaded. You can add this flag to your Edit[AdventureName] .bat or .sh file while debugging or polishing the new game, then remove
-          it when finished. You may need to repeat this process as you eliminate the validation errors one at a time.
+          While the conversion process lightly validates the data coming in, Eamon CS programs aggressively validate loaded data. You may find your converted game fails validation, but the system gives a pretty good error message citing the
+          offending datafile, record, and field. There is a useful command-line flag that can be added to any .bat or .sh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName] .bat or .sh
+          file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
        </p>
        <p>
           The flag is:  <code>-dv</code>
@@ -756,24 +759,24 @@
        <a name="ECSTP12"></a>
        <h4>ADDING CUSTOM ADVENTURE CLASSES</h4>
        <p>
-          Custom games are created in Eamon CS using the C# inheritance mechanism. The system has no sealed classes, and every property and method is declared virtual. You can override any aspect of the game engine to suit your needs. If you
-          want to produce a complex, exciting game with lots of special effects, you will almost certainly need to create new classes for your adventure. There are numerous examples of this in the games contained in the Eamon.Desktop solution.
-          The layout of folders and namespaces in Eamon CS lends itself to a simple code generation mechanism based on a template discovered while studying the already-created games. You can use the Adventure Support Menu to generate custom
-          classes with matching interfaces (if needed) based on many datatypes in the Eamon, EamonDD, or EamonRT libraries. These generated classes appear in the selected adventure, and you can add your custom code. For any class with a
-          corresponding .DAT file (e.g., Room.cs and ROOMS.DAT), the .DAT file is updated accordingly.
+          Custom games are created in Eamon CS using the C# mechanism of sub-classing. The system has no sealed classes, and every property and method is declared virtual. You can override any aspect of the game engine to suit your needs.
+          If you want to produce a complex, interesting game with lots of special effects, you will almost certainly need to create new classes for your adventure. There are numerous examples of this in the adventures contained in the
+          Eamon.Desktop solution. It turns out, the layout of folders and namespaces in Eamon CS lends itself to a simple code generation mechanism based on a template discovered while studying the already-created games. You can use the
+          Adventure Support Menu to generate custom classes, complete with matching interfaces (if needed), based on many classes in the Eamon, EamonDD or EamonRT libraries. These generated classes appear in the selected adventure, and
+          then you are free to add your custom code. For any class with a corresponding .DAT file (e.g., Room.cs and ROOMS.DAT), the .DAT file will be updated to reflect the newly added class.
        </p>
        <p>
           While the code generator works great with classes that fit the template, it may fail with others that don't, so this comes with a caveat.
-          <i>Always verify the generated code is what you are expecting. Depending on the class, sometimes the code will be flawed, and your game won't compile; other times, it will compile but be subtly wrong.</i> Visual Studio's
+          <i>Always verify the generated code is what you are expecting. Depending on the class, sometimes the code will be flawed, and your game won't compile; other times it will compile but be subtly wrong.</i> Visual Studio's
           Intellisense can help identify problematic code that needs fixing. Since this menu option is intended only as a bootstrapper, you can take the output verbatim or modify it to better suit your needs. Also, remember you can always
           bypass this convenience and craft your code by hand.
        </p>
        <p>The following example demonstrates the adding of several new classes to the previously created Walled City of Darkness adventure. (Note the adventure has been pre-processed to remove the Hint.cs file.)</p>
        <ol>
           <li>
-             You have several options when using this menu item. You can generate stand-alone classes, stand-alone interfaces, or class/interface pairs. If you create an independent class and then later decide to build its matching interface,
-             you will have to update the class manually to derive from the new interface. If you create a matching class/interface pair, the interface won't appear if it already exists. File paths are specified relative to the working
-             directory System.
+             You have several options when using this menu item. You can generate stand-alone classes, stand-alone interfaces, or class/interface pairs. If you create an independent class and then later decide to generate its matching
+             interface, you will have to update the class manually to derive from the new interface. If you create a matching class/interface pair, the interface won't appear if it already exists. File paths are specified relative to the
+             working directory System.
           </li>
        </ol>
        <br />
@@ -781,8 +784,8 @@
        <br />
        <ol start="2">
           <li>
-             The code generator places classes and interfaces (circled in red) in the adventure folder. The system automatically builds a directory hierarchy that mirrors the Eamon CS base libraries. Classes go under the Game folder, and
-             interfaces go under Framework. At this point, you can add your custom code.
+             The code generator places classes and interfaces (circled in red) in the adventure folder. The system automatically builds a directory hierarchy that mirrors the Eamon CS base libraries. Classes go under the Game folder,
+             interfaces under Framework. At this point, you can add your custom code.
           </li>
        </ol>
        <br />
@@ -790,8 +793,8 @@
        <br />
        <ol start="3">
           <li>
-             The following screenshots show what the code generator produced. When you compare this output with the games in Eamon.Desktop, you will quickly see parallels between them. You can fix anything Intellisense flags as invalid and
-             hover the cursor over critical parts of the code to ensure it is correct.
+             The following screenshots show what the code generator produced. If you compare this output with the games in Eamon.Desktop, you will quickly see parallels between them. You can fix anything Intellisense flags as invalid
+             and hover the cursor over critical parts of the code to ensure it is correct.
           </li>
        </ol>
        <br />
@@ -829,14 +832,14 @@
        <a name="ECSTP13"></a>
        <h4>DELETING CUSTOM ADVENTURE CLASSES</h4>
        <p>
-          You can delete custom adventure classes just as quickly as you add them using the Adventure Support Menu. There are many reasons you may wish to do this. The system generates a complete set of foundational classes when you
-          create a new adventure via the Add A Custom Adventure menu option. But you will often find that you only need some of the classes produced. A generated class is only required if you plan on overriding methods or properties in
-          it; otherwise, it is just extraneous code bloat. Then there are times you try to implement some unique game behavior but run into trouble and decide to restart the work or scrap it entirely.
+          You can delete custom adventure classes just as quickly as you add them using the Adventure Support Menu. There are many reasons you may wish to do this. When you create a new adventure via the Add A Custom Adventure menu
+          option, the system generates a complete set of foundational classes for it. But you will often find that you don't need all the classes produced. A generated class is only useful if you plan on overriding methods or properties
+          in it; otherwise, it is just extraneous code bloat. There may be other times you are implementing some unique game behavior when you run into trouble and decide to restart the work or scrap it entirely.
        </p>
        <p>
-          Regardless of the reason, you can use the Delete Custom Adventure Classes menu option to delete one or more classes or interfaces from the game. If classes rely on explicitly deleted interfaces, your game will not compile
-          until they are fixed or removed; for any class deleted, its paired interface will also automatically delete. If the removed class has a corresponding .DAT file (e.g., Room.cs and ROOMS.DAT), it will be updated to reflect the
-          appropriate parent class. There is no undoing this operation, so you should back up your work if there's a chance you'll change your mind.
+          Regardless of the reason, you can use the Delete Custom Adventure Classes menu option to delete one or more classes or interfaces from the game. If you have classes that are reliant on explicitly deleted interfaces your game
+          will not compile until the classes are fixed or removed. If you delete classes, any paired interfaces will automatically delete as well. If the removed class has a corresponding .DAT file (e.g., Room.cs and ROOMS.DAT) it will be
+          updated to reflect the appropriate parent class. There is no undoing this operation so you should back up your work if there is a chance you'll change your mind.
        </p>
        <p>The following example demonstrates the removal of several classes from the Walled City of Darkness adventure.</p>
        <ol>
@@ -846,13 +849,13 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses.jpg" alt="DeleteClasses.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses.jpg" /></div>
        <br />
        <ol start="2">
-          <li>The classes selected for deletion are no longer in the project, and their matching interfaces are also gone.</li>
+          <li>The classes selected for deletion are no longer in the project, and their matching interfaces are gone as well.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses02.jpg" alt="DeleteClasses02.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses02.jpg" /></div>
        <br />
        <ol start="3">
-          <li>One deleted class, Hint.cs, has a matching HINTS.DAT file. Notice that the data type is no longer WalledCityOfDarkness.Game.Hint but was reverted to the parent class Eamon.Game.Hint.</li>
+          <li>One of the deleted classes, Hint.cs, has a matching HINTS.DAT file. Notice that the data type is no longer WalledCityOfDarkness.Game.Hint but was reverted to the parent class Eamon.Game.Hint.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteClasses03.jpg" alt="DeleteClasses03.jpg" src="../../assets/images/TechnicalPaper/DeleteClasses03.jpg" /></div>
@@ -860,9 +863,9 @@
        <a name="ECSTP14"></a>
        <h4>DELETING EXISTING ADVENTURES</h4>
        <p>
-          You can also delete adventures from Eamon CS if the need arises. For example, you may be experimenting with a game scenario that didn't work out or have entirely played through a title and want to make space on your file
-          system. Perhaps you dislike an adventure and want to purge it from your Eamon CS repository. Whatever the reasons, the Adventure Support Menu has the option to do game deletion. Choosing this menu option will cause the
-          system to prompt you for some key pieces of data and verify that you want to proceed. If so, it will completely remove all traces of the adventure from your Eamon CS system by doing the following:
+          You can also delete adventures from Eamon CS if the need arises. Maybe you were experimenting with a game scenario that didn't work out or have fully played through a title and want to make space on your file system. Perhaps you
+          don't like an adventure and want to purge it from your Eamon CS repository. Whatever the reasons, the Adventure Support Menu has an option to do game deletion. Choosing this menu option will cause the system to prompt you for
+          some key pieces of data and verify that you want to proceed. If so, it will completely remove all traces of the adventure from your Eamon CS system by doing the following:
        </p>
        <ul>
           <li>Deletes the game library/binary files (Custom adventures only)</li>
@@ -871,17 +874,17 @@
           <li>Deletes the game folder under Adventures</li>
           <li>Deletes the game QuickLaunch .bat and .sh files</li>
        </ul>
-       <p>As you might expect, once a game has been deleted, its data is not recoverable by normal means.</p>
+       <p>As you might expect, once a game has been deleted its data is not recoverable by normal means.</p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="DeleteGame.jpg" alt="DeleteGame.jpg" src="../../assets/images/TechnicalPaper/DeleteGame.jpg" /></div>
        <br />
        <a name="ECSTP15"></a>
        <h4>COMMAND-LINE PARAMETERS</h4>
        <p>
-          Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning. The last instance always takes precedence if the same parameter is
-          encountered multiple times on a command line. While the QuickLaunch facility hides this complexity, knowing what flags are available is still helpful if you want to run Eamon CS in a non-default manner. When it makes
-          sense, you can integrate these parameters into the existing .bat and .sh files or create your own customized files for ease of use. If you wish to experiment with it, you can also run ECS directly from a Command Prompt in
-          System\Bin. The following table describes the available parameters and their purpose:
+          Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning.  If the same parameter is encountered multiple times on a command line, the
+          last instance always takes precedence.  While the QuickLaunch facility hides this complexity, it is still helpful to know what flags are available if you want to run Eamon CS in a non-default manner.  When it makes sense, you
+          can integrate these parameters into the existing .bat and .sh files or create customized files of your own for ease of use.  If you wish to experiment with it, you can also run ECS directly from a Command Prompt in System\Bin.
+          The following table describes the available parameters and their purpose:
        </p>
        <br />
        <table style="width: 75%; margin-left: auto; margin-right: auto;" border="1">
