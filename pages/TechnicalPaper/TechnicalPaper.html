@@ -352,9 +352,9 @@
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-           Eamon CS runs as a set of 64-bit Console applications. You can play the game using default Console settings, and it will not diminish the experience. But you might also consider doing some light reconfiguration. While the
-           system tries to adjust the window size optimally, there are other settings you may wish to experiment with to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay
-           and the ease of use for tools like EamonDD. The following ideas produced some interesting results:
+          Eamon CS runs as a set of 64-bit Console applications. You can play the game using default Console settings, and it will not diminish the experience. But you might also consider doing some light reconfiguration. While the
+          system tries to adjust the window size optimally, there are other settings you may wish to experiment with to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay
+          and the ease of use for tools like EamonDD. The following ideas produced some interesting results:
        </p>
        <ol>
           <li>When running ECS, right-click on the Console window title bar and choose properties. Windows 10 provides the following settings; the properties available on other versions may differ.</li>
@@ -443,14 +443,19 @@
           white background with black text, as shown in the various images in this document. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
        </p>
        <p>
+          The game supports screen readers to improve accessibility for players who benefit from it. In the System\Bin directory, a GLOBAL_LAUNCH_PARAMETERS.TXT file passes command-line parameters to all Eamon CS programs. Adding
+          the -esrm flag to this file will cause the system to reconfigure itself, altering text sequences and stripping non-game-related output. Screen readers will more accurately process the resulting output text. This file may also
+          be modified through EamonDD using the LoadAdventureSupportMenu .bat or .sh file and menu options two, then two.	    
+       </p>
+       <p>
           <b>Important Note:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab. The long unfixable bug in Eamon CS involving the Inverse Color radio button and unsightly
           cursor artifacts has been fixed. By default configuration, the game's text output will be as intended regardless of which Cursor Colors radio button is selected. New players need not be aware of the following deprecated
           information and can safely ignore it, but it is presented for historical completeness.
        </p>
-	   <p>
-          While there is no longer a need for the bug's workaround, it is still a viable mode of play, and in fact, it is the optimal mode, since there is no need to redraw windows (the -rw flag can be omitted from
-          GLOBAL_LAUNCH_PARAMETERS.TXT). If you are using this workaround (or want to), you can keep (or put) it in place and remove the -rw flag. The deprecated section below is clearly delineated.
-	   </p>
+       <p>
+          While there is no longer a need for the bug's workarounds, they are still a viable mode of play, in fact, the optimal mode, since there is no need to redraw windows (the -rw flag can be omitted from
+          GLOBAL_LAUNCH_PARAMETERS.TXT). If you are using a workaround (or want to), you can keep (or put) it in place and remove the -rw flag. The deprecated section below is clearly delineated.
+       </p>
        <p>
           <b>*** Begin Deprecated ***</b>
        </p>
@@ -1038,7 +1043,7 @@
              <tr>
                 <td>-rw<br /></td>
                 <td>Redraw Window<br /></td>
-                <td>When included in the System\Bin\GLOBAL_LAUNCH_PARAMETERS.TXT file, fixes a bug in Windows that causes cursor artifacts by forcing regular window redraws. This flag is enabled in Eamon CS by default and needed for players where the Cursor Colors Inverse Color checkbox is selected on the Console Terminal tab. This flag has no effect on any other platform.<br /></td>
+                <td>When included in the System\Bin\GLOBAL_LAUNCH_PARAMETERS.TXT file, fixes a bug in Windows that causes cursor artifacts by forcing regular window redraws. This flag is enabled in Eamon CS by default and needed for players where the Cursor Colors Inverse Color radio button is selected on the Console Terminal tab. This flag has no effect on any other platform.<br /></td>
                 <td><br /></td>
              </tr>
              <tr>
