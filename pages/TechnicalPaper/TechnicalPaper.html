@@ -352,9 +352,9 @@
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-          Eamon CS runs as a set of 64-bit Console applications. You can play the game using default Console settings, and it will not diminish the experience. But you might also consider doing some light reconfiguration. While the
-          system tries to adjust the window size optimally, there are other settings you may wish to experiment with to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay
-          and the ease of use for tools like EamonDD. The following ideas produced some interesting results:
+           Eamon CS runs as a set of 64-bit Console applications. You can play the game using default Console settings, and it will not diminish the experience. But you might also consider doing some light reconfiguration. While the
+           system tries to adjust the window size optimally, there are other settings you may wish to experiment with to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay
+           and the ease of use for tools like EamonDD. The following ideas produced some interesting results:
        </p>
        <ol>
           <li>When running ECS, right-click on the Console window title bar and choose properties. Windows 10 provides the following settings; the properties available on other versions may differ.</li>
@@ -443,9 +443,16 @@
           white background with black text, as shown in the various images in this document. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
        </p>
        <p>
-          <b>Important Note:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab. The Inverse Color radio button, selected by default, interacts poorly with Eamon CS
-          to produce unsightly cursor artifacts when the Enter key is pressed. This intermittent bug has no known programmatic solution - only workarounds are available. It is suspected this has to do with an obscure interaction
-          between cursor positioning, screen output, and the enhanced terminal logic in the new Console program.
+          <b>Important Note:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab. The long unfixable bug in Eamon CS involving the Inverse Color radio button and unsightly
+          cursor artifacts has been fixed. By default configuration, the game's text output will be as intended regardless of which Cursor Colors radio button is selected. New players need not be aware of the following deprecated
+          information and can safely ignore it, but it is presented for historical completeness.
+       </p>
+	   <p>
+          While there is no longer a need for the bug's workaround, it is still a viable mode of play, and in fact, it is the optimal mode, since there is no need to redraw windows (the -rw flag can be omitted from
+          GLOBAL_LAUNCH_PARAMETERS.TXT). If you are using this workaround (or want to), you can keep (or put) it in place and remove the -rw flag. The deprecated section below is clearly delineated.
+	   </p>
+       <p>
+          <b>*** Begin Deprecated ***</b>
        </p>
        <p>
           Of the two available workarounds, the first is highly preferred because it implements the abovementioned settings.  By matching the Cursor Colors to the Screen Text Colors of the Console, the gameplay experience will
@@ -489,6 +496,9 @@
        </ol>
        <p>
           Unfortunately, the legacy Console also has some bugs in it; it appears that settings like font aren't persisted across sessions, so it is a flawed fix.  But it is still worth mentioning.
+       </p>
+	   <p>
+          <b>*** End Deprecated ***</b>
        </p>
        <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
