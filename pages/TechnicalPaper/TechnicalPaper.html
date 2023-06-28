@@ -352,9 +352,9 @@
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-          Eamon CS runs as a set of 64-bit Console applications. It became apparent during development that the default settings for Console windows are not ideal when playing a text-based game. The system tries to adjust the window size
-          to an optimal setting, but you may wish to experiment with the other settings to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay as well as the ease of use
-          for tools like EamonDD. This topic is highly subjective, but the following ideas produced some interesting results:
+          Eamon CS runs as a set of 64-bit Console applications. You can play the game using default Console settings, and it will not diminish the experience. But you might also consider doing some light reconfiguration. While the
+          system tries to adjust the window size optimally, there are other settings you may wish to experiment with to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay
+          and the ease of use for tools like EamonDD. The following ideas produced some interesting results:
        </p>
        <ol>
           <li>When running ECS, right-click on the Console window title bar and choose properties. Windows 10 provides the following settings; the properties available on other versions may differ.</li>
@@ -443,9 +443,21 @@
           white background with black text, as shown in the various images in this document. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
        </p>
        <p>
-          <b>Important Note:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab. The Inverse Color radio button, selected by default, interacts poorly with Eamon CS
-          to produce unsightly cursor artifacts when the Enter key is pressed. This intermittent bug has no known programmatic solution - only workarounds are available. It is suspected this has to do with an obscure interaction
-          between cursor positioning, screen output, and the enhanced terminal logic in the new Console program.
+          The game supports screen readers to improve accessibility for players who benefit from it. In the System\Bin directory, a GLOBAL_LAUNCH_PARAMETERS.TXT file passes command-line parameters to all Eamon CS programs. Adding
+          the -esrm flag to this file will cause the system to reconfigure itself, altering text sequences and stripping non-game-related output. Screen readers will more accurately process the resulting output text. This file may also
+          be modified through EamonDD using the LoadAdventureSupportMenu .bat or .sh file and menu options two, then two.	    
+       </p>
+       <p>
+          <b>Important Note:</b> The newest versions of Windows (10+) contain a rewritten Command Console program that includes a Terminal Tab. The long unfixable bug in Eamon CS involving the Inverse Color radio button and unsightly
+          cursor artifacts has been fixed. By default configuration, the game's text output will be as intended regardless of which Cursor Colors radio button is selected. New players need not be aware of the following deprecated
+          information and can safely ignore it, but it is presented for historical completeness.
+       </p>
+       <p>
+          While there is no longer a need for the bug's workarounds, they are still a viable mode of play, in fact, the optimal mode, since there is no need to redraw windows (the -rw flag can be omitted from
+          GLOBAL_LAUNCH_PARAMETERS.TXT). If you are using a workaround (or want to), you can keep (or put) it in place and remove the -rw flag. The deprecated section below is clearly delineated.
+       </p>
+       <p>
+          <b>*** Begin Deprecated ***</b>
        </p>
        <p>
           Of the two available workarounds, the first is highly preferred because it implements the abovementioned settings.  By matching the Cursor Colors to the Screen Text Colors of the Console, the gameplay experience will
@@ -489,6 +501,9 @@
        </ol>
        <p>
           Unfortunately, the legacy Console also has some bugs in it; it appears that settings like font aren't persisted across sessions, so it is a flawed fix.  But it is still worth mentioning.
+       </p>
+	   <p>
+          <b>*** End Deprecated ***</b>
        </p>
        <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
@@ -1023,6 +1038,18 @@
                 <td>-dgs<br /></td>
                 <td>Delete Game State<br /></td>
                 <td>Causes EamonRT or a derivative (adventure-specific) library to delete all saved game state.  Instead of being handled by EamonMH, this is delegated to the Runtime, allowing it to customize cleanup.  Typically used when a character exits the game or is recalled from the Main Hall registration desk.<br /></td>
+                <td><br /></td>
+             </tr>
+             <tr>
+                <td>-rw<br /></td>
+                <td>Redraw Window<br /></td>
+                <td>When included in the System\Bin\GLOBAL_LAUNCH_PARAMETERS.TXT file, fixes a bug in Windows that causes cursor artifacts by forcing regular window redraws. This flag is enabled in Eamon CS by default and needed for players where the Cursor Colors Inverse Color radio button is selected on the Console Terminal tab. This flag has no effect on any other platform.<br /></td>
+                <td><br /></td>
+             </tr>
+             <tr>
+                <td>-esrm<br /></td>
+                <td>Enable Screen Reader Mode<br /></td>
+                <td>When included in the System\Bin\GLOBAL_LAUNCH_PARAMETERS.TXT file, causes Eamon CS to reconfigure its text output to maximize accessibility through screen reader use. Various non-game-related text sequences are either suppressed or modified, leading to better screen reader recognition, but at the cost of poor visual text spacing (a worthy tradeoff given the flag's purpose).<br /></td>
                 <td><br /></td>
              </tr>
           </tbody>
