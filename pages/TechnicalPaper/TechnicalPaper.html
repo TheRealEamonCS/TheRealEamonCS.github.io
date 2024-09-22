@@ -101,7 +101,7 @@
        <h4>POST-INSTALLATION TOPICS</h4>
        <p>
           The precompiled binaries for Eamon CS use .NET 8.X, but the system should be fully compatible with all .NET versions that conform to .NET Standard 2.0.&nbsp; However, using older versions may introduce
-          additional requirements such as .NET Framework.&nbsp; To use Eamon CS with a different .NET, you need to recompile the EamonPM.WindowsUnix project to target it.&nbsp; To do this, you must first install Visual Studio
+          additional requirements such as .NET Framework.&nbsp; To use Eamon CS with a different .NET, you need to recompile the EamonPM.Desktop project to target it.&nbsp; To do this, you must first install Visual Studio
           2022+, as described in the <a href="#ECSTP2">PREREQUISITES</a> section.&nbsp; The use of Visual Studio is described in the section called <a href="#ECSTP9">USING THE VISUAL STUDIO DEBUGGER</a>.&nbsp; The following screenshot
           shows how to determine from the command line which versions of .NET are present on your system:
        </p>
@@ -109,14 +109,14 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ListDotnetPackages.jpg" alt="ListDotnetPackages.jpg" src="../../assets/images/TechnicalPaper/ListDotnetPackages.jpg" /></div>
        <br />
        <p>
-          To recompile the EamonPM.WindowsUnix project, load the Eamon-CS solution in Visual Studio.&nbsp; Right-click on the project and choose Properties.&nbsp; Select the appropriate version of .NET in the Target Framework
+          To recompile the EamonPM.Desktop project, load the Eamon-CS solution in Visual Studio.&nbsp; Right-click on the project and choose Properties.&nbsp; Select the appropriate version of .NET in the Target Framework
           drop-down list of the Application General section, then click the Save button:
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="CompileForNet6.jpg" alt="CompileForNet6.jpg" src="../../assets/images/TechnicalPaper/CompileForNet6.jpg" /></div>
        <br />
        <p>
-          After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
+          After doing this, right-click on the EamonPM.Desktop project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
        </p>
        <p>
           Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to auto-detect .NET correctly. Simply change the value highlighted in the following screenshots to include
@@ -546,8 +546,9 @@
        <br />
        <ol start="8">
           <li>
-             Press F5 to run the program. The game will launch just as if you had double-clicked the ResumeTheBeginnersCave.bat file. If you saved any games, you can restore them at this point as you typically would. You can also
-             start the program or step through it line by line at any point using F10 (step over) or F11 (step into).
+             Press F5 to run the program. EamonPM.Desktop will launch, and you can enter the game however appropriate, either directly using a Resume menu item or indirectly through the Main Hall. You can also use this technique to
+             debug EamonDD or EamonMH. Remember, to trigger the breakpoints, you must exercise the affected code by playing the game. You can also step through the program line by line at any point using F10 (Step Over) or
+             F11 (Step Into).
           </li>
        </ol>
        <br />
