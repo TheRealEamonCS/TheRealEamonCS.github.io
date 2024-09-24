@@ -62,26 +62,25 @@
        <a name="ECSTP2"></a>
        <h4>PREREQUISITES</h4>
        <p>
-          <b>[This section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
-       </p>
-       <p>
           As mentioned in the README.md file, Eamon CS has no formal installer.&nbsp; There are good points and bad points to this.&nbsp; On the one hand, it is a simple matter of unzipping the Eamon-CS-master.zip file downloaded from
           GitHub to set up for play (if you did that, as opposed to doing a Git Clone).&nbsp; Also, it means there is no installer to maintain, which frees up time for other things like engine enhancements or developing adventures.
        </p>
        <p>
-          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not run when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
-          The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to run on Windows, your first order of business
-          should be to download and install the following files (in order):
+          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not configure when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
+          The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to configure on Windows, your first order of business
+          should be to download and install (in order) the files from one of the following sections:
        </p>
-       <p>For programmers who want to play, step-through, or develop the source code:</p>
+       <p><b>For programmers</b> who want to play, step-through, or develop the source code:</p>
        <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-offline-installer">Microsoft .NET Framework 4.8</a><br />
        <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=17">Microsoft Visual Studio Community 2022</a> (includes .NET 8 SDK)
        <ul>
           <li>Installer option: .NET desktop development</li>
           <li>Installer option: Mobile development with .NET</li>
        </ul>
-       <p>For gamers who want to play:</p>
-       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.5-windows-x64-installer">Microsoft .NET 8 Runtime</a>
+       <p><b>For gamers</b> who want to play on <b>win-x64 (Intel/AMD)</b> systems:</p>
+       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.5-windows-x64-installer">Microsoft .NET 8 Runtime (x64)</a>
+       <p><b>For gamers</b> who want to play on <b>win-arm64 (Arm)</b> systems:</p>
+       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.5-windows-arm64-installer">Microsoft .NET 8 Runtime (Arm)</a>
        <p>
           Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 8.X), see the <a href="#ECSTP3">POST-INSTALLATION TOPICS</a> section for details on how to do that.
        </p>
@@ -93,9 +92,8 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UnblockECS02.jpg" alt="UnblockECS02.jpg" src="../../assets/images/TechnicalPaper/UnblockECS02.jpg" /></div>
        <br />
        <p>
-          The prerequisites on Unix are similar:&nbsp; a version of .NET 8.X that is compatible with the given platform.&nbsp; You can download a .NET software bundle for Linux or macOS from the website referenced by the above links
-          (and find corresponding installation instructions).&nbsp; But Eamon CS on Unix should only be pursued by those confident enough to see it through via their own devices.&nbsp; The game runs correctly on Ubuntu Linux and FreeBSD
-          and may work on other Unix variants, such as macOS (OS X).
+          The prerequisites on Linux and MacOS are similar:&nbsp; a version of .NET 8.X that is compatible with the given platform.&nbsp; You can download a .NET software bundle from the website referenced by the above links
+          (and find corresponding installation instructions).&nbsp; But Eamon CS on these platforms should only be pursued by those confident enough to see it through via their own devices.
        </p>
        <a name="ECSTP3"></a>
        <h4>POST-INSTALLATION TOPICS</h4>
