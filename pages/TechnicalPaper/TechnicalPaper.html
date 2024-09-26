@@ -555,20 +555,17 @@
        <a name="ECSTP10"></a>
        <h4>BUILDING NEW ADVENTURES</h4>
        <p>
-          <b>[This section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
-       </p>
-       <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
           EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
-          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .bat or .sh
-          file that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
+          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find on the EamonDD menu under QuickLaunch a new menu item
+          that when selected, will enable an Adventure Support Menu under Utilities. This menu item is LoadAdventureSupportMenu:
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
        <br />
        <p>
-          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
-          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon-CS solution or compile the game will fail.  For Custom
+          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Linux, MacOS, and Windows, even if Visual
+          Studio is absent. But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed source code files but attempts to manipulate the Eamon-CS solution or compile the game will fail.  For Custom
           adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
        </p>
        <p>
@@ -579,7 +576,6 @@
        <ul>
           <li>Creates the game folder under Adventures</li>
           <li>Generates all needed code (Custom adventures only)</li>
-          <li>Creates all necessary QuickLaunch .bat and .sh files</li>
           <li>Adds the game to the appropriate Adventure database(s)</li>
           <li>Adds the game project to Eamon-CS.sln (Custom adventures only)</li>
           <li>Rebuilds the game project, producing game library/binary files (Custom adventures only)</li>
@@ -588,7 +584,7 @@
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="AddGame.jpg" alt="AddGame.jpg" src="../../assets/images/TechnicalPaper/AddGame.jpg" /></div>
        <br />
-       <p>The only thing you need to do to play your game is run the corresponding Edit[YourAdventureName] .bat or .sh file and add:</p>
+       <p>The only thing you need to do to play your game is select the corresponding Edit[YourAdventureName] menu item and add:</p>
        <ul>
           <li>A Module record</li>
           <li>A Room record</li>
