@@ -565,8 +565,8 @@
        <br />
        <p>
           The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Linux, MacOS, and Windows, even if Visual
-          Studio is absent. But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed source code files but attempts to manipulate the Eamon-CS solution or compile the game will fail.  For Custom
-          adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
+          Studio is absent. But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed source code files and QuickLaunch menu items but attempts to manipulate the Eamon-CS solution or compile the
+          game will fail.  For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
        </p>
        <p>
           Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
@@ -576,6 +576,7 @@
        <ul>
           <li>Creates the game folder under Adventures</li>
           <li>Generates all needed code (Custom adventures only)</li>
+          <li>Creates all necessary QuickLaunch menu items</li>
           <li>Adds the game to the appropriate Adventure database(s)</li>
           <li>Adds the game project to Eamon-CS.sln (Custom adventures only)</li>
           <li>Rebuilds the game project, producing game library/binary files (Custom adventures only)</li>
