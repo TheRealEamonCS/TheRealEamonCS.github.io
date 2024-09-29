@@ -555,18 +555,21 @@
        <a name="ECSTP10"></a>
        <h4>BUILDING NEW ADVENTURES</h4>
        <p>
+          <b>[Note:&nbsp; this section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
+       </p>
+       <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
           EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
-          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new script item
-          that when run, will enable an Adventure Support Menu under Utilities. This script item is LoadAdventureSupportMenu:
+          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .bat or .sh
+          file that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
        <br />
        <p>
-          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Linux, MacOS, and Windows, even if Visual
-          Studio is absent. But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed source code files and QuickLaunch script items but attempts to manipulate the Eamon-CS solution or compile the
-          game will fail.  For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
+          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
+          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon-CS solution or compile the game will fail.  For Custom
+          adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
        </p>
        <p>
           Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
@@ -576,7 +579,7 @@
        <ul>
           <li>Creates the game folder under Adventures</li>
           <li>Generates all needed code (Custom adventures only)</li>
-          <li>Creates all necessary QuickLaunch script items</li>
+          <li>Creates all necessary QuickLaunch .bat and .sh files</li>
           <li>Adds the game to the appropriate Adventure database(s)</li>
           <li>Adds the game project to Eamon-CS.sln (Custom adventures only)</li>
           <li>Rebuilds the game project, producing game library/binary files (Custom adventures only)</li>
@@ -585,7 +588,7 @@
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="AddGame.jpg" alt="AddGame.jpg" src="../../assets/images/TechnicalPaper/AddGame.jpg" /></div>
        <br />
-       <p>The only thing you need to do to play your game is run the corresponding Edit[AdventureName] plugin script and add:</p>
+       <p>The only thing you need to do to play your game is run the corresponding Edit[AdventureName] .bat or .sh file and add:</p>
        <ul>
           <li>A Module record</li>
           <li>A Room record</li>
@@ -611,14 +614,14 @@
        </p>
        <p>
           To exploit the data conversion utilities, you should create a Standard or Custom adventure, as described in the <a href="#ECSTP10">previous section</a>; the newly created game should share the ported game's name. Exit the Adventure
-          Support Menu, then run the game's Edit[AdventureName] plugin script. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu choose 8 (or U) for Utilities, then one for
+          Support Menu, then run the game's Edit[AdventureName] .bat or .sh file. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu choose U for Utilities, then one for
           Adventure conversion, and finally one or two depending on the legacy Eamon system. After following the instructions during the conversion process, you can exit to the Main Menu. If the conversion was successful, you see the imported
           game data; it can be browsed or edited if needed. When you exit EamonDD from the Main Menu using X, be sure to choose Y to save the data.
        </p>
        <p>
           While the conversion process lightly validates the data coming in, Eamon CS programs aggressively validate loaded data. You may find your converted game fails validation, but the system gives a pretty good error message citing the
-          offending datafile, record, and field. There is a useful command-line flag that disables validation when records are loaded. You can add this flag to the GLOBAL_LAUNCH_PARAMETERS.TXT file while debugging or polishing the new game,
-          then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
+          offending datafile, record, and field. There is a useful command-line flag that can be added to any .bat or .sh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName] .bat or .sh
+          file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
        </p>
        <p>
           The flag is:  <code>-dv</code>
@@ -739,7 +742,7 @@
           <li>Removes the game project from Eamon-CS.sln (Custom adventures only)</li>
           <li>Removes the game from the appropriate Adventure database(s)</li>
           <li>Deletes the game folder under Adventures</li>
-          <li>Deletes the game QuickLaunch script items</li>
+          <li>Deletes the game QuickLaunch .bat and .sh files</li>
        </ul>
        <p>As you might expect, once a game has been deleted its data is not recoverable by normal means.</p>
        <br />
