@@ -40,6 +40,9 @@
        <a name="ECSTP1"></a>
        <h4>PREFACE</h4>
        <p>
+          <b>[Note:&nbsp; this document is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
+       </p>
+       <p>
           This document is intended to describe the various facets of Eamon CS.&nbsp; The real documentation will be a formal set:&nbsp; full source code commenting, a Player's Manual, a Dungeon Designer's Manual and a Class
           Reference.&nbsp; It will take quite a while to put all that together, so in the meantime, hopefully, this will suffice.
        </p>
@@ -63,21 +66,23 @@
           GitHub to set up for play (if you did that, as opposed to doing a Git Clone).&nbsp; Also, it means there is no installer to maintain, which frees up time for other things like engine enhancements or developing adventures.
        </p>
        <p>
-          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not run when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
-          The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to run on Windows, your first order of business
-          should be to download and install the following files (in order):
+          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not configure when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
+          The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to configure on Windows, your first order of business
+          should be to download and install (in order) the files from one of the following sections:
        </p>
-       <p>For programmers who want to play, step-through, or develop the source code:</p>
+       <p><b>For programmers</b> who want to play, step-through, or develop the source code:</p>
        <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-offline-installer">Microsoft .NET Framework 4.8</a><br />
-       <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=17">Microsoft Visual Studio Community 2022</a> (includes .NET 6 SDK)
+       <a target="_blank" href="https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&amp;rel=17">Microsoft Visual Studio Community 2022</a> (includes .NET 8 SDK)
        <ul>
           <li>Installer option: .NET desktop development</li>
           <li>Installer option: Mobile development with .NET</li>
        </ul>
-       <p>For gamers who want to play:</p>
-       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.31-windows-x64-installer">Microsoft .NET 6 Runtime</a>
+       <p><b>For gamers</b> who want to play on <b>win-x64 (Intel/AMD)</b> systems:</p>
+       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.5-windows-x64-installer">Microsoft .NET 8 Runtime (x64)</a>
+       <p><b>For gamers</b> who want to play on <b>win-arm64 (Arm)</b> systems:</p>
+       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.5-windows-arm64-installer">Microsoft .NET 8 Runtime (Arm)</a>
        <p>
-          Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 6.X), see the <a href="#ECSTP3">POST-INSTALLATION TOPICS</a> section for details on how to do that.
+          Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 8.X), see the <a href="#ECSTP3">POST-INSTALLATION TOPICS</a> section for details on how to do that.
        </p>
        <p>A second disadvantage on Windows leads to a useful tip regarding the downloaded .zip file.&nbsp; You should always right-click on the .zip file and select "unblock" to avoid the security warnings, as shown below:</p>
        <br />
@@ -87,15 +92,14 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UnblockECS02.jpg" alt="UnblockECS02.jpg" src="../../assets/images/TechnicalPaper/UnblockECS02.jpg" /></div>
        <br />
        <p>
-          The prerequisites on Unix are similar:&nbsp; a version of .NET 6.X that is compatible with the given platform.&nbsp; You can download a .NET software bundle for Linux or macOS from the website referenced by the above links
-          (and find corresponding installation instructions).&nbsp; But Eamon CS on Unix should only be pursued by those confident enough to see it through via their own devices.&nbsp; The game runs correctly on Ubuntu Linux and FreeBSD
-          and may work on other Unix variants, such as macOS (OS X).
+          The prerequisites on Linux and MacOS are similar:&nbsp; a version of .NET 8.X that is compatible with the given platform.&nbsp; You can download a .NET software bundle from the website referenced by the above links
+          (and find corresponding installation instructions).&nbsp; But Eamon CS on these platforms should only be pursued by those confident enough to see it through via their own devices.
        </p>
        <a name="ECSTP3"></a>
        <h4>POST-INSTALLATION TOPICS</h4>
        <p>
-          The precompiled binaries for Eamon CS use .NET 6.X, but the system should be fully compatible with all .NET versions that conform to .NET Standard 2.0.&nbsp; However, using older versions may introduce
-          additional requirements such as .NET Framework.&nbsp; To use Eamon CS with a different .NET, you need to recompile the EamonPM.WindowsUnix project to target it.&nbsp; To do this, you must first install Visual Studio
+          The precompiled binaries for Eamon CS use .NET 8.X, but the system should be fully compatible with all .NET versions that conform to .NET Standard 2.0.&nbsp; However, using older versions may introduce
+          additional requirements such as .NET Framework.&nbsp; To use Eamon CS with a different .NET, you need to recompile the EamonPM and EamonPM.Desktop projects to target it.&nbsp; To do this, you must first install Visual Studio
           2022+, as described in the <a href="#ECSTP2">PREREQUISITES</a> section.&nbsp; The use of Visual Studio is described in the section called <a href="#ECSTP9">USING THE VISUAL STUDIO DEBUGGER</a>.&nbsp; The following screenshot
           shows how to determine from the command line which versions of .NET are present on your system:
        </p>
@@ -103,18 +107,19 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ListDotnetPackages.jpg" alt="ListDotnetPackages.jpg" src="../../assets/images/TechnicalPaper/ListDotnetPackages.jpg" /></div>
        <br />
        <p>
-          To recompile the EamonPM.WindowsUnix project, load the Eamon.Desktop solution in Visual Studio.&nbsp; Right-click on the project and choose Properties.&nbsp; Select the appropriate version of .NET in the Target Framework
+          To recompile the EamonPM and EamonPM.Desktop projects, load the Eamon-CS solution in Visual Studio.&nbsp; Right-click on each project in turn and choose Properties.&nbsp; Select the appropriate version of .NET in the Target Framework
           drop-down list of the Application General section, then click the Save button:
        </p>
        <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="CompileForNetCore2Plus.jpg" alt="CompileForNetCore2Plus.jpg" src="../../assets/images/TechnicalPaper/CompileForNetCore2Plus.jpg" /></div>
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="CompileForNet6.jpg" alt="CompileForNet6.jpg" src="../../assets/images/TechnicalPaper/CompileForNet6.jpg" /></div>
        <br />
        <p>
-          After doing this, right-click on the EamonPM.WindowsUnix project and choose Clean.&nbsp; Then right-click on the project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your installed .NET.
+          After doing this, right-click on each project in turn and choose Clean.&nbsp; Then right-click on the EamonPM.Desktop project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your
+          installed .NET.
        </p>
        <p>
           Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to auto-detect .NET correctly. Simply change the value highlighted in the following screenshots to include
-          your major .NET version (e.g., use 2|6|7 for added .NET Core 2.1 support), then save the files.
+          your major .NET version (e.g., use 6|8|9|10 for added .NET 6 support), then save the files.
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UpdateRegex.jpg" alt="UpdateRegex.jpg" src="../../assets/images/TechnicalPaper/UpdateRegex.jpg" /></div>
@@ -123,8 +128,8 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UpdateRegex02.jpg" alt="UpdateRegex02.jpg" src="../../assets/images/TechnicalPaper/UpdateRegex02.jpg" /></div>
        <br />
        <p>
-          The auto-detection logic requires ongoing maintenance as new versions of .NET are released. If you find in the future this logic prevents the game from running on a properly configured workstation (for whatever reason),
-          you can disable it by renaming or deleting the WINDOWS_PREREQUISITES.TXT and/or UNIX_PREREQUISITES.TXT files.
+          The auto-detection logic requires ongoing maintenance as new versions of .NET are released. If you find in the future this logic prevents the game from configuring on a properly set up workstation (for whatever reason),
+          you can disable it by renaming or deleting the LINUX_PREREQUISITES.TXT, MACOS_PREREQUISITES.TXT and/or WINDOWS_PREREQUISITES.TXT files.
        </p>
        <a name="ECSTP4"></a>
        <h4>PROGRAMS, LIBRARIES AND PLUGINS</h4>
@@ -139,12 +144,8 @@
           </thead>
           <tbody>
              <tr>
-                <td>System\Bin\EamonPM.WindowsUnix.dll</td>
-                <td>Eamon CS Windows/Unix Plugin Manager</td>
-             </tr>
-             <tr>
-                <td>System\Bin\EamonPM.Android-Signed.apk</td>
-                <td>Eamon CS Android Plugin Manager</td>
+                <td>System\Bin\Eamon.dll</td>
+                <td>Eamon CS Library</td>
              </tr>
              <tr>
                 <td>System\Bin\EamonDD.dll</td>
@@ -155,12 +156,28 @@
                 <td>Eamon CS Main Hall Plugin</td>
              </tr>
              <tr>
-                <td>System\Bin\EamonRT.dll</td>
-                <td>Eamon CS Adventure Plugin</td>
+                <td>System\Bin\EamonPM.dll</td>
+                <td>Eamon CS Plugin Manager Library</td>
              </tr>
              <tr>
-                <td>System\Bin\Eamon.dll</td>
-                <td>Eamon CS Library</td>
+                <td>System\Bin\EamonPM.Android.dll</td>
+                <td>Eamon CS Android Plugin Manager Library</td>
+             </tr>
+             <tr>
+                <td>System\Bin\EamonPM.Desktop.dll</td>
+                <td>Eamon CS Desktop Plugin Manager Library</td>
+             </tr>
+             <tr>
+                <td>System\Bin\EamonPM.Android-Signed.apk</td>
+                <td>Eamon CS Android Plugin Manager</td>
+             </tr>
+             <tr>
+                <td>System\Bin\EamonPM.Desktop.exe</td>
+                <td>Eamon CS Desktop Plugin Manager</td>
+             </tr>
+             <tr>
+                <td>System\Bin\EamonRT.dll</td>
+                <td>Eamon CS Adventure Plugin</td>
              </tr>
              <tr>
                 <td>System\Bin\Polenter.SharpSerializer.dll</td>
@@ -180,19 +197,7 @@
           </thead>
           <tbody>
              <tr>
-                <td>System\Bin\TheBeginnersCave.dll<br /></td>
-                <td>Eamon CS Adventure Plugin<br /></td>
-             </tr>
-             <tr>
-                <td style="width: 331.95px;">System\Bin\BeginnersForest.dll<br /></td>
-                <td style="width: 346.55px;">Eamon CS Adventure Plugin<br /></td>
-             </tr>
-             <tr>
-                <td>System\Bin\TheTrainingGround.dll<br /></td>
-                <td>Eamon CS Adventure Plugin<br /></td>
-             </tr>
-             <tr>
-                <td>System\Bin\TheSubAquanLaboratory.dll<br /></td>
+                <td>System\Bin\AlternateBeginnersCave.dll<br /></td>
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
@@ -200,15 +205,11 @@
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
-                <td>System\Bin\StrongholdOfKahrDur.dll<br /></td>
+                <td>System\Bin\BeginnersCaveII.dll<br /></td>
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
-                <td>System\Bin\TheTempleOfNgurct.dll<br /></td>
-                <td>Eamon CS Adventure Plugin<br /></td>
-             </tr>
-             <tr>
-                <td>System\Bin\WrenholdsSecretVigil.dll<br /></td>
+                <td>System\Bin\BeginnersForest.dll<br /></td>
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
@@ -216,15 +217,11 @@
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
-                <td>System\Bin\TheVileGrimoireOfJaldial.dll<br /></td>
+                <td>System\Bin\StrongholdOfKahrDur.dll<br /></td>
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
-                <td>System\Bin\BeginnersCaveII.dll<br /></td>
-                <td>Eamon CS Adventure Plugin<br /></td>
-             </tr>
-             <tr>
-                <td>System\Bin\AlternateBeginnersCave.dll<br /></td>
+                <td>System\Bin\TheBeginnersCave.dll<br /></td>
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
@@ -236,7 +233,27 @@
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
              <tr>
+                <td>System\Bin\TheSubAquanLaboratory.dll<br /></td>
+                <td>Eamon CS Adventure Plugin<br /></td>
+             </tr>
+             <tr>
+                <td>System\Bin\TheTempleOfNgurct.dll<br /></td>
+                <td>Eamon CS Adventure Plugin<br /></td>
+             </tr>
+             <tr>
+                <td>System\Bin\TheTrainingGround.dll<br /></td>
+                <td>Eamon CS Adventure Plugin<br /></td>
+             </tr>
+             <tr>
+                <td>System\Bin\TheVileGrimoireOfJaldial.dll<br /></td>
+                <td>Eamon CS Adventure Plugin<br /></td>
+             </tr>
+             <tr>
                 <td>System\Bin\TheWayfarersInn.dll<br /></td>
+                <td>Eamon CS Adventure Plugin<br /></td>
+             </tr>
+             <tr>
+                <td>System\Bin\WrenholdsSecretVigil.dll<br /></td>
                 <td>Eamon CS Adventure Plugin<br /></td>
              </tr>
           </tbody>
@@ -266,85 +283,85 @@
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
           <thead>
              <tr>
-                <th>File Name<br /></th>
+                <th>Virtual File Name<br /></th>
                 <th>Description<br /></th>
              </tr>
           </thead>
           <tbody>
              <tr>
-                <td>EamonDD\EditAdventures.bat</td>
+                <td>EamonDD\EditAdventures.ps</td>
                 <td>Edit the flat Adventures database</td>
              </tr>
              <tr>
-                <td>EamonDD\EditCatalog.bat</td>
+                <td>EamonDD\EditCatalog.ps</td>
                 <td>Edit the adventure category Catalog</td>
              </tr>
              <tr>
-                <td>EamonDD\EditCharacters.bat</td>
+                <td>EamonDD\EditCharacters.ps</td>
                 <td>Edit the Characters file</td>
              </tr>
              <tr>
-                <td>EamonDD\EditContemporary.bat</td>
+                <td>EamonDD\EditContemporary.ps</td>
                 <td>Edit the Contemporary adventures category</td>
              </tr>
              <tr>
-                <td>EamonDD\EditFantasy.bat</td>
+                <td>EamonDD\EditFantasy.ps</td>
                 <td>Edit the Fantasy adventures category</td>
              </tr>
              <tr>
-                <td>EamonDD\EditSciFi.bat</td>
-                <td>Edit the Sci-Fi adventures category</td>
-             </tr>
-             <tr>
-                <td>EamonDD\EditHorror.bat</td>
+                <td>EamonDD\EditHorror.ps</td>
                 <td>Edit the Horror adventures category</td>
              </tr>
              <tr>
-                <td>EamonDD\EditTest.bat</td>
+                <td>EamonDD\EditSciFi.ps</td>
+                <td>Edit the Sci-Fi adventures category</td>
+             </tr>
+             <tr>
+                <td>EamonDD\EditTest.ps</td>
                 <td>Edit the Test adventures category</td>
              </tr>
              <tr>
-                <td>EamonDD\EditWorkbench.bat</td>
+                <td>EamonDD\EditWorkbench.ps</td>
                 <td>Edit the Developer's Workbench</td>
              </tr>
              <tr>
-                <td>EamonDD\EditWorkInProgress.bat</td>
+                <td>EamonDD\EditWorkInProgress.ps</td>
                 <td>Edit the Work-In-Progress adventures category</td>
              </tr>
              <tr>
-                <td>EamonDD\EditARuncibleCargo.bat</td>
+                <td>EamonDD\EditARuncibleCargo.ps</td>
                 <td>Edit A Runcible Cargo</td>
              </tr>
              <tr>
-                <td>EamonDD\EditBeginnersForest.bat</td>
+                <td>EamonDD\EditBeginnersForest.ps</td>
                 <td>Edit Beginner's Forest</td>
              </tr>
              <tr>
-                <td>EamonDD\Edit[AdventureName].bat</td>
+                <td>EamonDD\Edit[AdventureName].ps</td>
                 <td>Edit [AdventureName]</td>
              </tr>
              <tr>
-                <td>EamonDD\LoadAdventureSupportMenu.bat</td>
+                <td>EamonDD\LoadAdventureSupportMenu.ps</td>
                 <td>Load Adventure Support Menu</td>
              </tr>
              <tr>
-                <td>EamonMH\EnterMainHallUsingAdventures.bat</td>
+                <td>EamonMH\EnterMainHallUsingAdventures.ps</td>
                 <td>Enter the Main Hall using a flat adventure database<sup>1</sup></td>
              </tr>
              <tr>
-                <td>EamonMH\EnterMainHallUsingCatalog.bat</td>
+                <td>EamonMH\EnterMainHallUsingCatalog.ps</td>
                 <td>Enter the Main Hall using a hierarchical adventure database<sup>1</sup></td>
              </tr>
              <tr>
-                <td>EamonRT\ResumeARuncibleCargo.bat</td>
+                <td>EamonRT\ResumeARuncibleCargo.ps</td>
                 <td>Resume A Runcible Cargo<sup>2</sup></td>
              </tr>
              <tr>
-                <td>EamonRT\ResumeBeginnersForest.bat</td>
+                <td>EamonRT\ResumeBeginnersForest.ps</td>
                 <td>Resume Beginner's Forest<sup>2</sup></td>
              </tr>
              <tr>
-                <td>EamonRT\Resume[AdventureName].bat</td>
+                <td>EamonRT\Resume[AdventureName].ps</td>
                 <td>Resume [AdventureName]<sup>2</sup></td>
              </tr>
           </tbody>
@@ -360,123 +377,7 @@
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-          Eamon CS runs as a set of 64-bit Console applications. You can play the game using default Console settings, and it will not diminish the experience. But you might also consider doing some light reconfiguration. While the
-          system tries to adjust the window size optimally, there are other settings you may wish to experiment with to see what appeals to you. Strangely enough, I've found aesthetics make a big difference in the quality of the gameplay
-          and the ease of use for tools like EamonDD. The following ideas produced some interesting results:
-       </p>
-       <ol>
-          <li>When running ECS, right-click on the Console window title bar and choose properties. Windows 10 provides the following settings; the properties available on other versions may differ.</li>
-       </ol>
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties.jpg" alt="ECSProperties.jpg" src="../../assets/images/TechnicalPaper/ECSProperties.jpg" /></div>
-       <br />
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="ECSProperties02.jpg" alt="ECSProperties02.jpg" src="../../assets/images/TechnicalPaper/ECSProperties02.jpg" /></div>
-       <br />
-       <ol start="2">
-          <li>Options Tab -</li>
-          <ol>
-             Edit Options -
-             <br />
-             <ol>
-                QuickEdit Mode: Checked (you can use this to enable the mouse scroll wheel if necessary)
-             </ol>
-          </ol>
-          <br />
-          <li>Font Tab -</li>
-          <ol>
-             Size: 12-16
-             <br />
-             Font: Consolas or Deja Vu Sans Mono
-             <br />
-             Bold: Optional
-          </ol>
-          <br />
-          <li>Layout Tab -</li>
-          <ol>
-             Screen Buffer Size -
-             <br />
-             <ol>
-                Width: 80
-                <br />
-                Height: 9999
-             </ol>
-             Window Size -
-             <ol>
-                Width: 80
-                <br />
-                Height: 50 (you can adjust this up or down based on screen resolution)
-             </ol>
-          </ol>
-          <br />
-          <li>Colors Tab -</li>
-          <ol>
-             Screen Text -
-             <br />
-             <ol>
-                Selected Color Values -
-                <ol>
-                   Red: 0
-                   <br />
-                   Green: 255
-                   <br />
-                   Blue: 0
-                </ol>
-             </ol>
-             Screen Background -
-             <ol>
-                Selected Color Values -
-                <ol>
-                   Red: 0
-                   <br />
-                   Green: 0
-                   <br />
-                   Blue: 0
-                </ol>
-             </ol>
-          </ol>
-          <br />
-          <li>Terminal Tab - (when present)</li>
-          <ol>
-             Cursor Colors -
-             <br />
-             <ol>
-                Use Color -
-                <br />
-                <ol>
-                   Red: [Use Screen Text Red]
-                   <br />
-                   Green: [Use Screen Text Green]
-                   <br />
-                   Blue: [Use Screen Text Blue]
-                   <br />
-                </ol>
-             </ol>
-          </ol>
-       </ol>
-       <p>
-          Eamon CS tries to set the values on the Layout Tab to those shown above, so you shouldn't need to change them. The Screen Buffer Width and Window Width should always be 80 columns. The Screen Buffer Height is strongly suggested
-          to be 9999. The Screen Text shown above is Green with a Black background and has a retro-vibe, like an Apple II monitor. If you prefer amber, the RGB values [255,165,0] might work for you. As time has passed, I settled on a
-          white background with black text, as shown in the various images in this document. Once you have the settings you're happy with, click OK, and they should persist across ECS programs.
-       </p>
-       <p>
-          The game supports screen readers to improve accessibility for players who benefit from it. In the System\Bin directory, a GLOBAL_LAUNCH_PARAMETERS.TXT file passes command-line parameters to all Eamon CS programs. Adding
-          the -esrm flag to this file will cause the system to reconfigure itself, altering text sequences and stripping non-game-related output. Screen readers will more accurately process the resulting output text. This file may also
-          be modified through EamonDD using the LoadAdventureSupportMenu .bat or .sh file and menu options two, then two.	    
-       </p>
-       <p>
-          <b>Important Note:</b> As each new version of Windows is released, the Command Console program seems less compatible with older applications. If you encounter issues running Eamon CS on your system that you can't resolve - 
-          cursor problems, crashes, etc. - the only solution is to configure the Command Console to operate in legacy mode. To do this, query a search engine for the best method using the phrase "Windows XX command console legacy mode,"
-          where XX is your specific Windows version.
-       </p>
-       <p>
-          The newest versions of Windows (10+) contain a rewritten Command Console that includes a Terminal Tab. The long unfixable bug in Eamon CS involving the Inverse Color radio button and unsightly cursor artifacts has been fixed.
-          By default configuration, the game's text output will be as intended regardless of which Cursor Colors radio button is selected.
-       </p>
-       <p>
-          If the Inverse Color radio button is selected, the redraw windows (-rw) flag must be included in GLOBAL_LAUNCH_PARAMETERS.TXT (and it is by default). Otherwise, if the Use Color radio button is selected, you are enabling (or
-          keeping) the old workaround for the bug, which is still the ideal solution. Just set the RGB values to the corresponding values on the Colors Tab for Screen Text Selected Color Values and omit the -rw flag from this file since
-          window redraws are not required in this case.
+          <b>[Note:&nbsp; this section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
        </p>
        <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
@@ -543,7 +444,7 @@
           </li>
           <br />
           <li>
-             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 2.2 GENERAL HELP and EAMON CS 2.2 NEW COMMANDS as these hints may be subtly different than their Eamon Deluxe
+             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 3.0 GENERAL HELP and EAMON CS 3.0 NEW COMMANDS as these hints may be subtly different than their Eamon Deluxe
              counterparts. Consider the following:
           </li>
           <br />
@@ -596,71 +497,38 @@
              Make a backup of your repository directory if you downloaded a .zip file. If you Git Cloned the system, you can make a new development branch and focus your work there. Your original branch (or gameplay branch) will remain
              pristine.
           </li>
-          <br />
-          <li>
-             In the development directory or branch run EnterMainHallUsingAdventures.bat, and send a character into the adventure you want to step through. You can save the game if you wish, but it is not required; only that the
-             character remains in the adventure. Quit the game, but don't Quit Hall. In this example, we'll step through The Beginner's Cave.
-          </li>
        </ol>
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="GoOnAdventure.jpg" alt="GoOnAdventure.jpg" src="../../assets/images/TechnicalPaper/GoOnAdventure.jpg" /></div>
-       <br />
-       <ol start="3">
-          <li>Open the Eamon.Desktop solution with Visual Studio.</li>
+       <ol start="2">
+          <li>Open the Eamon-CS solution with Visual Studio.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="OpenECSWithVS.jpg" alt="OpenECSWithVS.jpg" src="../../assets/images/TechnicalPaper/OpenECSWithVS.jpg" /></div>
        <br />
-       <ol start="4">
+       <ol start="3">
           <li>Once Visual Studio loads the game, right-click on the Solution node and select Batch Build.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBatchBuild.jpg" alt="VSBatchBuild.jpg" src="../../assets/images/TechnicalPaper/VSBatchBuild.jpg" /></div>
        <br />
-       <ol start="5">
+       <ol start="4">
           <li>Click the Select All button, then click Clean.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBatchBuildClean.jpg" alt="VSBatchBuildClean.jpg" src="../../assets/images/TechnicalPaper/VSBatchBuildClean.jpg" /></div>
        <br />
-       <ol start="6">
-          <li>Ensure the system is in Debug mode (shown inside red circle). In the Eamon.Desktop solution, right-click on the Solution node and click Build Solution.</li>
+       <ol start="5">
+          <li>Ensure the system is in Debug mode (shown inside red circle). In the Eamon-CS solution, right-click on the Solution node and click Build Solution.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSBuildSolutionDebug.jpg" alt="VSBuildSolutionDebug.jpg" src="../../assets/images/TechnicalPaper/VSBuildSolutionDebug.jpg" /></div>
        <br />
-       <ol start="7">
-          <li>There should be no errors in the previous steps (see Output Windows). Right-click on the EamonPM.WindowsUnix project and select Set as Startup Project.</li>
+       <ol start="6">
+          <li>There should be no errors in the previous steps (see Output Windows). Right-click on the EamonPM.Desktop project and select Set as Startup Project.</li>
        </ol>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSSetAsStartupProject.jpg" alt="VSSetAsStartupProject.jpg" src="../../assets/images/TechnicalPaper/VSSetAsStartupProject.jpg" /></div>
        <br />
-       <ol start="8">
-          <li>Right-click on the EamonPM.WindowsUnix project and select Properties.</li>
-       </ol>
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSSetProperties.jpg" alt="VSSetProperties.jpg" src="../../assets/images/TechnicalPaper/VSSetProperties.jpg" /></div>
-       <br />
-       <ol start="9">
-          <li>
-             In the Debug General section, click Open debug launch profiles UI and set the Command line arguments to the appropriate string. In this case, the string comes directly from ResumeTheBeginnersCave.bat. You should also add
-             the redraw window flag (-rw) to the end of the string as well. Make sure you save the changes (click the icon inside the red circle). Side note: you can use any string from any .bat file, depending on which program you
-             want to step through, including the Main Hall or the Dungeon Designer. You don't need to send a character on an adventure first to debug these. See the two examples below.
-          </li>
-       </ol>
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSProperties02.jpg" alt="VSProperties02.jpg" src="../../assets/images/TechnicalPaper/VSProperties02.jpg" /></div>
-       <br />
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSProperties03.jpg" alt="VSProperties03.jpg" src="../../assets/images/TechnicalPaper/VSProperties03.jpg" /></div>
-       <br />
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSProperties04.jpg" alt="VSProperties04.jpg" src="../../assets/images/TechnicalPaper/VSProperties04.jpg" /></div>
-       <br />
-       <br />
-       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSProperties05.jpg" alt="VSProperties05.jpg" src="../../assets/images/TechnicalPaper/VSProperties05.jpg" /></div>
-       <br />
-       <ol start="10">
+       <ol start="7">
           <li>
              Put your breakpoints in the code. In the following examples, the program will break just as it enters the game's main loop, as an attack occurs in combat and in the ReadCommand subclass of The Beginner's Cave. You can set
              breakpoints anywhere you like in the running program; in our case, that includes EamonRT.dll and TheBeginnersCave.dll.
@@ -675,14 +543,20 @@
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="VSSetBreakpoint03.jpg" alt="VSSetBreakpoint03.jpg" src="../../assets/images/TechnicalPaper/VSSetBreakpoint03.jpg" /></div>
        <br />
-       <ol start="11">
+       <ol start="8">
           <li>
-             Press F5 to run the program. The game will launch just as if you had double-clicked the ResumeTheBeginnersCave.bat file. If you saved any games, you can restore them at this point as you typically would. You can also
-             start the program or step through it line by line at any point using F10 (step over) or F11 (step into).
+             Press F5 to run the program. EamonPM.Desktop will launch, allowing you to enter the game either directly through the Resume menu or indirectly via the Main Hall. This technique can also be used to debug EamonDD or EamonMH.
+             Breakpoints will be triggered as you exercise the relevant code by playing the game. You can also step through the program line by line at any time using F10 (Step Over) or F11 (Step Into).
           </li>
        </ol>
+       <br />
+       <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="GoOnAdventure.jpg" alt="GoOnAdventure.jpg" src="../../assets/images/TechnicalPaper/GoOnAdventure.jpg" /></div>
+       <br />
        <a name="ECSTP10"></a>
        <h4>BUILDING NEW ADVENTURES</h4>
+       <p>
+          <b>[Note:&nbsp; this section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
+       </p>
        <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
           EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
@@ -694,7 +568,7 @@
        <br />
        <p>
           The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
-          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon.Desktop solution or compile the game will fail.  For Custom
+          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon-CS solution or compile the game will fail.  For Custom
           adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
        </p>
        <p>
@@ -707,14 +581,14 @@
           <li>Generates all needed code (Custom adventures only)</li>
           <li>Creates all necessary QuickLaunch .bat and .sh files</li>
           <li>Adds the game to the appropriate Adventure database(s)</li>
-          <li>Adds the game project to Eamon.Desktop.sln (Custom adventures only)</li>
+          <li>Adds the game project to Eamon-CS.sln (Custom adventures only)</li>
           <li>Rebuilds the game project, producing game library/binary files (Custom adventures only)</li>
        </ul>
        <p>Below we see an example of Custom adventure creation where a new game called Walled City of Darkness (Eamon #150) is bootstrapped using the Adventure Support Menu.</p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="AddGame.jpg" alt="AddGame.jpg" src="../../assets/images/TechnicalPaper/AddGame.jpg" /></div>
        <br />
-       <p>The only thing you need to do to play your game is run the corresponding Edit[YourAdventureName] .bat or .sh file and add:</p>
+       <p>The only thing you need to do to play your game is run the corresponding Edit[AdventureName] .bat or .sh file and add:</p>
        <ul>
           <li>A Module record</li>
           <li>A Room record</li>
@@ -740,7 +614,7 @@
        </p>
        <p>
           To exploit the data conversion utilities, you should create a Standard or Custom adventure, as described in the <a href="#ECSTP10">previous section</a>; the newly created game should share the ported game's name. Exit the Adventure
-          Support Menu, then run the game's Edit[AdventureName] .bat or .sh file. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu choose U for Utilities, then one for
+          Support Menu, then run the game's Edit[AdventureName] .bat or .sh file. Avoid adding new records to the game, as they will be overwritten during the data conversion process. From the Main Menu choose 8 (or U) for Utilities, then one for
           Adventure conversion, and finally one or two depending on the legacy Eamon system. After following the instructions during the conversion process, you can exit to the Main Menu. If the conversion was successful, you see the imported
           game data; it can be browsed or edited if needed. When you exit EamonDD from the Main Menu using X, be sure to choose Y to save the data.
        </p>
@@ -757,7 +631,7 @@
        <p>
           Custom games are created in Eamon CS using the C# mechanism of sub-classing. The system has no sealed classes, and every property and method is declared virtual. You can override any aspect of the game engine to suit your needs.
           If you want to produce a complex, interesting game with lots of special effects, you will almost certainly need to create new classes for your adventure. There are numerous examples of this in the adventures contained in the
-          Eamon.Desktop solution. It turns out, the layout of folders and namespaces in Eamon CS lends itself to a simple code generation mechanism based on a template discovered while studying the already-created games. You can use the
+          Eamon-CS solution. It turns out, the layout of folders and namespaces in Eamon CS lends itself to a simple code generation mechanism based on a template discovered while studying the already-created games. You can use the
           Adventure Support Menu to generate custom classes, complete with matching interfaces (if needed), based on many classes in the Eamon, EamonDD or EamonRT libraries. These generated classes appear in the selected adventure, and
           then you are free to add your custom code. For any class with a corresponding .DAT file (e.g., Room.cs and ROOMS.DAT), the .DAT file will be updated to reflect the newly added class.
        </p>
@@ -789,7 +663,7 @@
        <br />
        <ol start="3">
           <li>
-             The following screenshots show what the code generator produced. If you compare this output with the games in Eamon.Desktop, you will quickly see parallels between them. You can fix anything Intellisense flags as invalid
+             The following screenshots show what the code generator produced. If you compare this output with the games in Eamon-CS, you will quickly see parallels between them. You can fix anything Intellisense flags as invalid
              and hover the cursor over critical parts of the code to ensure it is correct.
           </li>
        </ol>
@@ -865,7 +739,7 @@
        </p>
        <ul>
           <li>Deletes the game library/binary files (Custom adventures only)</li>
-          <li>Removes the game project from Eamon.Desktop.sln (Custom adventures only)</li>
+          <li>Removes the game project from Eamon-CS.sln (Custom adventures only)</li>
           <li>Removes the game from the appropriate Adventure database(s)</li>
           <li>Deletes the game folder under Adventures</li>
           <li>Deletes the game QuickLaunch .bat and .sh files</li>
@@ -1011,12 +885,6 @@
                 <td>-dgs<br /></td>
                 <td>Delete Game State<br /></td>
                 <td>Causes EamonRT or a derivative (adventure-specific) library to delete all saved game state.  Instead of being handled by EamonMH, this is delegated to the Runtime, allowing it to customize cleanup.  Typically used when a character exits the game or is recalled from the Main Hall registration desk.<br /></td>
-                <td><br /></td>
-             </tr>
-             <tr>
-                <td>-rw<br /></td>
-                <td>Redraw Window<br /></td>
-                <td>When included in the System\Bin\GLOBAL_LAUNCH_PARAMETERS.TXT file, fixes a bug in Windows that causes cursor artifacts by forcing regular window redraws. This flag is enabled in Eamon CS by default and needed for players where the Cursor Colors Inverse Color radio button is selected on the Console Terminal tab. This flag has no effect on any other platform.<br /></td>
                 <td><br /></td>
              </tr>
              <tr>
