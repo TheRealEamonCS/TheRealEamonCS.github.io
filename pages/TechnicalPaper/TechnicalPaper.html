@@ -368,11 +368,11 @@
        </table>
        <br />
        <p>
-          <sup>1</sup> Run these batch files to create a new character or send an existing one into the Main Hall. The only difference between the two batch files is the nature of the adventure database loaded (the same characters will be
+          <sup>1</sup> Run these script files to create a new character or send an existing one into the Main Hall. The only difference between the two script files is the nature of the adventure database loaded (the same characters will be
           available regardless).
        </p>
-       <p><sup>2</sup> Run these batch files to return to an in-progress adventure. Use the RESTORE command to pick up where you left off.</p>
-       <p>You can study the batch files to see how the system launches various programs. You can also create new batch files using these as templates if you decide to write adventures or run the system in a non-default manner.</p>
+       <p><sup>2</sup> Run these script files to return to an in-progress adventure. Use the RESTORE command to pick up where you left off.</p>
+       <p>You can study the script files to see how the system launches various programs. You can also create new script files using these as templates if you decide to write adventures or run the system in a non-default manner.</p>
        <p>Eamon CS Mobile mirrors this QuickLaunch hierarchy using a series of ListViews to provide a similar experience.</p>
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
@@ -468,8 +468,8 @@
           The datafile format used by Eamon CS deserves an explanation. The game produces ASCII XML files representing C# object graphs; each file is further gzipped in its own archive to conserve space. If needed, you can open these
           files using the 7-Zip utility and right-click to get a context menu to View or Edit. In addition to storing data, these files play a critical role in the development of customized adventures. Take a look in the MONSTERS.DAT file
           in Test Adventure (a non-customized adventure), and you will see the serialized class is Eamon.Game.Monster (from Eamon.dll). But in The Beginner's Cave, you will see its TheBeginnersCave.Game.Monster (from
-          TheBeginnersCave.dll). These are two different classes, the second is a subclass of the first, and implements custom code that is explicitly used by The Beginner's Cave. Now compare the batch file EditTestAdventure.bat, which
-          contains the command-line argument "-pfn EamonRT.dll" with EditTheBeginnersCave.bat, which includes "-pfn TheBeginnersCave.dll". In the first, the flag instructs EamonDD to load the base game engine. In the second, it loads
+          TheBeginnersCave.dll). These are two different classes, the second is a subclass of the first, and implements custom code that is explicitly used by The Beginner's Cave. Now compare the script file EditTestAdventure.psh, which
+          contains the command-line argument "-pfn EamonRT.dll" with EditTheBeginnersCave.psh, which includes "-pfn TheBeginnersCave.dll". In the first, the flag instructs EamonDD to load the base game engine. In the second, it loads
           TheBeginnersCave.dll and uses any customized classes it finds (like the Monster class) when creating new objects. This whole topic is fairly complex and begs to be part of a formal document set, but at least this gives you an
           idea of how it works.
        </p>
