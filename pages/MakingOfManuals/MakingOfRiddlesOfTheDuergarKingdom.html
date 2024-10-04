@@ -25,7 +25,7 @@
         <p>I'll start by bootstrapping the game using the Adventure Support Menu:</p>
         <p></p>
         <ol>
-            <li>Run EamonDD\LoadAdventureSupportMenu.bat</li>
+            <li>Run EamonDD\LoadAdventureSupportMenu.psh</li>
             <li>Choose <code>2</code>: Utilities</li>
             <li>Choose <code>1</code>: Adventure Support</li>
             <li>Choose <code>2</code>: Add Custom Adventure</li>
@@ -44,22 +44,22 @@
             <li>Exit EamonDD</li>
         </ol>
         <p>
-            At this point, the game should exist. The EamonDD program creates a folder called Adventures\RiddlesOfTheDuergarKingdom to store the source code files, adds the appropriate .bat and .sh files under QuickLaunch, and places a
-            compiled RiddlesOfTheDuergarKingdom.dll file in System\Bin. The game is added to the Work-In-Progress Adventures database, which is only accessible using EnterMainHallUsingCatalog.bat. To verify everything worked, I can run
-            EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix) and ensure EamonDD loads the adventure. Then I can leave the game editor running, as the game is not yet playable and needs a few records added. That is the next section's
+            At this point, the game should exist. The EamonDD program creates a folder called Adventures\RiddlesOfTheDuergarKingdom to store the source code files, adds the appropriate .psh files under QuickLaunch, and places a
+            compiled RiddlesOfTheDuergarKingdom.dll file in System\Bin. The game is added to the Work-In-Progress Adventures database, which is only accessible using EnterMainHallUsingCatalog.psh. To verify everything worked, I can run
+            EditRiddlesOfTheDuergarKingdom.psh and ensure EamonDD loads the adventure. Then I can leave the game editor running, as the game is not yet playable and needs a few records added. That is the next section's
             topic.
         </p>
         <h4>MAKING THE GAME (MINIMALLY) PLAYABLE</h4>
         <p>The game will not be playable until a Module record, and Room record are added. I will omit the more involved details of both these records when entering them initially.</p>
         <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix)</li>
+            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.psh</li>
             <li>Choose <code>2</code>: Module record maintenance</li>
             <li>Choose <code>1</code>: Add a Module record</li>
             <li>Enter Name: <code>Riddles of the Duergar Kingdom</code></li>
             <li>Enter Description: <code>TODO</code></li>
             <li>Enter Author: <code>Michael Penner</code></li>
-            <li>Enter Volume Label: <code>MP-003</code></li>
-            <li>Enter Serial Number: <code>011</code></li>
+            <li>Enter Volume Label: <code>MP-004</code></li>
+            <li>Enter Serial Number: <code>281</code></li>
             <li>Enter Intro Story: <code>0</code></li>
             <li>Enter Compass Directions: <code>12</code></li>
             <li>Save this record: <code>Y</code></li>
@@ -207,7 +207,7 @@
             default behavior automatically assigns Uids to new records. Changing the Config record allows Uids to be set explicitly, but EamonDD will revert back to its default behavior when the program restarts:
         </p>
         <ol>
-            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.bat (or .sh for Unix)</li>
+            <li>Run EamonDD\EditRiddlesOfTheDuergarKingdom.psh</li>
             <li>Choose <code>1</code>: Config record maintenance</li>
             <li>Choose <code>1</code>: Edit a Config record</li>
             <li>Choose <code>2</code>: Edit one field of a Config record</li>

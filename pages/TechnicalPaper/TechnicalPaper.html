@@ -560,7 +560,7 @@
        <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
           EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
-          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .bat or .sh
+          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .psh
           file that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
        </p>
        <br />
@@ -579,7 +579,7 @@
        <ul>
           <li>Creates the game folder under Adventures</li>
           <li>Generates all needed code (Custom adventures only)</li>
-          <li>Creates all necessary QuickLaunch .bat and .sh files</li>
+          <li>Creates all necessary QuickLaunch .psh files</li>
           <li>Adds the game to the appropriate Adventure database(s)</li>
           <li>Adds the game project to Eamon-CS.sln (Custom adventures only)</li>
           <li>Rebuilds the game project, producing game library/binary files (Custom adventures only)</li>
@@ -620,7 +620,7 @@
        </p>
        <p>
           While the conversion process lightly validates the data coming in, Eamon CS programs aggressively validate loaded data. You may find your converted game fails validation, but the system gives a pretty good error message citing the
-          offending datafile, record, and field. There is a useful command-line flag that can be added to any .bat or .sh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName].psh
+          offending datafile, record, and field. There is a useful command-line flag that can be added to any .psh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName].psh
           file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
        </p>
        <p>
@@ -742,7 +742,7 @@
           <li>Removes the game project from Eamon-CS.sln (Custom adventures only)</li>
           <li>Removes the game from the appropriate Adventure database(s)</li>
           <li>Deletes the game folder under Adventures</li>
-          <li>Deletes the game QuickLaunch .bat and .sh files</li>
+          <li>Deletes the game QuickLaunch .psh files</li>
        </ul>
        <p>As you might expect, once a game has been deleted its data is not recoverable by normal means.</p>
        <br />
@@ -753,7 +753,7 @@
        <p>
           Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning.  If the same parameter is encountered multiple times on a command line, the
           last instance always takes precedence.  While the QuickLaunch facility hides this complexity, it is still helpful to know what flags are available if you want to run Eamon CS in a non-default manner.  When it makes sense, you
-          can integrate these parameters into the existing .bat and .sh files or create customized files of your own for ease of use.  If you wish to experiment with it, you can also run ECS directly from a Command Prompt in System\Bin.
+          can integrate these parameters into the existing .psh files or create customized files of your own for ease of use.  If you wish to experiment with it, you can also run ECS directly from a Command Prompt in System\Bin.
           The following table describes the available parameters and their purpose:
        </p>
        <br />
