@@ -262,7 +262,7 @@
        <p>
           Conceptually, each plugin is a discrete program.&nbsp; It exposes a Program class with a Main method that takes a collection of arguments, much like any C-based program.&nbsp; The difference is that the Plugin Manager is what
           "executes" the plugin, not the calling C# environment.&nbsp; At the bottom of the software stack, you have Polenter.SharpSerializer.dll which handles loading and saving of the game's datafiles and Eamon.dll which holds code
-          common to all ECS plugins.&nbsp; EamonRT.dll contains the vanilla game engine used by all non-customized adventures.&nbsp; For customized adventures, the game plugin (e.g., TheBeginnersCave.dll) contains custom code specific to
+          common to all ECS plugins.&nbsp; EamonRT.dll contains the base game engine used by all non-customized adventures.&nbsp; For customized adventures, the game plugin (e.g., TheBeginnersCave.dll) contains custom code specific to
           that game, built by leveraging EamonRT.dll.&nbsp; It is a "modded" version of the game engine.
        </p>
        <p>Plugins can share any logic with this implementation.&nbsp; For example, an interesting idea would be to create a "campaign library" that contains shared code for many derived adventures.</p>
