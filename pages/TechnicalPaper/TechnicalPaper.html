@@ -66,7 +66,7 @@
           GitHub to set up for play (if you did that, as opposed to doing a Git Clone).&nbsp; Also, it means there is no installer to maintain, which frees up time for other things like engine enhancements or developing adventures.
        </p>
        <p>
-          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not configure when you run a DetectDotnetAndConfigure .bat or .sh file under
+          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not configure when you run the DetectDotnetAndConfigure .bat or .sh files under
           QuickLaunch.&nbsp;The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to configure on Windows, your
           first order of business should be to download and install (in order) the files from one of the following sections:
        </p>
@@ -118,8 +118,8 @@
           installed .NET.&nbsp; You can run EamonPM.Desktop directly from System\Bin, or manually create a QuickLaunch shortcut to it for ease of use.
        </p>
        <p>
-          Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to auto-detect .NET correctly. Simply change the value highlighted in the following screenshots to include
-          your major .NET version (e.g., use 6|8|9|10 for added .NET 6 support), then save the files.
+          Additionally, you should modify two files in the System\Bin directory to ensure ECS is in sync with your system configuration.&nbsp; These files allow the QuickLaunch facility to auto-detect .NET correctly.&nbsp; Change
+          the value highlighted in the following screenshots to include your major .NET version (e.g., use 6|8|9|10 for added .NET 6 support), then save the files.
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UpdateRegex.jpg" alt="UpdateRegex.jpg" src="../../assets/images/TechnicalPaper/UpdateRegex.jpg" /></div>
@@ -128,8 +128,8 @@
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="UpdateRegex02.jpg" alt="UpdateRegex02.jpg" src="../../assets/images/TechnicalPaper/UpdateRegex02.jpg" /></div>
        <br />
        <p>
-          The auto-detection logic requires ongoing maintenance as new versions of .NET are released. If you find in the future this logic prevents the game from configuring on a properly set up workstation (for whatever reason),
-          you can disable it by renaming or deleting the LINUX_PREREQUISITES.TXT, MACOS_PREREQUISITES.TXT and/or WINDOWS_PREREQUISITES.TXT files.
+          The auto-detection logic requires ongoing maintenance as new versions of .NET are released. If you find in the future this logic prevents the game from configuring on a viable workstation (for whatever reason), you can
+          disable it by renaming or deleting the LINUX_PREREQUISITES.TXT, MACOS_PREREQUISITES.TXT and/or WINDOWS_PREREQUISITES.TXT files.
        </p>
        <a name="ECSTP4"></a>
        <h4>PROGRAMS, LIBRARIES AND PLUGINS</h4>
