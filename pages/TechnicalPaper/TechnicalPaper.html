@@ -55,9 +55,9 @@
           from and bears a strong resemblance to all these sources in various areas.&nbsp;&nbsp;
        </p>
        <p>
-          The game has evolved rapidly over its lifespan.&nbsp; First, it moved to a plugin-based architecture unique to this branch of Eamon, then into the various flavors of Unix, and most recently into the Android mobile device
-          space.&nbsp; The game engine has improved with each one of a small but growing collection of custom-built adventures created along the way.&nbsp; The different programs of Eamon CS share a common code base and collectively
-          are referred to as Eamon CS Desktop on traditional workstations and Eamon CS Mobile on mobile devices.
+          The game has evolved rapidly over its lifespan.&nbsp; First, it moved to a plugin-based architecture unique to this branch of Eamon, then went multi-platform (Linux, MacOS, Windows, and Android), and most recently added a
+          graphical game runner built with Avalonia UI.&nbsp; The game engine has improved with each one of a small but growing collection of custom-built adventures created along the way.&nbsp; The different programs of Eamon CS share
+          a common code base and collectively are referred to as Eamon CS Desktop on traditional workstations and Eamon CS Mobile on mobile devices.
        </p>
        <a name="ECSTP2"></a>
        <h4>PREREQUISITES</h4>
@@ -66,9 +66,9 @@
           GitHub to set up for play (if you did that, as opposed to doing a Git Clone).&nbsp; Also, it means there is no installer to maintain, which frees up time for other things like engine enhancements or developing adventures.
        </p>
        <p>
-          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not configure when any of the .bat or .sh QuickLaunch files are double-clicked.&nbsp;
-          The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to configure on Windows, your first order of business
-          should be to download and install (in order) the files from one of the following sections:
+          A disadvantage to this approach is the ECS developer/gamer is responsible for installing all system prerequisites.&nbsp; Otherwise, ECS will not configure when you run a DetectDotnetAndConfigure .bat or .sh file under
+          QuickLaunch.&nbsp;The good news is that these files auto-detect the missing packages and provide the URLs referenced in the following hyperlinks.&nbsp; If you find that you cannot get Eamon CS to configure on Windows, your
+          first order of business should be to download and install (in order) the files from one of the following sections:
        </p>
        <p><b>For programmers</b> who want to play, step-through, or develop the source code:</p>
        <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-offline-installer">Microsoft .NET Framework 4.8</a><br />
@@ -98,7 +98,7 @@
        <a name="ECSTP3"></a>
        <h4>POST-INSTALLATION TOPICS</h4>
        <p>
-          The precompiled binaries for Eamon CS use .NET 8.X, but the system should be fully compatible with all .NET versions that conform to .NET Standard 2.0.&nbsp; However, using older versions may introduce
+          The precompiled binaries for Eamon CS use .NET 8.X, but the system should be fully compatible with all .NET versions that conform to .NET Standard 2.0 and support Avalonia UI.&nbsp; However, using older versions may introduce
           additional requirements such as .NET Framework.&nbsp; To use Eamon CS with a different .NET, you need to recompile the EamonPM and EamonPM.Desktop projects to target it.&nbsp; To do this, you must first install Visual Studio
           2022+, as described in the <a href="#ECSTP2">PREREQUISITES</a> section.&nbsp; The use of Visual Studio is described in the section called <a href="#ECSTP9">USING THE VISUAL STUDIO DEBUGGER</a>.&nbsp; The following screenshot
           shows how to determine from the command line which versions of .NET are present on your system:
@@ -115,7 +115,7 @@
        <br />
        <p>
           After doing this, right-click on each project in turn and choose Clean.&nbsp; Then right-click on the EamonPM.Desktop project and select Build.&nbsp; If you receive no errors, Eamon CS should now work with your
-          installed .NET.
+          installed .NET.&nbsp; You can run EamonPM.Desktop directly from System\Bin, or manually create a QuickLaunch shortcut to it for ease of use.
        </p>
        <p>
           Additionally, you will need to modify two files in the System\Bin directory that allow the QuickLaunch facility to auto-detect .NET correctly. Simply change the value highlighted in the following screenshots to include
