@@ -269,9 +269,9 @@
        <p>The source code for Plugin Managers and system plugins resides in the appropriate directory under System; for adventures, it is in the adventure-specific directory under Adventures.</p>
        <p>The Main Hall datafiles reside in System\Bin, making them easily accessible to all plugins.&nbsp; Game-specific datafiles (both original and save game) reside under Adventures in their respective game directories.</p>
        <p>
-          Here is a final note on the architectural differences between ECS Desktop and Mobile.&nbsp; For Desktop, the plugins reside in the System\Bin directory and are loaded by EamonPM.WindowsUnix.dll only when needed (and reused once
-          loaded).&nbsp; In contrast, when building EamonPM.Android-Signed.apk, all plugins are statically linked in, and all datafiles are embedded, producing a monolithic application.&nbsp; When delivering the .apk onto the mobile
-          device, the datafiles copy (when appropriate) to the device's file system - the plugins remain part of the application.&nbsp; In spite of this, the plugin managers are very similar internally.
+          Here is a final note on the architectural differences between ECS Desktop and Mobile: there are none.&nbsp; Across all platforms, plugins are located in the System\Bin directory and are loaded by the EamonPM plugin manager only
+          when needed, then reused once loaded.&nbsp; When building EamonPM.Android-Signed.apk, all plugins and datafiles are embedded, creating a monolithic application.&nbsp; Upon delivering the .apk to a mobile device, these files
+          are copied to the device's filesystem as necessary, maintaining the same hierarchical structure as ECS Desktop.
        </p>
        <a name="ECSTP5"></a>
        <h4>SCRIPT FILES</h4>
@@ -378,6 +378,80 @@
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
           <b>[Note:&nbsp; this section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
+       </p>
+       <p>
+          Eamon CS has evolved to run as a suite of 64-bit programs within a game runner powered by the Avalonia UI toolkit. This transition was driven by the obsolescence of Xamarin.Forms, alongside persistent terminal compatibility
+          bugs and cursor manipulation issues. After careful evaluation, Avalonia emerged as the best option due to its maturity, stability, cross-platform support, and active community. The new interface enhances the text-based game
+          with a welcome touch of visual flair.
+       </p>
+       <p>
+          A key feature of the updated interface is the Settings tab, which offers various configuration options for players. Users can experiment with these settings to personalize their gaming experience and save their preferences for
+          future sessions. All settings are stored in the EAMONPM_SETTINGS.DAT file, located in the System\Bin directory. This file can be inspected or modified manually using 7-Zip, and it can also be deleted to reset the UI to its
+          default settings.
+       </p>
+       <p>
+          To provide a clear understanding of the available options, let's now examine the individual settings in detail:
+       </p>
+       <br />
+       <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <thead>
+             <tr>
+                <th style="width: 40%;">Setting Name<br /></th>
+                <th style="width: 60%;">Description<br /></th>
+             </tr>
+          </thead>
+          <tbody>
+             <tr>
+                <td>Application Theme</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Font Family</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Font Size</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Font Weight</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Scrollback Buffer Size</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Scrollback Window Size</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Background Color</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Foreground Color</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Keep Keyboard Visible</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Window Height</td>
+                <td>TODO</td>
+             </tr>
+             <tr>
+                <td>Window Width</td>
+                <td>TODO</td>
+             </tr>
+          </tbody>
+       </table>
+       <br />
+       <p>
+          Accessibility has also been a key consideration in the development of Eamon CS. The game now supports screen readers, significantly enhancing the experience for players who rely on these assistive technologies. To enable this
+          feature, users can add the -esrm flag to the GLOBAL_LAUNCH_PARAMETERS.TXT file located in the System\Bin directory. This modification reconfigures the system, altering text sequences and stripping away non-game-related output
+          to ensure more accurate processing by screen readers. For added convenience, this file can also be modified through EamonDD by using the LoadAdventureSupportMenu.psh file and navigating through menu options two, then two.
        </p>
        <a name="ECSTP7"></a>
        <h4>MISCELLANEOUS GAMEPLAY NOTES</h4>
@@ -733,7 +807,7 @@
        <a name="ECSTP14"></a>
        <h4>DELETING EXISTING ADVENTURES</h4>
        <p>
-          You can also delete adventures from Eamon CS if the need arises. Maybe you were experimenting with a game scenario that didn't work out or have fully played through a title and want to make space on your file system. Perhaps you
+          You can also delete adventures from Eamon CS if the need arises. Maybe you were experimenting with a game scenario that didn't work out or have fully played through a title and want to make space on your filesystem. Perhaps you
           don't like an adventure and want to purge it from your Eamon CS repository. Whatever the reasons, the Adventure Support Menu has an option to do game deletion. Choosing this menu option will cause the system to prompt you for
           some key pieces of data and verify that you want to proceed. If so, it will completely remove all traces of the adventure from your Eamon CS system by doing the following:
        </p>
