@@ -269,7 +269,7 @@
        <p>The source code for Plugin Managers and system plugins resides in the appropriate directory under System; for adventures, it is in the adventure-specific directory under Adventures.</p>
        <p>The Main Hall datafiles reside in System\Bin, making them easily accessible to all plugins.&nbsp; Game-specific datafiles (both original and save game) reside under Adventures in their respective game directories.</p>
        <p>
-          Here is a final note on the architectural differences between ECS Desktop and Mobile: there are none.&nbsp; Across all platforms, plugins are located in the System\Bin directory and are loaded by the EamonPM plugin manager only
+          Here is a final note on the architectural differences between ECS Desktop and Mobile: there are none.&nbsp; Across all platforms, plugins are located in the System\Bin directory and are loaded by the EamonPM Plugin Manager only
           when needed, then reused once loaded.&nbsp; When building EamonPM.Android-Signed.apk, all plugins and datafiles are embedded, creating a monolithic application.&nbsp; Upon delivering the .apk to a mobile device, these files
           are copied to the device's filesystem as necessary, maintaining the same hierarchical structure as ECS Desktop.
        </p>
@@ -377,9 +377,6 @@
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
-          <b>[Note:&nbsp; this section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
-       </p>
-       <p>
           Eamon CS has evolved to run as a suite of 64-bit programs within a game runner powered by the Avalonia UI toolkit. This transition was driven by the obsolescence of Xamarin.Forms, alongside persistent terminal compatibility
           bugs and cursor manipulation issues. After careful evaluation, Avalonia emerged as the best option due to its maturity, stability, cross-platform support, and active community. The new interface enhances the text-based game
           with a welcome touch of visual flair.
@@ -394,56 +391,60 @@
        </p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
+          <colgroup>
+             <col span="1" style="width: 30%;" />
+             <col span="1" style="width: 70%;" />
+          </colgroup>
           <thead>
              <tr>
-                <th style="width: 40%;">Setting Name<br /></th>
-                <th style="width: 60%;">Description<br /></th>
+                <th>Setting Name<br /></th>
+                <th>Description<br /></th>
              </tr>
           </thead>
           <tbody>
              <tr>
                 <td>Application Theme</td>
-                <td>TODO</td>
+                <td>Six themes are available to style the game runner: two in light and dark greyscale, and four vibrant, color-based themes inspired by the ancient Greek elements. You can set your favorite or switch it to suit your mood—or even the adventure you're playing.</td>
              </tr>
              <tr>
                 <td>Font Family</td>
-                <td>TODO</td>
+                <td>The font family used for text displayed by the console on the Gameplay tab. These fonts are fixed-width only.</td>
              </tr>
              <tr>
                 <td>Font Size</td>
-                <td>TODO</td>
+                <td>The font size used for text displayed by the console on the Gameplay tab.</td>
              </tr>
              <tr>
                 <td>Font Weight</td>
-                <td>TODO</td>
+                <td>The font weight used for text displayed by the console on the Gameplay tab (e.g., bold).</td>
              </tr>
              <tr>
                 <td>Scrollback Buffer Size</td>
-                <td>TODO</td>
+                <td>The total byte size of the scrollback buffer, which keeps a log of past console text output on the Gameplay tab. When the log exceeds the specified size limit, the oldest text is truncated.</td>
              </tr>
              <tr>
                 <td>Scrollback Window Size</td>
-                <td>TODO</td>
+                <td>The total byte size of the scrollback window, which displays the most recent text from the scrollback buffer. Adjust this to balance console text output responsiveness (smaller window size) against ease of reviewing past output (larger window size).</td>
              </tr>
              <tr>
                 <td>Background Color</td>
-                <td>TODO</td>
+                <td>The background color used by the console on the Gameplay tab.</td>
              </tr>
              <tr>
                 <td>Foreground Color</td>
-                <td>TODO</td>
+                <td>The foreground (text) color used by the console on the Gameplay tab.</td>
              </tr>
              <tr>
                 <td>Keep Keyboard Visible</td>
-                <td>TODO</td>
+                <td>A toggle switch that, when enabled, locks the popup keyboard in the open position on Eamon CS Mobile. Ignored for Eamon CS Desktop.</td>
              </tr>
              <tr>
                 <td>Window Height</td>
-                <td>TODO</td>
+                <td>A read-only value that displays the height of the game runner window, helpful for those who prefer precise, rounded numbers.</td>
              </tr>
              <tr>
                 <td>Window Width</td>
-                <td>TODO</td>
+                <td>A read-only value that displays the width of the game runner window.</td>
              </tr>
           </tbody>
        </table>
