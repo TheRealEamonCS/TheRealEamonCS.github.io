@@ -559,9 +559,9 @@
        <p>
           The EamonRT.dll base adventure runtime takes the form of a Finite State Machine (FSM), which is used to model complex program behavior. The main game loop is very compact; all complex logic resides in subclasses of the State
           class. Player and Monster commands derive from the Command class, which is itself derived from State. Customized adventures will almost always subclass various States or Commands to provide specialized behavior. It is also
-          straightforward to create new States or Commands and link them into the FSM if needed. Finally, if you look through the code, you will see Eamon CS frequently uses a (controversial?) variant of the Guard Clause pattern found
-          in the Linux kernel (goto Cleanup). While goto statements are often discouraged, the paradigm was carefully researched and chosen due to its flexibility, maintainability, and fault tolerance. Time has proven the decision to
-          be the correct one for this project, as it gives the game engine a clean, deterministic quality.
+          straightforward to create new States or Commands and link them into the FSM if needed. Finally, if you look through the code, you will see Eamon CS frequently uses a variant of the Guard Clause pattern found in the Linux
+          kernel (goto Cleanup). While goto statements are often discouraged, the paradigm was carefully researched and chosen due to its flexibility, maintainability, and fault tolerance. Time has proven the decision to be the
+          correct one for this project, as it gives the game engine a clean, deterministic quality.
        </p>
        <a name="ECSTP9"></a>
        <h4>USING THE VISUAL STUDIO DEBUGGER</h4>
@@ -624,8 +624,8 @@
        <br />
        <ol start="8">
           <li>
-             Press F5 to run the program. EamonPM.Desktop will launch, allowing you to enter the game either directly through the Resume menu or indirectly via the Main Hall. This technique can also be used to debug EamonDD or EamonMH.
-             Breakpoints will be triggered as you exercise the relevant code by playing the game. You can also step through the program line by line at any time using F10 (Step Over) or F11 (Step Into).
+             Press F5 to run the program. EamonPM.Desktop will launch, allowing you to enter the game either directly through an EamonRT .psh script file or indirectly via the Main Hall. This technique can also be used to debug EamonDD
+             or EamonMH. Breakpoints will be triggered as you exercise the relevant code by playing the game. You can also step through the program line by line at any time using F10 (Step Over) or F11 (Step Into).
           </li>
        </ol>
        <br />
@@ -639,16 +639,16 @@
        <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
           EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
-          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new .psh
-          file that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu:
+          system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new script file
+          that when run, will enable an Adventure Support Menu under Utilities. This file is LoadAdventureSupportMenu.psh:
        </p>
        <br />
        <div style="text-align: center;"><img style="max-width: 100%; max-height: 100%;" title="LoadAdventureSupportMenu.jpg" alt="LoadAdventureSupportMenu.jpg" src="../../assets/images/TechnicalPaper/LoadAdventureSupportMenu.jpg" /></div>
        <br />
        <p>
-          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Windows and Unix, even if Visual Studio is absent.
-          But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed QuickLaunch and source code files but attempts to manipulate the Eamon-CS solution or compile the game will fail.  For Custom
-          adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
+          The Adventure Support Menu allows Eamon CS to integrate seamlessly with Visual Studio using the dotnet.exe program.  With the .NET SDK installed, this integration paradigm works in Linux, MacOS, and Windows, even if Visual
+          Studio is absent. But the "gamer-only" .NET Runtime has limited support for custom games; it can generate all needed source code files and QuickLaunch .psh scripts but attempts to manipulate the Eamon-CS solution or compile the
+          game will fail.  For Custom adventures, if the integration process fails for any reason, you should add the .csproj file to the solution yourself and manually recompile the game.
        </p>
        <p>
           Before proceeding further, if you downloaded the .zip file for Eamon CS, it might make sense to back up your repository so you can revert if necessary. For those who cloned the repository from GitHub, it might make sense to
