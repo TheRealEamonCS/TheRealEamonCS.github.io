@@ -559,8 +559,9 @@
        <p>
           The EamonRT.dll base adventure runtime takes the form of a Finite State Machine (FSM), which is used to model complex program behavior. The main game loop is very compact; all complex logic resides in subclasses of the State
           class. Player and Monster commands derive from the Command class, which is itself derived from State. Customized adventures will almost always subclass various States or Commands to provide specialized behavior. It is also
-          straightforward to create new States or Commands and link them into the FSM if needed. Finally, if you look through the code, you will see that using GOTO has been avoided except in specific circumstances (goto Cleanup).
-          Doing this gives the game engine a clean, deterministic quality.
+          straightforward to create new States or Commands and link them into the FSM if needed. Finally, if you look through the code, you will see Eamon CS frequently uses a (controversial?) variant of the Guard Clause pattern found
+          in the Linux kernel (goto Cleanup). While goto statements are often discouraged, the paradigm was carefully researched and chosen due to its flexibility, maintainability, and fault tolerance. Time has proven the decision to
+          be the correct one for this project, as it gives the game engine a clean, deterministic quality.
        </p>
        <a name="ECSTP9"></a>
        <h4>USING THE VISUAL STUDIO DEBUGGER</h4>
