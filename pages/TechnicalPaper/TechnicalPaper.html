@@ -276,8 +276,8 @@
        <a name="ECSTP5"></a>
        <h4>SCRIPT FILES</h4>
        <p>
-          The plugins take a variety of command-line parameters (described in <a href="#ECSTP15">another section</a>). However, to get you up and running quickly, there is a QuickLaunch folder. (Since there is no formal ECS installer,
-          you may want to create a shortcut to it on your desktop manually). Inside this folder is a set of script files that you can run directly. These files organize into sub-folders based on the underlying plugin they invoke:
+          The plugins take a variety of command-line parameters (described in <a href="#ECSTP15">another section</a>). However, to get you up and running quickly, there is a QuickLaunch folder in the game runner's virtual filesystem (VFS).
+          Inside this folder is a set of script files that you can run directly. These files organize into sub-folders based on the underlying plugin they invoke:
        </p>
        <br />
        <table style="width: 50%; margin-left: auto; margin-right: auto;" border="1">
@@ -372,8 +372,11 @@
           available regardless).
        </p>
        <p><sup>2</sup> Run these script files to return to an in-progress adventure. Use the RESTORE command to pick up where you left off.</p>
-       <p>You can study the script files to see how the system launches various programs. You can also create new script files using these as templates if you decide to write adventures or run the system in a non-default manner.</p>
-       <p>Eamon CS Mobile mirrors this QuickLaunch hierarchy using a series of ListViews to provide a similar experience.</p>
+       <p>
+          The game runner automatically constructs the Edit[AdventureName].psh and Resume[AdventureName].psh script files by probing the Adventures directory. The remaining .psh script files are created by reading EAMONPM_SCRIPTS.TXT from
+          the System\Bin directory. Every line in this file produces a single VFS script entry. You can study the script file entries to see how the system launches various programs and use them as templates to create your own if you decide
+          to write adventures or run the system in a non-default manner.
+       </p>
        <a name="ECSTP6"></a>
        <h4>SUGGESTED GAMEPLAY SETTINGS</h4>
        <p>
