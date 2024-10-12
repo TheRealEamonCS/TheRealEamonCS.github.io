@@ -40,9 +40,6 @@
        <a name="ECSTP1"></a>
        <h4>PREFACE</h4>
        <p>
-          <b>[Note:&nbsp; this document is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
-       </p>
-       <p>
           This document is intended to describe the various facets of Eamon CS.&nbsp; The real documentation will be a formal set:&nbsp; full source code commenting, a Player's Manual, a Dungeon Designer's Manual and a Class
           Reference.&nbsp; It will take quite a while to put all that together, so in the meantime, hopefully, this will suffice.
        </p>
@@ -827,10 +824,10 @@
        <a name="ECSTP15"></a>
        <h4>COMMAND-LINE PARAMETERS</h4>
        <p>
-          Like many C-based programs, EamonPM.WindowsUnix.exe recognizes a set of command-line parameters that can profoundly or subtly impact its functioning.  If the same parameter is encountered multiple times on a command line, the
-          last instance always takes precedence.  While the QuickLaunch facility hides this complexity, it is still helpful to know what flags are available if you want to run Eamon CS in a non-default manner.  When it makes sense, you
-          can integrate these parameters into the existing .psh files or create customized files of your own for ease of use.  If you wish to experiment with it, you can also run ECS directly from a Command Prompt in System\Bin.
-          The following table describes the available parameters and their purpose:
+          Like many C-based programs, the plugins managed by the EamonPM Plugin Manager recognize a set of command-line parameters that can profoundly or subtly impact their functioning.  If the same parameter is encountered multiple times
+          on a command line, the last instance always takes precedence.  While the QuickLaunch facility hides this complexity in the EAMONPM_SCRIPTS.TXT file in System\Bin, it still helps to know what flags are available if you want to run
+          Eamon CS in a non-default manner.  When it makes sense, you can integrate these parameters into the existing .psh script file entries or create customized entries of your own for ease of use.  The following table describes the
+          available parameters and their purpose:
        </p>
        <br />
        <table style="width: 75%; margin-left: auto; margin-right: auto;" border="1">
@@ -966,7 +963,7 @@
              <tr>
                 <td>-esrm<br /></td>
                 <td>Enable Screen Reader Mode<br /></td>
-                <td>When included in the System\Bin\GLOBAL_LAUNCH_PARAMETERS.TXT file, causes Eamon CS to reconfigure its text output to maximize accessibility through screen reader use. Various non-game-related text sequences are either suppressed or modified, leading to better screen reader recognition, but at the cost of poor visual text spacing (a worthy tradeoff given the flag's purpose).<br /></td>
+                <td>When included in the GLOBAL_LAUNCH_PARAMETERS.TXT file in System\Bin, causes Eamon CS to reconfigure its text output to maximize accessibility through screen reader use. Various non-game-related text sequences are either suppressed or modified, leading to better screen reader recognition, but at the cost of poor visual text spacing (a worthy tradeoff given the flag's purpose).<br /></td>
                 <td><br /></td>
              </tr>
           </tbody>
