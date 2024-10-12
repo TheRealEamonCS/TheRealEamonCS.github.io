@@ -18,6 +18,9 @@ Installed Version: Community
 ASP.NET and Web Tools   17.10.338.1105
 ASP.NET and Web Tools
 
+AvaloniaPackage Extension   1.0
+AvaloniaPackage Visual Studio Extension Detailed Info
+
 Azure App Service Tools v3.0.0   17.10.338.1105
 Azure App Service Tools v3.0.0
 
@@ -66,19 +69,12 @@ Visual Studio extension to enable development for Xamarin.iOS and Xamarin.Androi
 Xamarin Designer   17.10.3.10 (remotes/origin/d17-10@3beef58f89)
 Visual Studio extension to enable Xamarin Designer tools in Visual Studio.
 
-Xamarin Templates   17.9.0 (38e87ba)
-Templates for building iOS, Android, and Windows apps with Xamarin and Xamarin.Forms.
-
 Xamarin.Android SDK   13.2.2.0 (d17-5/45b0e14)
 Xamarin.Android Reference Assemblies and MSBuild support.
     Mono: d9a6e87
     Java.Interop: xamarin/java.interop/d17-5@149d70fe
     SQLite: xamarin/sqlite/3.40.1@68c69d8
     Xamarin.Android Tools: xamarin/xamarin-android-tools/d17-5@ca1552d
-
-
-Xamarin.iOS and Xamarin.Mac SDK   16.4.0.23 (9defd91b3)
-Xamarin.iOS and Xamarin.Mac Reference Assemblies and MSBuild support.
         </pre>
        <h4>UPGRADING VISUAL STUDIO</h4>
        <p>Upgrading Visual Studio to a more recent version is usually a smooth process, but now and then, it goes awry. Hopefully, if you
@@ -88,7 +84,7 @@ Xamarin.iOS and Xamarin.Mac Reference Assemblies and MSBuild support.
           doesn't. For this reason, you should avoid upgrading from within Visual Studio; instead, use Task Manager to ensure no devenv.exe
           processes are running, then run the Visual Studio Installer directly from the Windows Start Menu. It should minimize the chance of
           problematic upgrades.</p>
-       <p>If you have a problem upgrading, you may see warning message boxes pop up when loading the Eamon CS solutions. They read (in part):</p>
+       <p>If you have a problem upgrading, you may see warning message boxes pop up when loading the Eamon CS solution. They read (in part):</p>
        <pre>
 The XYZ package did not load correctly.</pre>
        <p>Where XYZ is a package name that varies. The solution to this problem is simple, purge the contents of Visual Studio's component
@@ -99,7 +95,7 @@ The XYZ package did not load correctly.</pre>
 3. Verify you are in the ComponentModelCache directory before proceeding to delete its contents
 4. DEL /F /Q *</pre>
        <p>Note:  the directory 17.0_* corresponds to the version number for Visual Studio 2022; other Visual Studios will differ.</p>
-       <p>The next time an Eamon CS solution opens in Visual Studio, it will rebuild the cache, and everything should work as expected.</p>
+       <p>The next time the Eamon CS solution opens in Visual Studio, it will rebuild the cache, and everything should work as expected.</p>
        <br/>
     </body>
 </html>
