@@ -634,9 +634,6 @@
        <a name="ECSTP10"></a>
        <h4>BUILDING NEW ADVENTURES</h4>
        <p>
-          <b>[Note:&nbsp; this section is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
-       </p>
-       <p>
           With Eamon CS, it is still possible to send adventurers to their death for fun and profit, even after all these years! You can create new games with the tools available to you. Standard adventures - that is, those that use the
           EamonRT generic game engine and have no custom programming - can be built without Visual Studio 2022 Community Edition installed. But Custom adventures (like The Beginner's Cave, etc.) require the VS tool suite to be on your
           system. Up to this point, it has been a manual effort to bootstrap new games. But significant progress has been made towards fully automating the process. You will find in the EamonDD folder under QuickLaunch a new script file
@@ -699,8 +696,8 @@
        </p>
        <p>
           While the conversion process lightly validates the data coming in, Eamon CS programs aggressively validate loaded data. You may find your converted game fails validation, but the system gives a pretty good error message citing the
-          offending datafile, record, and field. There is a useful command-line flag that can be added to any .psh file; it disables validation when records are loaded. You can add this flag to your Edit[AdventureName].psh
-          file while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
+          offending datafile, record, and field. There is a useful command-line flag that disables validation when records are loaded. You can add this flag to any .psh script file entry in the EAMONPM_SCRIPTS.TXT file or, if needed, the
+          GLOBAL_LAUNCH_PARAMETERS.TXT file (both in System\Bin). Do this while debugging or polishing the new game, then remove it when finished.  You may need to repeat this process as you eliminate the validation errors one at a time.
        </p>
        <p>
           The flag is:  <code>-dv</code>
