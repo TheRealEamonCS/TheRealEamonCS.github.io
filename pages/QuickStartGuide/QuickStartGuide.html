@@ -6,9 +6,6 @@
     </head>
     <body>
         <h4>1. PREFACE</h4>
-       <p>
-          <b>[Note:&nbsp; this document is undergoing a comprehensive revision for Eamon CS 3.0.0]</b>
-       </p>
         <p>
             For those who wish to start playing Eamon CS immediately, this Quick Start Guide summarizes the Players Manual, which dives deeper into the game's details. But it's still highly recommended you read through the Players Manual at
             least once. You will better understand the Eamon CS system and the history and mechanics of the world of Eamon.
@@ -26,12 +23,12 @@
         </p>
         <h4>3. PLAYING AN ADVENTURE</h4>
         <p>
-            Eamon CS uses batch or script files stored under QuickLaunch to run programs, depending on your operating system. An EamonMH folder contains the files used to enter the Main Hall. When you enter, you will meet the
-            Burly Irishman, who allows you to sign in as an existing character or create a new one. When you enter a name not found in his registry, he leads you through the character creation process. Alternately, you can join
-            the men drinking beer, a mistake you'll likely make only once.
+            The Eamon CS game runner uses a virtual filesystem (VFS), allowing you to navigate by clicking virtual folders and, when needed, the back arrow button. There are virtual .psh script files under QuickLaunch that run programs. An
+            EamonMH folder contains the files used to enter the Main Hall. When you enter, you will meet the Burly Irishman, who allows you to sign in as an existing character or create a new one. If you enter a name not found in his
+            registry, he leads you through the character creation process. Alternately, you can join the men drinking beer, a mistake you'll likely make only once.
         </p>
         <p>
-            A set of pre-made characters of varying power levels is available if you want to use them. Run the EditCharacters batch or script file under EamonDD and choose menu options two, four, then one to get a listing of
+            A set of pre-made characters of varying power levels is available if you want to use them. Run the EditCharacters.psh file under EamonDD and choose menu options two, four, then one to get a listing of
             their names.
         </p>
         <h4>4. CHARACTER ATTRIBUTES</h4>
@@ -66,16 +63,16 @@
         </p>
         <h4>9. THE CHARACTER EDITOR</h4>
         <p>
-            You can modify every detail of a character to your liking by running the EditCharacters batch or script file under EamonDD and choosing menu option two. You will be on the Character Record Menu. From there, to list character names
+            You can modify every detail of a character to your liking by running the EditCharacters.psh file under EamonDD and choosing menu option two. You will be on the Character Record Menu. From there, to list character names
             or details, select menu option four; note the unique ID (Uid) of the character you want to modify. Then you can use menu option two to edit or menu option three to delete.  Other utilities may prove valuable as well.  For example,
-            menu option five can give you a status summary of all characters, including where they are adventuring.  These details are otherwise obscured in Eamon CS Mobile by lack of access to the device's filesystem.
+            menu option five can give you a status summary of all characters, including where they are adventuring.  These details are otherwise obscured in Eamon CS Mobile by lack of access to the device's physical filesystem.
         <p>
         <h4>10. STARTING AN ADVENTURE</h4>
         <p>
-            When in the Main Hall, choose menu option one to go on an adventure. Depending on which batch or script file you ran to enter the Main Hall, the adventure database is either a flat list of games or a hierarchy organized by
+            When in the Main Hall, choose menu option one to go on an adventure. Depending on which script file you ran to enter the Main Hall, the adventure database is either a flat list of games or a hierarchy organized by
             category. It doesn't matter which database; if you make a selection, the result is the same. The adventure begins, and you are presented with the introduction story, if one exists. If you exit the game during the intro story or QUIT
             while playing, the character remains there until game completion, death occurs, or the character's state is manually changed. The local wizard accessed through the Burly Irishman's front desk can recall an adventuring character,
-            as can the EamonDD program. You can also resume the adventure (if necessary) using the correct batch or script file under EamonRT and type QUIT HALL at the game's command prompt.
+            as can the EamonDD program. You can also resume the adventure (if necessary) using the correct script file under EamonRT and type QUIT HALL at the game's command prompt.
         </p>
         <h4>11. PLAYING AN ADVENTURE</h4>
         <p>
@@ -143,7 +140,7 @@
         </p>
         <p>
             Afterward, a new "real" character should be created and taken through the Beginner's Cave (or the Beginner's Forest) for the authentic Eamon experience. These adventures (as well as many others) are accessible via the Main Hall
-            using any EamonMH batch or script file.
+            using any EamonMH script file.
         </p>
         <br />
     </body>
