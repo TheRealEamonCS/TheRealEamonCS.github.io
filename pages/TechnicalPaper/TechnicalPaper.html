@@ -90,8 +90,17 @@
        <br />
        <p>
           The prerequisites on Linux and macOS are similar:&nbsp; a version of .NET 8.X that is compatible with the given platform.&nbsp; You can download a .NET software bundle from the website referenced by the above links
-          (and find corresponding installation instructions).&nbsp; But Eamon CS on these platforms should only be pursued by those confident enough to see it through via their own devices.
+          (and find corresponding installation instructions).&nbsp; Eamon CS on these platforms should only be pursued by those confident enough to see it through via their own devices.&nbsp; However, a few tips to get the game
+          running may prove helpful:
        </p>
+       <ul>
+          <li>On either platform, you may have to use "chmod 755 DetectDotnetAndConfigure.sh" to get that script to run.</li>
+          <li>
+          On macOS, you may find Gatekeeper interferes with the game.&nbsp; In this case, you need to go to the Privacy & Security section.&nbsp; 
+          When you execute EamonPM.Desktop, you can click a button in the section explicitly allowing it to run.&nbsp; The same goes for each
+          of its dependencies:&nbsp; libSkiaSharp.dylib, libHarfBuzzSharp.dylib, libAvaloniaNative.dylib.&nbsp; This only needs to be done once.
+          </li>
+       </ul>
        <a name="ECSTP3"></a>
        <h4>POST-INSTALLATION TOPICS</h4>
        <p>
