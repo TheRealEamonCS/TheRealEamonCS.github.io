@@ -8,7 +8,7 @@
         <p></p>
         <pre>
 To give full credit, the following is based on the Eamon Deluxe documentation.
-This important information has changed in Eamon CS 3.0.0 and is reprinted here
+This important information has changed in Eamon CS 3.1.0 and is reprinted here
 in hopes it will be useful.
 
 4.4    ARTIFACT TYPES
@@ -36,35 +36,43 @@ are as follows:
 All of the formats have the same information in the Artifact object, including
 Value, Weight, Location, etc.  The Type and remaining format fields are stored
 in one or more ArtifactCategory objects, referenced by the Artifact.  Format #0
-is all USER fields, the rest of the format fields 1-5 contain the following.
+is all USER fields, the rest of the format fields 1-20 contain the following.
 
-  Format 1             Format 2A              Format 2B
-1-Weapon Odds        1-Key No.              1-(USER #1)
-2-Weapon Type        2-Open/Closed(1/0)     2-(USER #2)
-3-# of Dice          3-Max weight held      3-Max weight held
-4-# of Dice Sides    4-Max items held       4-Max items held
-5-# Hands required   5-Display Code^        5-Display Code^
+   Format 1             Format 2A              Format 2B
+ 1-Weapon Odds        1-Key No.              1-(USER #1)
+ 2-Weapon Type        2-Open/Closed(1/0)     2-(USER #2)
+ 3-# of Dice          3-Max weight held      3-Max weight held
+ 4-# of Dice Sides    4-Max items held       4-Max items held
+ 5-# Hands required   5-Display Code^        5-Display Code^
+ 6-(USER #6) ...      6-(USER #6) ...        6-(USER #6) ...
+20-(USER #20)        20-(USER #20)          20-(USER #20)
 
-  Format 3             Format 4               Format 5
-1-Light Counter      1-# of Heal Points     1-1st Effect
-2-(USER #2)          2-# of Drinks/Bites    2-# of Effects
-3-(USER #3)          3-Open/Closed(1/0)     3-Open/Closed(1/0)
-4-(USER #4)          4-(USER #4)            4-(USER #4)
-5-(USER #5)          5-(USER #5)            5-(USER #5)
+   Format 3             Format 4               Format 5
+ 1-Light Counter      1-# of Heal Points     1-1st Effect
+ 2-(USER #2)          2-# of Drinks/Bites    2-# of Effects
+ 3-(USER #3)          3-Open/Closed(1/0)     3-Open/Closed(1/0)
+ 4-(USER #4)          4-(USER #4)            4-(USER #4)
+ 5-(USER #5)          5-(USER #5)            5-(USER #5)
+ 6-(USER #6) ...      6-(USER #6) ...        6-(USER #6) ...
+20-(USER #20)        20-(USER #20)          20-(USER #20)
 
-  Format 6             Format 7               Format 8
-1-Room Beyond        1-Monster #            1-Armor Class
-2-Key #              2-Key #                2-Armor Type
-3-Open/Closed(0/1)   3-Guard #              3-(USER #3)
-4-Hidden?            4-(USER #4)            4-(USER #4)
-5-(USER #5)          5-(USER #5)            5-(USER #5)
+   Format 6             Format 7               Format 8
+ 1-Room Beyond        1-Monster #            1-Armor Class
+ 2-Key #              2-Key #                2-Armor Type
+ 3-Open/Closed(0/1)   3-Guard #              3-(USER #3)
+ 4-Hidden?            4-(USER #4)            4-(USER #4)
+ 5-(USER #5)          5-(USER #5)            5-(USER #5)
+ 6-(USER #6) ...      6-(USER #6) ...        6-(USER #6) ...
+20-(USER #20)        20-(USER #20)          20-(USER #20)
 
-  Format 9             Format 10
-1-Monster #          1-'Takeable' status*
-2-1st Effect         2-(USER #2)
-3-# of Effects       3-(USER #3)
-4-(USER #4)          4-(USER #4)
-5-(USER #5)          5-(USER #5)
+   Format 9             Format 10
+ 1-Monster #          1-'Takeable' status*
+ 2-1st Effect         2-(USER #2)
+ 3-# of Effects       3-(USER #3)
+ 4-(USER #4)          4-(USER #4)
+ 5-(USER #5)          5-(USER #5)
+ 6-(USER #6) ...      6-(USER #6) ...
+20-(USER #20)        20-(USER #20)
 
 ^ -- Controls display of container contents in all lists.  Example:  You also
      notice a mountain backpack [with "???" inside it].  Without special programming,
