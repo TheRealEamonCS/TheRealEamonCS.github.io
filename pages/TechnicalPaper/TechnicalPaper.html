@@ -74,10 +74,10 @@
           <li>Installer option: .NET Multi-platform App UI development</li>
           <li>Installer option: .NET desktop development</li>
        </ul>
-       <p><b>For gamers</b> who want to play on <b>win-x64 (Intel/AMD)</b> systems:</p>
-       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.12-windows-x64-installer">Microsoft .NET 8 Runtime (x64)</a>
-       <p><b>For gamers</b> who want to play on <b>win-arm64 (Arm)</b> systems:</p>
-       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.12-windows-arm64-installer">Microsoft .NET 8 Runtime (Arm)</a>
+       <p><b>For gamers</b> who want to play on <b>Windows (Intel/AMD) - win-x64</b> systems:</p>
+       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.16-windows-x64-installer">Microsoft .NET 8 Runtime (x64)</a>
+       <p><b>For gamers</b> who want to play on <b>Windows (Arm) - win-arm64</b> systems:</p>
+       <a target="_blank" href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-8.0.16-windows-arm64-installer">Microsoft .NET 8 Runtime (Arm)</a>
        <p>
           Note:&nbsp; If you want to use Eamon CS with a .NET Standard 2.0 compliant runtime already on your system (that isn't .NET 8.X), see the <a href="#ECSTP3">POST-INSTALLATION TOPICS</a> section for details on how to do that.
        </p>
@@ -543,7 +543,7 @@
           </li>
           <br />
           <li>
-             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 3.0 GENERAL HELP and EAMON CS 3.0 NEW COMMANDS as these hints may be subtly different than their Eamon Deluxe
+             "HINTS" gives you a list of hints for the current adventure. You should always carefully read EAMON CS 3.1 GENERAL HELP and EAMON CS 3.1 NEW COMMANDS as these hints may be subtly different than their Eamon Deluxe
              counterparts. Consider the following:
           </li>
           <br />
@@ -923,6 +923,12 @@
                 <td>Artifact File Name<br /></td>
                 <td>Loads a datafile with the given name containing Artifact records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
                 <td>-afn OLD_ARTIFACTS.DAT<br /></td>
+             </tr>
+             <tr>
+                <td>-cafn [File Name]<br /></td>
+                <td>CharArt File Name<br /></td>
+                <td>Loads a datafile with the given name containing Character Artifact records; it is assumed empty if it doesn't exist. If the -wd flag is used, the datafile loads and saves in that directory.<br /></td>
+                <td>-cafn OLD_INVENTORY.DAT<br /></td>
              </tr>
              <tr>
                 <td>-efn [File Name]<br /></td>
