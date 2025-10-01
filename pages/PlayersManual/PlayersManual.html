@@ -214,18 +214,18 @@
         <a name="ECSPM1_3"></a>
         <h4>1.3 INSTALLING UPDATES</h4>
         <p>
-            Upgrading Eamon CS is usually a simple process, but before doing so, you should make sure no adventures are being played through; all characters must be in the Main Hall.  There is a CHARACTERS.DAT file in the System\Bin folder; this ensures
-            the file is in a stable state.
+            Upgrading Eamon CS is usually a simple process, but before doing so, you should make sure no adventures are being played through; all characters must be in the Main Hall.  There are two files in the System\Bin folder, CHARACTERS.DAT and
+            INVENTORY.DAT; this ensures the files are in a stable state.
         </p>
         <p>
             For those who originally downloaded the Eamon-CS-master.zip file, you can obtain the latest version by visiting GitHub and downloading a new copy of it.  Extract the new Eamon-CS-master.zip file into a unique folder, and then overwrite the new
-            CHARACTERS.DAT file by copying the old file from the old repository.  If the CHARACTERS.DAT file structure has changed in the new system, the old file will transparently upgrade to the new format.  Your characters have now been transferred to
-            the upgraded Eamon CS system and are available for use.
+            CHARACTERS.DAT and INVENTORY.DAT files by copying the old files from the old repository.  If either file structure has changed in the new system, the old files will transparently upgrade to the new format.  Your characters have now been
+            transferred to the upgraded Eamon CS system and are available for use.
         </p>
         <p>
-            If you are working with a Git-cloned Eamon CS repository, you should backup your CHARACTERS.DAT file before pulling the latest changes from the master branch.  Then copy the old CHARACTERS.DAT file back into your repository.  If you are working
-            off a branch, you will probably want to push the master changes into it.  Things can get tricky if you have made other changes to the repository; it is at your discretion what changes need to be kept, rolled back, or merged.  In this scenario,
-            you may wish to backup the whole repository before attempting to upgrade.
+            If you are working with a Git-cloned Eamon CS repository, you should backup your CHARACTERS.DAT and INVENTORY.DAT files before pulling the latest changes from the master branch.  Then copy the old files back into your repository.  If you are
+            working off a branch, you will probably want to push the master changes into it.  Things can get tricky if you have made other changes to the repository; it is at your discretion what changes need to be kept, rolled back, or merged.  In this
+            scenario, you may wish to backup the whole repository before attempting to upgrade.
         </p>
         <p>
             A different process must be followed if you have done any adventure development and wish to migrate your work to the upgraded system.  First, you can use EamonDD's Adventure Support Menu and follow the steps to recreate each game in the new system.
