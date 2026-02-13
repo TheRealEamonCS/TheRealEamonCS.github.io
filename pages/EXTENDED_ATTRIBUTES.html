@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <title>EXTENDED_ATTRIBUTES</title>
+    </head>
+    <body>
+        <p></p>
+        <pre>
+EXTENDED ATTRIBUTES
+
+The UseExtendedAttributes switch enables advanced, per-object behavioral controls for Artifacts and Monsters.
+
+When UseExtendedAttributes = 0, the feature is disabled, and all behavior falls back to engine defaults.
+
+When UseExtendedAttributes = 1, the ExtendedAttributes field is read as a bit flag sum that controls specific behaviors.
+
+Each flag in the tables below represents a single behavior. The Value column shows that flag's numeric bit value. To enable multiple behaviors, add the values together and store the total in ExtendedAttributes.
+
+If a flag is not included in the sum, its behavior is considered off, even if its default (when the feature is disabled) would normally be on. In other words, enabling ExtendedAttributes means you are explicitly defining behavior.
+
+Additional flags may be added in future engine versions; unused bits should be left unset.
+
+This system gives fine-grained control while remaining compact, extensible, and backward compatible when disabled.
+
+ARTIFACTS
+
+These flags control container behavior, visibility of contents, and naming/description output.
+
+The ExtendedAttributes value for default game engine behavior (all flags with Default of true) is 395.
+
+ Bit #      Flag name                                   Value             Default         Notes
+ ---------------------------------------------------------------------------------------------------------------------------
+   0........IsRequestable..................................1................true..........Artifact can be requested via game commands.
+   1........IsInContainerOpenedFromTop.....................2................true..........Treated as a top-opening container for interaction rules.
+   2........ShouldExposeInContentsWhenClosed...............4...............false..........Contents may be visible/listed even while container is closed.
+   3........ShouldAddContents..............................8................true..........Artifact can receive and hold contents normally.
+   4........ShouldAddToHeldWpnUids........................16...............false..........Artifact is included in the set of weapons withheld from the game.
+   5........ShouldRevealContentsWhenMovedIntoLimbo........32...............false..........Contents are revealed if the artifact is moved to limbo.
+   6........ShouldShowContentsWhenExamined................64...............false..........Examining the artifact lists its contents.
+   7........ShouldShowVerboseNameContentsNameList........128................true..........Verbose name includes a short contents list.
+   8........ShouldShowVerboseNameStateDesc...............256................true..........Verbose name includes state description (e.g., open, closed, damaged).
+
+MONSTERS
+
+These flags control combat behavior, inventory handling, and how monster information is displayed to the player. 
+
+The ExtendedAttributes value for default game engine behavior is 7083.
+
+ Bit #      Flag name                                   Value             Default         Notes
+ ---------------------------------------------------------------------------------------------------------------------------
+   0........HasWornInventory...............................1................true..........Monster can wear and manage worn items.
+   1........HasCarriedInventory............................2................true..........Monster can carry inventory items.
+   2........HasHumanNaturalAttackDescs.....................4...............false..........Uses human-style natural attack descriptions instead of creature/monster phrasing.
+   3........IsAttackable...................................8................true..........Monster can be targeted and attacked.
+   4........CanAttackWithMultipleWeapons..................16...............false..........Monster may attack using more than one carried weapon in a round.
+   5........ShouldReadyWeapon.............................32................true..........Monster will automatically ready a weapon if able.
+   6........ShouldShowContentsWhenExamined................64...............false..........Examining the monster reveals its visible inventory.
+   7........ShouldShowHealthStatusWhenExamined...........128................true..........Examining shows a health condition description.
+   8........ShouldShowHealthStatusWhenInventoried........256................true..........Health condition appears in inventory-style listings.
+   9........ShouldShowVerboseNameStateDesc...............512................true..........Verbose name includes state info (e.g., wounded, asleep).
+  10........ShouldRefuseToAcceptGold....................1024...............false..........Monster will refuse gold offered or given.
+  11........ShouldRefuseToAcceptDeadBody................2048................true..........Monster refuses dead bodies as items or gifts.
+  12........ShouldPreferNaturalWeaponsToWeakerWeapon....4096................true..........Prefers natural attacks if wielded weapons are weaker.
+
+ARTIFACT EXAMPLE
+
+A wooden chest that:
+
+* Is a normal container
+* Can hold items
+* Shows contents when examined
+* Shows state (open/closed) in its verbose name
+
+Flags used:
+
+* IsRequestable (1)
+* IsInContainerOpenedFromTop (2)
+* ShouldAddContents (8)
+* ShouldShowContentsWhenExamined (64)
+* ShouldShowVerboseNameStateDesc (256)
+
+ExtendedAttributes = 1 + 2 + 8 + 64 + 256 = 331
+
+Set:
+
+UseExtendedAttributes = 1
+ExtendedAttributes = 331
+
+MONSTER EXAMPLE
+
+A town guard who:
+
+* Can wear and carry items
+* Is attackable
+* Auto-readies weapons
+* Shows health when examined
+* Uses verbose state descriptions
+
+Flags used:
+
+* HasWornInventory (1)
+* HasCarriedInventory (2)
+* IsAttackable (8)
+* ShouldReadyWeapon (32)
+* ShouldShowHealthStatusWhenExamined (128)
+* ShouldShowVerboseNameStateDesc (512)
+
+ExtendedAttributes = 1 + 2 + 8 + 32 + 128 + 512 = 683
+
+Set:
+
+UseExtendedAttributes = 1
+ExtendedAttributes = 683
+        </pre>
+        <p></p>
+    </body>
+</html>
