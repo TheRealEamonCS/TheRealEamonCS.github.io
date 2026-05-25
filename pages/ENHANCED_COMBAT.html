@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        <title>ENHANCED_COMBAT</title>
+    </head>
+    <body>
+        <p></p>
+        <pre>
+ENHANCED COMBAT SYSTEM
+
+Enhanced Combat adds positional awareness, ranged weapon mechanics, an ammunition system, and tactical
+parry control to the standard Eamon CS combat model. It is activated per-game via the EnhancedCombat
+setting.
+
+    > set enhancedcombat true
+
+When disabled, all range checks are skipped and combat plays as normal. When enabled, the full system
+is active and the commands and mechanics described below apply.
+
+Distance is measured in a new fantasy unit called Varns (1 Varn = approximately 1 meter / 3 feet). All
+ranges in this document are in Varns unless otherwise stated.
+
+------------------------------------------------------------------------------
+
+RANGE BANDS
+
+Monsters and Artifacts in the Room are classified into named distance bands based on their Varn
+distance from the player. These bands appear in Room descriptions and Range command output.
+
+ Band            Varn Range      Room Description
+ -----------------------------------------------------------------------
+ Here            0               "Here, you see..."
+ Close By        1-3             "Close by, you see..."
+ Nearby          4-15            "Nearby, you see..."
+ Far Away        16-40           "Far away, you see..."
+ Very Far Away   41+             "Very far away, you see..."
+
+Three new settings are available with Enhanced Combat. ShowRangeBands (on by default) shows or omits
+the range band in Room content lists, while ShowRanges (off by default) gives Varn ranges with each
+object name. These flags can be used in conjunction with (or replacement of) the Range command. The
+ShowAmmoCounts flag (off by default) displays an ammo countdown for ranged weapons during combat.
+
+------------------------------------------------------------------------------
+
+WEAPON RANGE PROPERTIES
+
+Each weapon has four range values that define its effective operating envelope: MinRange, OptimalMin,
+OptimalMax, and MaxRange.
+
+ Result            Condition                              Attack?   Penalty?
+ -----------------------------------------------------------------------
+ Too Close         Distance < MinRange                    No        --
+ Suboptimal Close  MinRange <= Distance < OptimalMin      Yes       Odds penalty
+ In Range          OptimalMin <= Distance <= OptimalMax   Yes       None
+ Suboptimal Far    OptimalMax < Distance <= MaxRange      Yes       Odds + damage penalty
+ Out Of Range      Distance > MaxRange                    No        --
+
+Default weapon range values:
+
+ Weapon     MinRange   OptimalMin   OptimalMax   MaxRange
+ -----------------------------------------------------------------------
+ Axe           0           0            1            1
+ Bow           3          10           40           60
+ Club          0           0            1            1
+ Spear         1           1            3            3
+ Sword         0           0            1            1
+
+Default suboptimal penalties:
+
+ Condition           Odds Modifier   Damage Multiplier
+ -----------------------------------------------------------------------
+ Suboptimal Close       -20              1.00 (no penalty)
+ Suboptimal Far         -10              0.75 (-25% damage)
+
+Odds modifiers are additive (added directly to the percentage chance to hit). Damage multipliers
+are multiplicative (applied to the damage roll). Individual weapons may have custom range or penalty
+values set by the adventure designer.
+
+The Blast spell has MinRange 0, MaxRange 60, and no suboptimal penalties -- full effectiveness
+throughout its range, completely blocked beyond 60 Varns. The other spells are range insensitive.
+
+------------------------------------------------------------------------------
+
+RANGE COMMANDS
+
+RANGE (or DISTANCE)
+
+Displays all Monsters and Artifacts in the Room ordered by proximity, with hints showing the status
+of your weapons against each target and how far you would need to move for optimal range.
+
+    > range diamonds
+	
+    - Some diamonds are nearby at 8 varns.
+
+    > range
+
+    + The hermit is nearby at 6 varns.
+
+      Bow (r):  Suboptimal, retreat 4 varns.
+
+    + The gorilla is nearby at 6 varns.
+
+      Bow (r):  Suboptimal, retreat 4 varns.
+
+    - Some diamonds are nearby at 8 varns.
+
+Monster entries are marked with + and Artifact entries with -. Your readied and carried weapons are
+marked (r) and (c). Weapon status labels: Too close / Suboptimal, too close / Optimal range /
+Suboptimal, too far / Out of range.
+
+MAP
+
+Displays a visual axis map of the Room showing all Monsters and Artifacts at their actual positions.
+Monsters are labeled A-Z, Artifacts 1-9 then a-z, the player is always @. The legend shows each
+object's range in Varns. The ruler scales automatically to the Room's maximum range.
+
+    > map
+
+                                   --- Legend ---
+
+     @=Player                          B=Three rats (12)                      
+     A=Hermit (6)
+
+     0              5              10             15             20
+    |---------------+--------------+---------------+----------------|
+                    B                    A               @
+
+APPROACH
+
+Moves the player toward a target Monster or Artifact by a specified distance in Varns. If no
+distance is given, a default travel distance is used. Movement is clamped to player ability and
+available Room space.
+
+    > approach rats 15
+
+    > app hermit
+
+RETREAT
+
+Moves the player away from a target Monster or Artifact by a specified distance in Varns. If no
+distance is given, a default travel distance is used. Movement is blocked at the Room boundary.
+To cross to the opposite side, approach to range 0 first then retreat.
+
+    > retreat gorilla 20
+
+    > ret pirate
+
+Range checks on object interactions (GET, READ, OPEN, PUT, GIVE, etc.) are only enforced when
+hostiles are present. Without hostiles, all objects are freely accessible regardless of distance.
+During combat, only objects at range 0 can be interacted with -- use APPROACH to close the
+distance first.
+
+Both APPROACH and RETREAT are available outside combat as well, although their use is not required.
+
+------------------------------------------------------------------------------
+
+AMMUNITION SYSTEM
+
+Ranged weapons that use ammunition track a current ammo count. Each attack rolls against the
+weapon's AmmoRecoveryOdds to determine whether the round is consumed:
+
+    if roll > AmmoRecoveryOdds: AmmoCount--
+
+AmmoRecoveryOdds=0 consumes every shot (bullets, charges). Higher values simulate arrow recovery
+where rounds are often reusable. Since ranged weapons will be both coveted and deadly, this scheme
+caps their usage without the complexity of a dedicated Ammunition Artifact Type. Ammo count is
+shown when examining the weapon:
+
+    > ex bow
+
+    This is your bow.
+
+    There are 16 arrows left.
+
+AmmoRefillCode controls how ammo is initialized at the start of a new game (not on save/restore):
+
+ Code        Behavior
+ -----------------------------------------------------------------------
+ None        AmmoCount unchanged -- designer manages via scripting.
+ Full        AmmoCount = MaxAmmoCount.
+ Half        AmmoCount = MaxAmmoCount / 2 (rounded down).
+ Quarter     AmmoCount = MaxAmmoCount / 4 (rounded down).
+ Random      AmmoCount = random value between 1 and MaxAmmoCount.
+ Recovery    Simulates pre-combat recovery: rolls AmmoRecoveryOdds once per
+             potential round, incrementing AmmoCount for each success.
+
+Melee weapons (MaxAmmoCount = 0) are unaffected by the ammunition system.
+
+------------------------------------------------------------------------------
+
+PARRY SYSTEM
+
+The Parry setting controls combat stance on a scale of 0 to 100, affecting both your attack odds
+and your opponent's attack odds against you.
+
+ Range       Stance        Effect
+ -----------------------------------------------------------------------
+ 0-20        Frenzied      Maximum offensive pressure, minimum self-protection.
+ 21-40       Offensive     Aggressive stance, slightly reduced defense.
+ 41-60       Neutral       Balanced offense and defense.
+ 61-80       Defensive     Reduced aggression, improved self-protection.
+ 81-100      Fortified     Minimum offense, maximum self-protection.
+
+    ParryMod = 1.20 - (ParrySetting * 0.004)
+
+    0 => 1.20x offense,   50 => 1.00x neutral,   100 => 0.80x defense
+
+Both attacker and defender ParryMod are multiplied together and applied to base hit odds before
+range modifiers. A 5% floor prevents hit odds from dropping below a minimum chance.
+
+Modifier order: base odds -> parry -> floor(5) -> range modifier -> floor(5).
+
+    > parry           (check your parry)
+
+    > parry 75        (set your parry)
+
+    > parry hermit    (check a Monster's parry)
+
+Monsters adjust parry automatically according to their ParryCode behavior (Random,
+OffenseToDefense, MirrorPlayer, etc).
+
+------------------------------------------------------------------------------
+
+MONSTER AI
+
+Each Monster has three independent behavioral systems that fire in sequence each turn: Focus
+(target selection), Rearm (weapon switching), and Travel (repositioning). Each follows the same
+Code/Odds/Turns pattern as the Parry system. All three operate only when EnhancedCombat is on.
+
+FOCUS -- target selection
+
+Controls how a Monster selects and maintains its combat target.
+
+ FocusCode    Target selection strategy.
+ FocusOdds    Chance (0-100) of dropping the current target when re-evaluation fires.
+              Lower values mean the Monster commits longer to a single target.
+ FocusTurns   Turns between re-evaluations. 0 = never re-evaluates.
+
+ FocusCode     Behavior
+ -----------------------------------------------------------------------
+ None          Focus disabled. Monster does not track targets for movement.
+ Closest       Nearest enemy. Default.
+ Farthest      Most distant enemy.
+ Weakest       Lowest Hardiness enemy.
+ Strongest     Highest Hardiness enemy.
+ MostInjured   Most wounded enemy (highest injury percentage).
+ LeastInjured  Least wounded enemy (lowest injury percentage).
+ Random        Random selection each evaluation.
+ User1-3       Adventure-specific.
+
+When attacking, Monsters use a three-tier fallback to select a defender:
+    Tier 1  Focus target, if in optimal range (66% base chance to prefer this).
+    Tier 2  Any hostile in optimal range.
+    Tier 3  Any hostile in legal range (MinRange to MaxRange).
+
+Keep FocusTurns high enough for the Monster to commit to a target for several turns before
+re-evaluating, and FocusOdds conservative, to avoid erratic oscillation between targets.
+
+REARM -- weapon switching
+
+Controls whether and how a Monster voluntarily switches weapons during combat. This fires only when
+the Monster is already armed -- unarmed weapon-fetch behavior is handled separately.
+
+ RearmCode    Weapon selection strategy.
+ RearmOdds    Chance (0-100) of committing to the switch when a better weapon is found.
+ RearmTurns   Turns between re-evaluations.
+
+ RearmCode     Behavior
+ -----------------------------------------------------------------------
+ None          Never switches voluntarily. Default. Fully backward compatible.
+ BestForRange  Switches to the weapon whose optimal band best fits the current distance
+               to the focus target. Among legally usable candidates, prefers the one
+               whose optimal band is closest to the current range. No switch if no
+               candidate is legally usable at current range.
+ Strongest     Switches to the highest average damage weapon in reach, regardless of
+               range fit.
+ Random        Switches to a random available weapon in reach.
+ User1-3       Adventure-specific.
+
+BestForRange is the key code for archers. A cornered archer pushed below bow MinRange will switch
+to a melee weapon since the melee optimal band fits the close range and the bow's does not. When
+the Monster later escapes to open space, BestForRange switches it back to the bow.
+
+TRAVEL -- repositioning
+
+Controls how a Monster moves relative to its focus target each turn.
+
+ TravelCode      Movement goal.
+ TravelOdds      Chance (0-100) of actually repositioning when an evaluation fires. A failed
+                 roll means the Monster skips movement and attacks from wherever it stands,
+                 with whatever range penalty applies. This roll fires for ALL range bands
+                 including below MinRange -- a failed roll below MinRange means the weapon
+                 is blocked and the Monster idles, giving the player a free attack window.
+ TravelTurns     Turns between repositioning evaluations.
+ MinTravelRange  Minimum varns moved per repositioning attempt.
+ MaxTravelRange  Maximum varns moved per repositioning attempt.
+
+Actual movement is rolled randomly between MinTravelRange and MaxTravelRange each turn, preventing
+mechanical lockstep between pursuer and retreater. These values are independent of Agility.
+
+ TravelCode   Behavior
+ -----------------------------------------------------------------------
+ None         Never repositions. Combined with FocusCode=None: fully stationary (e.g. Mimic).
+ Close        Always minimizes distance to focus target, ignoring optimal band. Used for
+              aggressive melee Monsters that charge regardless of range. TravelOdds=100
+              means the Monster closes every single turn without exception.
+ Maintain     Stays within the optimal range band for its current weapon. Approaches if too
+              far, retreats if too close or below MinRange. Standard behavior for most
+              combat Monsters.
+ Open         Always maximizes distance from focus target, ignoring optimal band. Used for
+              cowardly or support Monsters.
+ User1-3      Adventure-specific.
+
+TRAVEL BEHAVIOR DETAIL (TravelCode=Maintain)
+
+Monsters have natural weapon range properties (NwMinRange, NwOptimalMin, NwOptimalMax, NwMaxRange)
+and suboptimal penalty values comparable to weapon artifacts. Each turn that TravelOdds fires and
+the Monster is not in its optimal band:
+
+ Condition              Action
+ -----------------------------------------------------------------------
+ Too far                Approach by up to TravelRange varns, stopping at OptimalMax.
+ Suboptimal close       Retreat by TravelRange varns. If cornered at the wall but weapon
+                        is still legal, skip movement and attack with suboptimal penalty.
+ Below MinRange         Retreat if room allows. If cornered, attempt wrap-around retreat.
+                        If wrap-around is impossible, idle this turn.
+
+WRAP-AROUND RETREAT
+
+When a Monster is cornered against a wall and cannot retreat normally, it may maneuver past the
+focus target and retreat from the other side. The 1D axis is a conceptual distance gauge, not a
+literal straight line -- the Monster evades, sidesteps, or ducks through in 3D space.
+
+Wrap-around is possible when the Monster's TravelRange is greater than its current distance to
+the focus target, leaving remaining movement to carry it away after passing through. It fires in
+the suboptimal-close and below-MinRange cornered cases in TravelCode=Maintain, and also for
+TravelCode=Open when already at maximum wall distance.
+
+TravelOdds < 100 prevents wrap-around from creating an infinite chase -- on a failed TravelOdds
+roll the Monster idles instead, giving the player a free attack window if the weapon is blocked.
+If wrap-around is impossible and the Monster cannot flee the room, RearmCode may switch it to a
+melee weapon that is usable at close range.
+
+------------------------------------------------------------------------------
+
+TIPS FOR PLAYERS
+
+* Carry a backup melee weapon. A bow is useless if an enemy closes to melee range -- and a
+  tactical archer with RearmCode=BestForRange may switch to a sword when cornered, so be ready
+  to do the same when an archer closes on you.
+
+* Close aggressively on archers. A failed TravelOdds roll means the archer takes a suboptimal
+  shot instead of retreating, giving you a window to advance. Push it below MinRange and a
+  failed roll means it idles entirely -- a free swing for you.
+
+* Room size matters. Large rooms favor archers who need space to maintain optimal range. Small
+  rooms force archers into melee sooner. Retreat to a larger room before engaging a ranged
+  enemy if you have the option.
+
+* Use MAP and RANGE before engaging to read the battlefield. Knowing positions, range bands, and
+  weapon status before the first shot can be decisive.
+
+* Know your Monster. TravelCode=Close charges every turn and cannot be kited. TravelCode=Maintain
+  with low TravelOdds takes frequent pot-shots from bad positions rather than repositioning
+  cleanly. TravelCode=None never moves at all -- you control the engagement range entirely.
+
+* Parry high when outnumbered. A fortified stance reduces your damage output but may keep you
+  alive long enough for allies to turn the tide.
+
+* Enhanced Combat can be toggled at any time with "set enhancedcombat true/false". Turning it
+  off mid-game returns all range checks to normal combat behavior immediately.
+        </pre>
+        <p></p>
+    </body>
+</html>

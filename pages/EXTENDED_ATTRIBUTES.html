@@ -9,19 +9,26 @@
         <pre>
 EXTENDED ATTRIBUTES
 
-The UseExtendedAttributes switch enables advanced, per-object behavioral controls for Artifacts and Monsters.
+The UseExtendedAttributes switch enables advanced, per-object behavioral controls for Artifacts and
+Monsters.
 
-When UseExtendedAttributes = 0, the feature is disabled, and all behavior falls back to engine defaults.
+When UseExtendedAttributes = 0, the feature is disabled, and all behavior falls back to engine
+defaults.
 
-When UseExtendedAttributes = 1, the ExtendedAttributes field is read as a bit flag sum that controls specific behaviors.
+When UseExtendedAttributes = 1, the ExtendedAttributes field is read as a bit flag sum that
+controls specific behaviors.
 
-Each flag in the tables below represents a single behavior. The Value column shows that flag's numeric bit value. To enable multiple behaviors, add the values together and store the total in ExtendedAttributes.
+Each flag in the tables below represents a single behavior. The Value column shows that flag's numeric
+bit value. To enable multiple behaviors, add the values together and store the total in ExtendedAttributes.
 
-If a flag is not included in the sum, its behavior is considered off, even if its default (when the feature is disabled) would normally be on. In other words, enabling ExtendedAttributes means you are explicitly defining behavior.
+If a flag is not included in the sum, its behavior is considered off, even if its default (when the
+feature is disabled) would normally be on. In other words, enabling ExtendedAttributes means you are
+explicitly defining behavior.
 
 Additional flags may be added in future engine versions; unused bits should be left unset.
 
-This system gives fine-grained control while remaining compact, extensible, and backward compatible when disabled.
+This system gives fine-grained control while remaining compact, extensible, and backward compatible
+when disabled.
 
 ARTIFACTS
 
